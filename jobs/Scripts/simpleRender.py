@@ -129,6 +129,7 @@ def main(args):
 def createArgsParser():
     parser = argparse.ArgumentParser()
 
+    parser.add_argument('--tool', required=True, metavar="<path>")
     parser.add_argument('--output', required=True, metavar="<dir>")
     parser.add_argument('--testType', required=True)
     parser.add_argument('--res_path', required=True)

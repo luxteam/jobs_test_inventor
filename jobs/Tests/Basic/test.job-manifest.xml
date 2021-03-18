@@ -4,6 +4,7 @@
     <outpath value="{OutputDir}"/>
 
     <execute command='python "{ResourcesDir}/simpleRender.py"'>
+        <argument>--tool "{Tool}"</argument>
         <argument>--output "{OutputDir}"</argument>
         <argument>--testType Basic</argument>
         <argument>--res_path "{ScenesDir}"/Basic</argument>
