@@ -6,6 +6,14 @@ import platform
 from datetime import datetime
 from shutil import copyfile
 from utils import is_case_skipped
+import sys
+import traceback
+
+sys.path.append(os.path.abspath(os.path.join(
+    os.path.dirname(__file__), os.path.pardir, os.path.pardir)))
+import jobs_launcher.core.config as core_config
+from jobs_launcher.core.system_info import get_gpu
+from jobs_launcher.core.kill_process import kill_process
 
 
 def copy_test_cases(args):
@@ -59,7 +67,7 @@ def prepare_empty_reports(args):
     render_platform = {platform.system(), gpu}
 
     for case in cases:
-        if is_case_skipped(case, render_platform, args.engine):
+        if is_case_skipped(case, render_platform):
             case['status'] = 'skipped'
 
         if case['status'] != 'done' and case['status'] != 'error':
@@ -142,8 +150,8 @@ if __name__ == "__main__":
         copy_test_cases(args)
         prepare_empty_reports(args)
         #TODO do not open inventor each time
-        return execute_tests(args)
-    except:
+        exit(execute_tests(args))
+    except Exception as e:
         core_config.main_logger.error("Failed during script execution. Exception: {}".format(str(e)))
-        main_logger.error("Traceback: {}".format(traceback.format_exc()))
-        return -1
+        core_config.main_logger.error("Traceback: {}".format(traceback.format_exc()))
+        exit(-1)

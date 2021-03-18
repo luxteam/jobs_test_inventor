@@ -22,8 +22,4 @@
         <argument>--update_refs "{UpdateRefs}"</argument>
     </execute>
 
-    <execute command='python "{CWD}/Scripts/refactor_logs.py"' timeout="60">
-        <argument>--output "{OutputDir}"</argument>
-    </execute>
-
 </job-manifest>
