@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<job-manifest enable="False">
+
+    <outpath value="{OutputDir}"/>
+
+    <execute command='python "{ResourcesDir}/simpleRender.py"'>
+        <argument>--output "{OutputDir}"</argument>
+        <argument>--testType Basic</argument>
+        <argument>--res_path "{ScenesDir}"/Basic</argument>
+        <argument>--testCases "{TestCases}"</argument>
+        <argument>--retries {retries}</argument>
+        <argument>--update_refs "{UpdateRefs}"</argument>
+    </execute>
+
+    <execute command='python "{CommonDir}/scripts/makeReport.py"'>
+        <argument>--work_dir "{OutputDir}"</argument>
+    </execute>
+
+    <execute command='python "{CommonDir}/scripts/compareByJSON.py"'>
+        <argument>--work_dir "{OutputDir}"</argument>
+        <argument>--base_dir "{BaselineDir}"</argument>
+        <argument>--update_refs "{UpdateRefs}"</argument>
+    </execute>
+
+    <execute command='python "{CWD}/Scripts/refactor_logs.py"' timeout="60">
+        <argument>--output "{OutputDir}"</argument>
+    </execute>
+
+</job-manifest>
