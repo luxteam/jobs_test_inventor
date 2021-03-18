@@ -1,8 +1,8 @@
 set PATH=c:\python35\;c:\python35\scripts\;%PATH%
-set FILE_FILTER=%2
-set TESTS_FILTER="%3"
-set RETRIES=%5
-set UPDATE_REFS=%6
+set FILE_FILTER=%1
+set TESTS_FILTER="%2"
+set RETRIES=%3
+set UPDATE_REFS=%4
 
 if not defined RETRIES set RETRIES=2
 if not defined UPDATE_REFS set UPDATE_REFS="No"
