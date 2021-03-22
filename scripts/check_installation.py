@@ -173,7 +173,7 @@ if __name__ == '__main__':
             usd_viewer_menu_width = 40
             # (window width - menu width) / 2 
             toolbar_center_x = (usd_viewer_window_rect[2] - usd_viewer_window_rect[0] - usd_viewer_menu_width) / 2
-            render_tab_x = usd_viewer_window_rect[0] + usd_viewer_menu_width + toolbar_center_x + 120
+            render_tab_x = usd_viewer_window_rect[0] + usd_viewer_menu_width + toolbar_center_x + 115
             render_tab_y = usd_viewer_window_rect[1] + 20
             moveTo(render_tab_x, render_tab_y)
             sleep(1)
@@ -182,7 +182,7 @@ if __name__ == '__main__':
             sleep(1)
 
             # Render
-            render_button_x = usd_viewer_window_rect[0] + 220
+            render_button_x = usd_viewer_window_rect[0] + 230
             render_button_y = usd_viewer_window_rect[1] + 105
             moveTo(render_button_x, render_button_y)
             sleep(1)
@@ -195,8 +195,8 @@ if __name__ == '__main__':
             sleep(15)
 
             # Export
-            export_x = usd_viewer_window_rect[0] + 220
-            export_y = usd_viewer_window_rect[1] + 130
+            export_x = usd_viewer_window_rect[0] + 230
+            export_y = usd_viewer_window_rect[1] + 135
             moveTo(export_x, export_y)
             sleep(1)
             pyautogui.click()
