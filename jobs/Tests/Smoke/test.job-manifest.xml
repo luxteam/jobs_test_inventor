@@ -6,8 +6,8 @@
     <execute command='python "{ResourcesDir}/simpleRender.py"'>
         <argument>--tool "{Tool}"</argument>
         <argument>--output "{OutputDir}"</argument>
-        <argument>--testType Basic</argument>
-        <argument>--res_path "{ScenesDir}"/Basic</argument>
+        <argument>--testType Smoke</argument>
+        <argument>--res_path "{ScenesDir}"/Smoke</argument>
         <argument>--testCases "{TestCases}"</argument>
         <argument>--retries {retries}</argument>
         <argument>--update_refs "{UpdateRefs}"</argument>
