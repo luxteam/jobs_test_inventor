@@ -48,7 +48,7 @@ def make_screen(screen_path):
 
 
 def moveTo(x, y, logger=None):
-	if logger:
+    if logger:
         logger.info("Move to x = {}, y = {}".format(x, y))
     pyautogui.moveTo(x, y)
 

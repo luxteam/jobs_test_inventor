@@ -57,7 +57,7 @@ if __name__ == '__main__':
         # Wait a minute to open Inventor
         while not inventor_window and (datetime.now() - start_time).total_seconds() <= 60:
             inventor_window = win32gui.FindWindow(None, "{}".format(args.tool_name))
-            sleep(5)
+            sleep(15)
 
         make_screen(os.path.join(args.output_path, "0_opened_inventor.jpg"))
 
@@ -75,22 +75,23 @@ if __name__ == '__main__':
             print("Bottom-right corner position: x = {}, y = {}".format(inventor_window_rect[2], inventor_window_rect[3]))
 
             # Open "File" tab
-            file_tab_x = inventor_window_rect[0] + 30
-            file_tab_y = inventor_window_rect[1] + 45
+            file_tab_x = 45
+            file_tab_y = 55
             moveTo(file_tab_x, file_tab_y)
             sleep(1)
-            make_screen(os.path.join(args.output_path, "1_before_choose_scene.jpg"))
+            make_screen(os.path.join(args.output_path, "1_before_file_tab_scene.jpg"))
             pyautogui.click()
             sleep(1)
 
             # Click "Open file" button
-            open_file_button_x = inventor_window_rect[0] + 75
-            open_file_button_y = inventor_window_rect[1] + 170
+            open_file_button_x = 110
+            open_file_button_y = 240
             moveTo(open_file_button_x, open_file_button_y)
             sleep(1)
+            make_screen(os.path.join(args.output_path, "2_before_choose_scene.jpg"))
             pyautogui.click()
             sleep(1)
-            make_screen(os.path.join(args.output_path, "2_choose_scene.jpg"))
+            make_screen(os.path.join(args.output_path, "3_choose_scene.jpg"))
 
             # Set scene path
             scene_path = os.path.abspath(os.path.join(args.assets_path, "Smoke", "test_scene.iam"))
@@ -101,22 +102,22 @@ if __name__ == '__main__':
             sleep(2)
 
             # Click "Open" button
-            open_button_x = inventor_window_rect[2] - 150
-            open_button_y = inventor_window_rect[3] - 45
+            open_button_x = win32api.GetSystemMetrics(0) - 200
+            open_button_y = inventor_window_rect[3] - 50
             moveTo(open_button_x, open_button_y)
             sleep(1)
-            make_screen(os.path.join(args.output_path, "3_scene_path.jpg"))
+            make_screen(os.path.join(args.output_path, "4_scene_path.jpg"))
             pyautogui.click()
             sleep(1)
 
             # Wait scene opening
             # TODO check that scene is opened by window content
             sleep(10)
-            make_screen(os.path.join(args.output_path, "4_opened_scene.jpg"))
+            make_screen(os.path.join(args.output_path, "5_opened_scene.jpg"))
 
             # Open "Tools" tab
-            tools_tab_x = inventor_window_rect[0] + 460
-            tools_tab_y = inventor_window_rect[1] + 45
+            tools_tab_x = 680
+            tools_tab_y = 55
             moveTo(tools_tab_x, tools_tab_y)
             sleep(1)
             pyautogui.click()
@@ -131,16 +132,16 @@ if __name__ == '__main__':
                 iteration += 1
                 print("Waiting USD Viewer window (try #{})".format(iteration))
                 # Open USD Viewer
-                usd_viewer_tabs_x = inventor_window_rect[0] + 350
-                usd_viewer_tabs_y = inventor_window_rect[1] + 100
+                usd_viewer_tabs_x = 510
+                usd_viewer_tabs_y = 110
                 moveTo(usd_viewer_tabs_x, usd_viewer_tabs_y)
                 sleep(1)
-                usd_viewer_button_x = inventor_window_rect[0] + 350
-                usd_viewer_button_y = inventor_window_rect[1] + 150
+                usd_viewer_button_x = 510
+                usd_viewer_button_y = 220
                 moveTo(usd_viewer_button_x, usd_viewer_button_y)
                 sleep(1)
                 pyautogui.click()
-                make_screen(os.path.join(args.output_path, "5_{}_before_usd_viewer.jpg".format(iteration)))
+                make_screen(os.path.join(args.output_path, "6_{}_before_usd_viewer.jpg".format(iteration)))
                 sleep(1)
 
                 start_time = datetime.now()
@@ -165,24 +166,25 @@ if __name__ == '__main__':
             print("Bottom-right corner position: x = {}, y = {}".format(usd_viewer_window_rect[2], usd_viewer_window_rect[3]))
 
             # Open Render tab
-            usd_viewer_menu_width = 40
-            # (window width - menu width) / 2 
-            toolbar_center_x = (usd_viewer_window_rect[2] - usd_viewer_window_rect[0] - usd_viewer_menu_width) / 2
-            render_tab_x = usd_viewer_window_rect[0] + usd_viewer_menu_width + toolbar_center_x + 115
-            render_tab_y = usd_viewer_window_rect[1] + 20
+            left_menu_width = 180
+            right_menu_width = 130
+            # (window width - left menu width - right menu width) / 2 
+            toolbar_center_x = (win32api.GetSystemMetrics(0) - left_menu_width - right_menu_width) / 2
+            render_tab_x = left_menu_width + toolbar_center_x + 170
+            render_tab_y = 20
             moveTo(render_tab_x, render_tab_y)
             sleep(1)
             pyautogui.click()
-            make_screen(os.path.join(args.output_path, "6_usd_viewer_render_tab.jpg"))
+            make_screen(os.path.join(args.output_path, "7_usd_viewer_render_tab.jpg"))
             sleep(1)
 
             # Render
-            render_button_x = usd_viewer_window_rect[0] + 230
-            render_button_y = usd_viewer_window_rect[1] + 105
+            render_button_x = 345
+            render_button_y = 160
             moveTo(render_button_x, render_button_y)
             sleep(1)
             pyautogui.click()
-            make_screen(os.path.join(args.output_path, "7_usd_viewer_render.jpg"))
+            make_screen(os.path.join(args.output_path, "8_usd_viewer_render.jpg"))
             sleep(1)
 
             # Wait render
@@ -190,21 +192,15 @@ if __name__ == '__main__':
             sleep(15)
 
             # Export
-            export_x = usd_viewer_window_rect[0] + 230
-            export_y = usd_viewer_window_rect[1] + 135
+            export_x = 345
+            export_y = 200
             moveTo(export_x, export_y)
             sleep(1)
             pyautogui.click()
             sleep(1)
-            make_screen(os.path.join(args.output_path, "8_usd_viewer_export.jpg"))
+            make_screen(os.path.join(args.output_path, "9_usd_viewer_export.jpg"))
 
             # Set rendered image path
-            rendered_image_field_x = (int)((inventor_window_rect[2] - inventor_window_rect[0]) / 2)
-            rendered_image_field_y = inventor_window_rect[3] - 115
-            moveTo(rendered_image_field_x, rendered_image_field_y)
-            sleep(1)
-            pyautogui.click(clicks=2)
-            sleep(1)
             scene_path = os.path.abspath(os.path.join(args.output_path, "RESULT.jpg"))
             pyautogui.press("backspace")
             sleep(1)
@@ -212,11 +208,11 @@ if __name__ == '__main__':
             sleep(2)
 
             # Click "Open" button
-            open_button_x = inventor_window_rect[2] - 170
-            open_button_y = inventor_window_rect[3] - 40
+            open_button_x = win32api.GetSystemMetrics(0) - 200
+            open_button_y = usd_viewer_window_rect[3] - 30
             moveTo(open_button_x, open_button_y)
             sleep(1)
-            make_screen(os.path.join(args.output_path, "9_save_rendered_image.jpg"))
+            make_screen(os.path.join(args.output_path, "10_save_rendered_image.jpg"))
             pyautogui.click()
             sleep(1)
 

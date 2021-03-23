@@ -136,7 +136,7 @@ def execute_tests(args, current_conf):
     with open(path.join(os.path.abspath(args.output), "test_cases.json"), "r") as json_file:
         cases = json.load(json_file)
 
-    for case in in [x for x in cases if not is_case_skipped(x, current_conf)]:
+    for case in [x for x in cases if not is_case_skipped(x, current_conf)]:
 
         current_try = 0
 
@@ -160,7 +160,7 @@ def execute_tests(args, current_conf):
                 else:
                     case_logger.info("Inventor window found. Wait a bit")
                     # TODO check window is ready by window content
-                    sleep(3)
+                    sleep(15)
 
                 open_scene(args, case, inventor_window, current_try)
 
@@ -189,7 +189,7 @@ def execute_tests(args, current_conf):
             finally:
                 if process:
                     close_process(process)
-                current_try++
+                current_try += 1
         else:
             case_logger.error("Failed to execute case '{}' at all".format(case["case"]))
             rc = -1
