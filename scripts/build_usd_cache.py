@@ -69,7 +69,10 @@ if __name__ == '__main__':
             # TODO check window is ready by window content
             sleep(3)
 
-            print("Screen resolution: width = {}, height = {}".format(win32api.GetSystemMetrics(0), win32api.GetSystemMetrics(1)))
+            window_width = win32api.GetSystemMetrics(0)
+            window_height = win32api.GetSystemMetrics(1)
+
+            print("Screen resolution: width = {}, height = {}".format(window_width, window_height))
             inventor_window_rect = win32gui.GetWindowRect(inventor_window)
             print("Left-top corner position: x = {}, y = {}".format(inventor_window_rect[0], inventor_window_rect[1]))
             print("Bottom-right corner position: x = {}, y = {}".format(inventor_window_rect[2], inventor_window_rect[3]))
@@ -102,7 +105,7 @@ if __name__ == '__main__':
             sleep(2)
 
             # Click "Open" button
-            open_button_x = win32api.GetSystemMetrics(0) - 200
+            open_button_x = window_width - 200
             open_button_y = inventor_window_rect[3] - 50
             moveTo(open_button_x, open_button_y)
             sleep(1)
@@ -169,7 +172,7 @@ if __name__ == '__main__':
             left_menu_width = 180
             right_menu_width = 130
             # (window width - left menu width - right menu width) / 2 
-            toolbar_center_x = (win32api.GetSystemMetrics(0) - left_menu_width - right_menu_width) / 2
+            toolbar_center_x = (window_width - left_menu_width - right_menu_width) / 2
             render_tab_x = left_menu_width + toolbar_center_x + 170
             render_tab_y = 20
             moveTo(render_tab_x, render_tab_y)
@@ -208,7 +211,7 @@ if __name__ == '__main__':
             sleep(2)
 
             # Click "Open" button
-            open_button_x = win32api.GetSystemMetrics(0) - 200
+            open_button_x = window_width - 200
             open_button_y = usd_viewer_window_rect[3] - 30
             moveTo(open_button_x, open_button_y)
             sleep(1)
