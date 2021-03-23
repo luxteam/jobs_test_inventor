@@ -5,13 +5,14 @@ import json
 import platform
 from datetime import datetime
 from shutil import copyfile
-from utils import is_case_skipped
+from utils import *
 import sys
 import traceback
+import win32gui
 
 sys.path.append(os.path.abspath(os.path.join(
     os.path.dirname(__file__), os.path.pardir, os.path.pardir)))
-import jobs_launcher.core.config as core_config
+from jobs_launcher.core.config import *
 from jobs_launcher.core.system_info import get_gpu
 from jobs_launcher.core.kill_process import kill_process
 
@@ -23,11 +24,15 @@ def copy_test_cases(args):
             args.output), 'test_cases.json')))
 
 
+def close_process(process):
+    Popen("taskkill /F /PID {pid} /T".format(pid=process.pid))
+
+
 def copy_baselines(args):
     baseline_path_tr = os.path.join('c:/TestResources', baseline_dir, args.testType)
 
     baseline_path = os.path.join(
-        work_dir, os.path.pardir, os.path.pardir, os.path.pardir, 'Baseline', args.testType)
+        args.output_dir, os.path.pardir, os.path.pardir, os.path.pardir, 'Baseline', args.testType)
 
     if not os.path.exists(baseline_path):
         os.makedirs(baseline_path)
@@ -35,89 +40,162 @@ def copy_baselines(args):
 
     if 'Update' not in args.update_refs:
         try:
-            copyfile(os.path.join(baseline_path_tr, case['case'] + core_config.CASE_REPORT_SUFFIX),
-                     os.path.join(baseline_path, case['case'] + core_config.CASE_REPORT_SUFFIX))
+            copyfile(os.path.join(baseline_path_tr, case['case'] + CASE_REPORT_SUFFIX),
+                     os.path.join(baseline_path, case['case'] + CASE_REPORT_SUFFIX))
 
-            with open(os.path.join(baseline_path, case['case'] + core_config.CASE_REPORT_SUFFIX)) as baseline:
+            with open(os.path.join(baseline_path, case['case'] + CASE_REPORT_SUFFIX)) as baseline:
                 baseline_json = json.load(baseline)
 
-            for thumb in [''] + core_config.THUMBNAIL_PREFIXES:
+            for thumb in [''] + THUMBNAIL_PREFIXES:
                 if thumb + 'render_color_path' and os.path.exists(os.path.join(baseline_path_tr, baseline_json[thumb + 'render_color_path'])):
                     copyfile(os.path.join(baseline_path_tr, baseline_json[thumb + 'render_color_path']),
                              os.path.join(baseline_path, baseline_json[thumb + 'render_color_path']))
         except:
-            core_config.main_logger.error('Failed to copy baseline ' +
-                                          os.path.join(baseline_path_tr, case['case'] + core_config.CASE_REPORT_SUFFIX))
+            main_logger.error('Failed to copy baseline ' +
+                                          os.path.join(baseline_path_tr, case['case'] + CASE_REPORT_SUFFIX))
 
 
-def prepare_empty_reports(args):
-    core_config.main_logger.info('Create empty report files')
+def prepare_empty_reports(args, current_conf):
+    main_logger.info('Create empty report files')
 
-    if not os.path.exists(os.path.join(work_dir, 'Color')):
-        os.makedirs(os.path.join(work_dir, 'Color'))
-    copyfile(os.path.abspath(os.path.join(work_dir, '..', '..', '..', '..', 'jobs_launcher',
-                                          'common', 'img', 'error.jpg')), os.path.join(work_dir, 'Color', 'failed.jpg'))
-
-    gpu = get_gpu()
-    system_pl = platform.system()
-    if not gpu:
-        core_config.main_logger.error("Can't get gpu name")
-    if not system_pl:
-        core_config.main_logger.error("Can't get system name")
-    render_platform = {platform.system(), gpu}
+    if not os.path.exists(os.path.join(args.output_dir, 'Color')):
+        os.makedirs(os.path.join(args.output_dir, 'Color'))
+    copyfile(os.path.abspath(os.path.join(args.output_dir, '..', '..', '..', '..', 'jobs_launcher',
+                                          'common', 'img', 'error.jpg')), os.path.join(args.output_dir, 'Color', 'failed.jpg'))
 
     for case in cases:
-        if is_case_skipped(case, render_platform):
+        if is_case_skipped(case, current_conf):
             case['status'] = 'skipped'
 
         if case['status'] != 'done' and case['status'] != 'error':
             if case["status"] == 'inprogress':
                 case['status'] = 'active'
 
-            template = core_config.RENDER_REPORT_BASE.copy()
-            template['test_case'] = case['case']
-            template['case_functions'] = case['functions']
-            template['render_device'] = gpu
-            template['script_info'] = case['script_info']
-            template['scene_name'] = case.get('scene', '')
-            template['test_group'] = args.testType
-            template['date_time'] = datetime.now().strftime(
+            test_case_report = RENDER_REPORT_BASE.copy()
+            test_case_report['test_case'] = case['case']
+            test_case_report['case_functions'] = case['functions']
+            test_case_report['render_device'] = gpu
+            test_case_report['script_info'] = case['script_info']
+            test_case_report['scene_name'] = case.get('scene', '')
+            test_case_report['test_group'] = args.testType
+            test_case_report['date_time'] = datetime.now().strftime(
                 '%m/%d/%Y %H:%M:%S')
             if case['status'] == 'skipped':
-                template['test_status'] = 'skipped'
-                template['file_name'] = case['case'] + case.get('extension', '.jpg')
-                template['render_color_path'] = os.path.join('Color', template['file_name'])
-                template['group_timeout_exceeded'] = False
+                test_case_report['test_status'] = 'skipped'
+                test_case_report['file_name'] = case['case'] + case.get('extension', '.jpg')
+                test_case_report['render_color_path'] = os.path.join('Color', test_case_report['file_name'])
+                test_case_report['group_timeout_exceeded'] = False
 
                 try:
-                    skipped_case_image_path = os.path.join(args.output, 'Color', template['file_name'])
+                    skipped_case_image_path = os.path.join(args.output, 'Color', test_case_report['file_name'])
                     if not os.path.exists(skipped_case_image_path):
-                        copyfile(os.path.join(work_dir, '..', '..', '..', '..', 'jobs_launcher', 
+                        copyfile(os.path.join(args.output_dir, '..', '..', '..', '..', 'jobs_launcher', 
                             'common', 'img', "skipped.jpg"), skipped_case_image_path)
                 except OSError or FileNotFoundError as err:
-                    core_config.main_logger.error("Can't create img stub: {}".format(str(err)))
+                    main_logger.error("Can't create img stub: {}".format(str(err)))
             else:
-                template['test_status'] = 'error'
-                template['file_name'] = 'failed.jpg'
-                template['render_color_path'] = os.path.join('Color', 'failed.jpg')
+                test_case_report['test_status'] = 'error'
+                test_case_report['file_name'] = 'failed.jpg'
+                test_case_report['render_color_path'] = os.path.join('Color', 'failed.jpg')
 
-            case_path = os.path.join(work_dir, case['case'] + core_config.CASE_REPORT_SUFFIX)
+            case_path = os.path.join(args.output_dir, case['case'] + CASE_REPORT_SUFFIX)
 
             if os.path.exists(case_path):
                 with open(case_path) as f:
                     case_json = json.load(f)[0]
-                    template["number_of_tries"] = case_json["number_of_tries"]
+                    test_case_report["number_of_tries"] = case_json["number_of_tries"]
 
-            with open(case_path, 'w') as f:
+            with open(case_path, "w") as f:
                 f.write(json.dumps([template], indent=4))
 
         copy_baselines(args)
-    with open(os.path.join(work_dir, 'test_cases.json'), "w+") as f:
+    with open(os.path.join(args.output_dir, "test_cases.json"), "w+") as f:
         json.dump(cases, f, indent=4)
 
 
-def execute_tests(args):
-    pass
+def save_results(args, case, test_case_status, render_time = 0.0):
+    with open(os.path.join(args.output_dir, case["case"] + CASE_REPORT_SUFFIX), "r") as file:
+        test_case_report = json.loads(file.read())[0]
+        test_case_report["test_status"] = test_case_status
+        test_case_report["render_time"] = render_time
+        test_case_report["render_log"] = os.path.join("render_tool_logs", case["case"] + ".log")
+        test_case_report["group_timeout_exceeded"] = False
+        test_case_report["testing_start"] = datetime.datetime.now().strftime("%m/%d/%Y %H:%M:%S")
+
+    with open(os.path.join(args.output_dir, case["case"] + CASE_REPORT_SUFFIX), "w") as file:
+        json.dump([test_case_report], file, indent=4)
+
+    case["status"] = test_case_status
+    with open(test_cases_path, "w") as file:
+        json.dump(tests_list, file, indent=4)
+
+
+def execute_tests(args, current_conf):
+    rc = 0
+
+    with open(path.join(os.path.abspath(args.output), "test_cases.json"), "r") as json_file:
+        cases = json.load(json_file)
+
+    for case in in [x for x in cases if not is_case_skipped(x, current_conf)]:
+
+        current_try = 0
+
+        case_logger = create_case_logger(case)
+
+        while current_try < args.retries:
+            try:
+                process = None
+
+                case_logger.info("Start '{}' try #{}".format(case["case"], current_try))
+                case_logger.info("Open Inventor")
+
+                process = Popen(args.tool, shell=True, stdout=PIPE, stderr=PIPE)
+
+                inventor_window = find_inventor_window(args)
+
+                make_screen(os.path.join(args.output, "opened_inventor_{}_try_{}.jpg".format(case["case"], current_try)))
+
+                if not inventor_window:
+                    raise Exception("Inventor window wasn't found")
+                else:
+                    case_logger.info("Inventor window found. Wait a bit")
+                    # TODO check window is ready by window content
+                    sleep(3)
+
+                open_scene(args, case, inventor_window, current_try)
+
+                # Wait scene opening
+                # TODO check that scene is opened by window content    
+                sleep(10)
+                make_screen(os.path.join(args.output_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try)))
+
+                image_path = os.path.join("Color", test["case"] + ".jpg")
+
+                for function in case["functions"]:
+                    if re.match("((^\S+|^\S+ \S+) = |^print|^if|^for|^with)", function):
+                        exec("extensions." + args.testType + ".py\n" + function)
+                    else:
+                        eval("extensions." + args.testType + ".py\n" + function)
+
+                save_results(args, case, "passed")
+
+                if not os.path.exists(image_path):
+                    raise Exception("Output image doesn't exist")
+
+                break
+            except Exception as e:
+                case_logger.error("Failed to execute test case (try #{}): {}".format(current_try, str(e)))
+                case_logger.error("Traceback: {}".format(traceback.format_exc()))
+            finally:
+                if process:
+                    close_process(process)
+                current_try++
+        else:
+            case_logger.error("Failed to execute case '{}' at all".format(case["case"]))
+            rc = -1
+            save_results(args, case, "error")
+
+    return rc
 
 
 def main(args):
@@ -129,30 +207,39 @@ def main(args):
 def createArgsParser():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--tool', required=True, metavar="<path>")
-    parser.add_argument('--output', required=True, metavar="<dir>")
-    parser.add_argument('--testType', required=True)
-    parser.add_argument('--res_path', required=True)
-    parser.add_argument('--testCases', required=True)
-    parser.add_argument('--retries', required=False, default=2, type=int)
-    parser.add_argument('--update_refs', required=True)
-    parser.add_argument('--stucking_time', required=False, default=180, type=int)
+    parser.add_argument("--tool", required=True, metavar="<path>")
+    parser.add_argument("--tool_name", required=True)
+    parser.add_argument("--output", required=True, metavar="<dir>")
+    parser.add_argument("--testType", required=True)
+    parser.add_argument("--res_path", required=True)
+    parser.add_argument("--testCases", required=True)
+    parser.add_argument("--retries", required=False, default=2, type=int)
+    parser.add_argument("--update_refs", required=True)
+    parser.add_argument("--stucking_time", required=False, default=180, type=int)
 
     return parser
 
 
 if __name__ == "__main__":
-    core_config.main_logger.info("simpleRender start working...")
+    main_logger.info("simpleRender start working...")
 
     args = createArgsParser().parse_args()
 
     try:
         os.makedirs(args.output)
+
+        render_device = get_gpu()
+        system_pl = platform.system()
+        current_conf = set(platform.system()) if not render_device else {platform.system(), render_device}
+        main_logger.info("Detected GPUs: {}".format(render_device))
+        main_logger.info("PC conf: {}".format(current_conf))
+        main_logger.info("Creating predefined errors json...")
+
         copy_test_cases(args)
-        prepare_empty_reports(args)
+        prepare_empty_reports(args, current_conf)
         #TODO do not open inventor each time
-        exit(execute_tests(args))
+        exit(execute_tests(args, current_conf))
     except Exception as e:
-        core_config.main_logger.error("Failed during script execution. Exception: {}".format(str(e)))
-        core_config.main_logger.error("Traceback: {}".format(traceback.format_exc()))
+        main_logger.error("Failed during script execution. Exception: {}".format(str(e)))
+        main_logger.error("Traceback: {}".format(traceback.format_exc()))
         exit(-1)

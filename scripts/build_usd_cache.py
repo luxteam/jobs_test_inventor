@@ -29,7 +29,6 @@ def moveTo(x, y):
     pyautogui.moveTo(x, y)
 
 
-
 if __name__ == '__main__':
     process = None
     rc = 0
