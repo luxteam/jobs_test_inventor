@@ -38,6 +38,7 @@ if __name__ == '__main__':
         parser = argparse.ArgumentParser()
 
         parser.add_argument('--tool', required=True)
+        parser.add_argument('--tool_name', required=True)
         parser.add_argument('--output_path', required=True)
         parser.add_argument('--assets_path', required=True)
 
@@ -56,8 +57,10 @@ if __name__ == '__main__':
         start_time = datetime.now()
         # Wait a minute to open Inventor
         while not inventor_window and (datetime.now() - start_time).total_seconds() <= 60:
-            inventor_window = win32gui.FindWindow(None, "Autodesk Inventor Professional 2022")
+            inventor_window = win32gui.FindWindow(None, "{}".format({args.tool_name}))
             sleep(5)
+
+        make_screen(os.path.join(args.output_path, "0_opened_inventor.jpg"))
 
         if not inventor_window:
             print("Inventor window wasn't found")
@@ -66,7 +69,6 @@ if __name__ == '__main__':
             print("Inventor window found. Wait a bit")
             # TODO check window is ready by window content
             sleep(3)
-            make_screen(os.path.join(args.output_path, "0_opened_inventor.jpg"))
 
             print("Screen resolution: width = {}, height = {}".format(win32api.GetSystemMetrics(0), win32api.GetSystemMetrics(1)))
             inventor_window_rect = win32gui.GetWindowRect(inventor_window)
@@ -92,13 +94,7 @@ if __name__ == '__main__':
             make_screen(os.path.join(args.output_path, "2_choose_scene.jpg"))
 
             # Set scene path
-            scene_name_field_x = (int)((inventor_window_rect[2] - inventor_window_rect[0]) / 2)
-            scene_name_field_y = inventor_window_rect[3] - 175
-            moveTo(scene_name_field_x, scene_name_field_y)
-            sleep(1)
-            pyautogui.click(clicks=2)
-            sleep(1)
-            scene_path = os.path.abspath(os.path.join(args.assets_path, "Basic", "test_scene.iam"))
+            scene_path = os.path.abspath(os.path.join(args.assets_path, "Smoke", "test_scene.iam"))
             print("Scene path: {}".format(scene_path))
             pyautogui.press("backspace")
             sleep(1)
@@ -155,9 +151,9 @@ if __name__ == '__main__':
                     sleep(5)
 
                 if usd_viewer_window:
-                    print("USD Viewer window was found. Wait a bit (try #{})".format(iteration))
+                    print("USD Viewer window was found. Wait cache building (try #{})".format(iteration))
                     # TODO check window is ready by window content
-                    sleep(5)
+                    sleep(120)
                     break
                 else:
                     print("Waiting USD Viewer window wasn't found (try #{})".format(iteration))
