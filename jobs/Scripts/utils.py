@@ -5,6 +5,7 @@ from time import sleep
 from datetime import datetime
 import pyscreenshot
 import logging
+import types
 
 
 def ml_new_line(self):

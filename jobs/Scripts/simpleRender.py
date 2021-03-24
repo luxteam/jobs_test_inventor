@@ -1,6 +1,6 @@
 import argparse
 import os
-import subprocess
+from subprocess import Popen, PIPE
 import json
 import platform
 from datetime import datetime
@@ -19,7 +19,7 @@ from jobs_launcher.core.kill_process import kill_process
 
 def copy_test_cases(args):
     copyfile(os.path.realpath(os.path.join(os.path.dirname(
-        __file__), '..', 'Tests', args.testType, 'test_cases.json')),
+        __file__), '..', 'Tests', args.test_group, 'test_cases.json')),
         os.path.realpath(os.path.join(os.path.abspath(
             args.output), 'test_cases.json')))
 
@@ -28,40 +28,37 @@ def close_process(process):
     Popen("taskkill /F /PID {pid} /T".format(pid=process.pid))
 
 
-def copy_baselines(args):
-    baseline_path_tr = os.path.join('c:/TestResources', baseline_dir, args.testType)
+def copy_baselines(args, case, baseline_path, baseline_path_tr):
+    try:
+        copyfile(os.path.join(baseline_path_tr, case['case'] + CASE_REPORT_SUFFIX),
+                 os.path.join(baseline_path, case['case'] + CASE_REPORT_SUFFIX))
 
-    baseline_path = os.path.join(
-        args.output_dir, os.path.pardir, os.path.pardir, os.path.pardir, 'Baseline', args.testType)
+        with open(os.path.join(baseline_path, case['case'] + CASE_REPORT_SUFFIX)) as baseline:
+            baseline_json = json.load(baseline)
 
-    if not os.path.exists(baseline_path):
-        os.makedirs(baseline_path)
-        os.makedirs(os.path.join(baseline_path, 'Color'))
-
-    if 'Update' not in args.update_refs:
-        try:
-            copyfile(os.path.join(baseline_path_tr, case['case'] + CASE_REPORT_SUFFIX),
-                     os.path.join(baseline_path, case['case'] + CASE_REPORT_SUFFIX))
-
-            with open(os.path.join(baseline_path, case['case'] + CASE_REPORT_SUFFIX)) as baseline:
-                baseline_json = json.load(baseline)
-
-            for thumb in [''] + THUMBNAIL_PREFIXES:
-                if thumb + 'render_color_path' and os.path.exists(os.path.join(baseline_path_tr, baseline_json[thumb + 'render_color_path'])):
-                    copyfile(os.path.join(baseline_path_tr, baseline_json[thumb + 'render_color_path']),
-                             os.path.join(baseline_path, baseline_json[thumb + 'render_color_path']))
-        except:
-            main_logger.error('Failed to copy baseline ' +
-                                          os.path.join(baseline_path_tr, case['case'] + CASE_REPORT_SUFFIX))
+        for thumb in [''] + THUMBNAIL_PREFIXES:
+            if os.path.exists(os.path.join(baseline_path_tr, baseline_json[thumb + 'render_color_path'])):
+                copyfile(os.path.join(baseline_path_tr, baseline_json[thumb + 'render_color_path']),
+                         os.path.join(baseline_path, baseline_json[thumb + 'render_color_path']))
+    except:
+        main_logger.error('Failed to copy baseline ' +
+                                      os.path.join(baseline_path_tr, case['case'] + CASE_REPORT_SUFFIX))
 
 
 def prepare_empty_reports(args, current_conf):
     main_logger.info('Create empty report files')
 
-    if not os.path.exists(os.path.join(args.output_dir, 'Color')):
-        os.makedirs(os.path.join(args.output_dir, 'Color'))
-    copyfile(os.path.abspath(os.path.join(args.output_dir, '..', '..', '..', '..', 'jobs_launcher',
-                                          'common', 'img', 'error.jpg')), os.path.join(args.output_dir, 'Color', 'failed.jpg'))
+    baseline_path_tr = os.path.join(
+        'c:/TestResources/usd_viewer_autotests_baselines', args.test_group)
+
+    baseline_path = os.path.join(
+        args.output, os.path.pardir, os.path.pardir, os.path.pardir, 'Baseline', args.test_group)
+
+    copyfile(os.path.abspath(os.path.join(args.output, '..', '..', '..', '..', 'jobs_launcher',
+                                          'common', 'img', 'error.jpg')), os.path.join(args.output, 'Color', 'failed.jpg'))
+
+    with open(os.path.join(os.path.abspath(args.output), "test_cases.json"), "r") as json_file:
+        cases = json.load(json_file)
 
     for case in cases:
         if is_case_skipped(case, current_conf):
@@ -74,10 +71,10 @@ def prepare_empty_reports(args, current_conf):
             test_case_report = RENDER_REPORT_BASE.copy()
             test_case_report['test_case'] = case['case']
             test_case_report['case_functions'] = case['functions']
-            test_case_report['render_device'] = gpu
+            test_case_report['render_device'] = get_gpu()
             test_case_report['script_info'] = case['script_info']
             test_case_report['scene_name'] = case.get('scene', '')
-            test_case_report['test_group'] = args.testType
+            test_case_report['test_group'] = args.test_group
             test_case_report['date_time'] = datetime.now().strftime(
                 '%m/%d/%Y %H:%M:%S')
             if case['status'] == 'skipped':
@@ -89,7 +86,7 @@ def prepare_empty_reports(args, current_conf):
                 try:
                     skipped_case_image_path = os.path.join(args.output, 'Color', test_case_report['file_name'])
                     if not os.path.exists(skipped_case_image_path):
-                        copyfile(os.path.join(args.output_dir, '..', '..', '..', '..', 'jobs_launcher', 
+                        copyfile(os.path.join(args.output, '..', '..', '..', '..', 'jobs_launcher', 
                             'common', 'img', "skipped.jpg"), skipped_case_image_path)
                 except OSError or FileNotFoundError as err:
                     main_logger.error("Can't create img stub: {}".format(str(err)))
@@ -98,7 +95,7 @@ def prepare_empty_reports(args, current_conf):
                 test_case_report['file_name'] = 'failed.jpg'
                 test_case_report['render_color_path'] = os.path.join('Color', 'failed.jpg')
 
-            case_path = os.path.join(args.output_dir, case['case'] + CASE_REPORT_SUFFIX)
+            case_path = os.path.join(args.output, case['case'] + CASE_REPORT_SUFFIX)
 
             if os.path.exists(case_path):
                 with open(case_path) as f:
@@ -106,34 +103,35 @@ def prepare_empty_reports(args, current_conf):
                     test_case_report["number_of_tries"] = case_json["number_of_tries"]
 
             with open(case_path, "w") as f:
-                f.write(json.dumps([template], indent=4))
+                f.write(json.dumps([test_case_report], indent=4))
 
-        copy_baselines(args)
-    with open(os.path.join(args.output_dir, "test_cases.json"), "w+") as f:
+        copy_baselines(args, case, baseline_path, baseline_path_tr)
+    with open(os.path.join(args.output, "test_cases.json"), "w+") as f:
         json.dump(cases, f, indent=4)
 
 
-def save_results(args, case, test_case_status, render_time = 0.0):
-    with open(os.path.join(args.output_dir, case["case"] + CASE_REPORT_SUFFIX), "r") as file:
+def save_results(args, case, cases, test_case_status, render_time = 0.0):
+    with open(os.path.join(args.output, case["case"] + CASE_REPORT_SUFFIX), "r") as file:
         test_case_report = json.loads(file.read())[0]
         test_case_report["test_status"] = test_case_status
         test_case_report["render_time"] = render_time
         test_case_report["render_log"] = os.path.join("render_tool_logs", case["case"] + ".log")
         test_case_report["group_timeout_exceeded"] = False
-        test_case_report["testing_start"] = datetime.datetime.now().strftime("%m/%d/%Y %H:%M:%S")
+        test_case_report["testing_start"] = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
+        test_case_report["number_of_tries"] += 1
 
-    with open(os.path.join(args.output_dir, case["case"] + CASE_REPORT_SUFFIX), "w") as file:
+    with open(os.path.join(args.output, case["case"] + CASE_REPORT_SUFFIX), "w") as file:
         json.dump([test_case_report], file, indent=4)
 
     case["status"] = test_case_status
-    with open(test_cases_path, "w") as file:
-        json.dump(tests_list, file, indent=4)
+    with open(os.path.join(args.output, "test_cases.json"), "w") as file:
+        json.dump(cases, file, indent=4)
 
 
 def execute_tests(args, current_conf):
     rc = 0
 
-    with open(path.join(os.path.abspath(args.output), "test_cases.json"), "r") as json_file:
+    with open(os.path.join(os.path.abspath(args.output), "test_cases.json"), "r") as json_file:
         cases = json.load(json_file)
 
     for case in [x for x in cases if not is_case_skipped(x, current_conf)]:
@@ -146,7 +144,7 @@ def execute_tests(args, current_conf):
             try:
                 process = None
 
-                case_logger.info("Start '{}' try #{}".format(case["case"], current_try))
+                case_logger.info("Start '{}' (try #{})".format(case["case"], current_try))
                 case_logger.info("Open Inventor")
 
                 process = Popen(args.tool, shell=True, stdout=PIPE, stderr=PIPE)
@@ -173,11 +171,11 @@ def execute_tests(args, current_conf):
 
                 for function in case["functions"]:
                     if re.match("((^\S+|^\S+ \S+) = |^print|^if|^for|^with)", function):
-                        exec("extensions." + args.testType + ".py\n" + function)
+                        exec("extensions." + args.test_group + ".py\n" + function)
                     else:
-                        eval("extensions." + args.testType + ".py\n" + function)
+                        eval("extensions." + args.test_group + ".py\n" + function)
 
-                save_results(args, case, "passed")
+                save_results(args, case, cases, "passed")
 
                 if not os.path.exists(image_path):
                     raise Exception("Output image doesn't exist")
@@ -193,15 +191,9 @@ def execute_tests(args, current_conf):
         else:
             case_logger.error("Failed to execute case '{}' at all".format(case["case"]))
             rc = -1
-            save_results(args, case, "error")
+            save_results(args, case, cases, "error")
 
     return rc
-
-
-def main(args):
-    prepare_empty_reports(args)
-
-    return execute_tests(args)
 
 
 def createArgsParser():
@@ -210,9 +202,9 @@ def createArgsParser():
     parser.add_argument("--tool", required=True, metavar="<path>")
     parser.add_argument("--tool_name", required=True)
     parser.add_argument("--output", required=True, metavar="<dir>")
-    parser.add_argument("--testType", required=True)
+    parser.add_argument("--test_group", required=True)
     parser.add_argument("--res_path", required=True)
-    parser.add_argument("--testCases", required=True)
+    parser.add_argument("--test_cases", required=True)
     parser.add_argument("--retries", required=False, default=2, type=int)
     parser.add_argument("--update_refs", required=True)
     parser.add_argument("--stucking_time", required=False, default=180, type=int)
@@ -227,6 +219,11 @@ if __name__ == "__main__":
 
     try:
         os.makedirs(args.output)
+
+        if not os.path.exists(os.path.join(args.output, "Color")):
+            os.makedirs(os.path.join(args.output, "Color"))
+        if not os.path.exists(os.path.join(args.output, "render_tool_logs")):
+            os.makedirs(os.path.join(args.output, "render_tool_logs"))
 
         render_device = get_gpu()
         system_pl = platform.system()
