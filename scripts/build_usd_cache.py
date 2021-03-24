@@ -145,7 +145,7 @@ if __name__ == '__main__':
 
                 start_time = datetime.now()
                 # Wait USD Viewer window
-                while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 10:
+                while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 30:
                     usd_viewer_window = win32gui.FindWindow(None, "tcp://127.0.0.1:1984")
                     sleep(1)
 
@@ -155,7 +155,7 @@ if __name__ == '__main__':
                     sleep(120)
                     break
                 else:
-                    print("Waiting USD Viewer window wasn't found (try #{})".format(iteration))
+                    print("USD Viewer window wasn't found (try #{})".format(iteration))
             else:
                 close_process(process)
                 exit(-1)
