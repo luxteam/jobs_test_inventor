@@ -57,7 +57,7 @@ if __name__ == '__main__':
         # Wait a minute to open Inventor
         while not inventor_window and (datetime.now() - start_time).total_seconds() <= 60:
             inventor_window = win32gui.FindWindow(None, "{}".format(args.tool_name))
-            sleep(15)
+            sleep(30)
 
         make_screen(os.path.join(args.output_path, "0_opened_inventor.jpg"))
 
