@@ -57,7 +57,7 @@ if __name__ == '__main__':
         # Wait a minute to open Inventor
         while not inventor_window and (datetime.now() - start_time).total_seconds() <= 60:
             inventor_window = win32gui.FindWindow(None, "{}".format(args.tool_name))
-            sleep(5)
+            sleep(1)
 
         make_screen(os.path.join(args.output_path, "0_opened_inventor.jpg"))
 
@@ -67,7 +67,7 @@ if __name__ == '__main__':
         else:
             print("Inventor window found. Wait a bit")
             # TODO check window is ready by window content
-            sleep(30)
+            sleep(60)
 
             window_width = win32api.GetSystemMetrics(0)
             window_height = win32api.GetSystemMetrics(1)
@@ -127,7 +127,7 @@ if __name__ == '__main__':
             sleep(1)
 
             # try to open USD Viewer few times
-            max_iterations = 3
+            max_iterations = 5
             iteration = 0
             usd_viewer_window = None
 
@@ -145,9 +145,9 @@ if __name__ == '__main__':
 
                 start_time = datetime.now()
                 # Wait USD Viewer window
-                while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 30:
+                while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 10:
                     usd_viewer_window = win32gui.FindWindow(None, "tcp://127.0.0.1:1984")
-                    sleep(5)
+                    sleep(1)
 
                 if usd_viewer_window:
                     print("USD Viewer window was found. Wait cache building (try #{})".format(iteration))
