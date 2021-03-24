@@ -152,7 +152,9 @@ if __name__ == '__main__':
                 if usd_viewer_window:
                     print("USD Viewer window was found. Wait cache building (try #{})".format(iteration))
                     # TODO check window is ready by window content
-                    sleep(120)
+                    sleep(30)
+                    make_screen(os.path.join(args.output_path, "7_usd_viewer_found.jpg"))
+                    sleep(90)
                     break
                 else:
                     print("USD Viewer window wasn't found (try #{})".format(iteration))
@@ -174,7 +176,7 @@ if __name__ == '__main__':
             moveTo(render_tab_x, render_tab_y)
             sleep(1)
             pyautogui.click()
-            make_screen(os.path.join(args.output_path, "7_usd_viewer_render_tab.jpg"))
+            make_screen(os.path.join(args.output_path, "8_usd_viewer_render_tab.jpg"))
             sleep(1)
 
             # Render
@@ -183,7 +185,7 @@ if __name__ == '__main__':
             moveTo(render_button_x, render_button_y)
             sleep(1)
             pyautogui.click()
-            make_screen(os.path.join(args.output_path, "8_usd_viewer_render.jpg"))
+            make_screen(os.path.join(args.output_path, "9_usd_viewer_render.jpg"))
             sleep(1)
 
             # Wait render
@@ -197,7 +199,7 @@ if __name__ == '__main__':
             sleep(1)
             pyautogui.click()
             sleep(1)
-            make_screen(os.path.join(args.output_path, "9_usd_viewer_export.jpg"))
+            make_screen(os.path.join(args.output_path, "10_usd_viewer_export.jpg"))
 
             # Set rendered image path
             scene_path = os.path.abspath(os.path.join(args.output_path, "RESULT.jpg"))
@@ -211,7 +213,7 @@ if __name__ == '__main__':
             open_button_y = usd_viewer_window_rect[3] - 30
             moveTo(open_button_x, open_button_y)
             sleep(1)
-            make_screen(os.path.join(args.output_path, "10_save_rendered_image.jpg"))
+            make_screen(os.path.join(args.output_path, "11_save_rendered_image.jpg"))
             pyautogui.click()
             sleep(1)
 
