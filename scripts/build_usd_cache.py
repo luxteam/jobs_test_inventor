@@ -135,13 +135,9 @@ if __name__ == '__main__':
                 iteration += 1
                 print("Waiting USD Viewer window (try #{})".format(iteration))
                 # Open USD Viewer
-                usd_viewer_tabs_x = 510
-                usd_viewer_tabs_y = 110
+                usd_viewer_tabs_x = 1430
+                usd_viewer_tabs_y = 120
                 moveTo(usd_viewer_tabs_x, usd_viewer_tabs_y)
-                sleep(1)
-                usd_viewer_button_x = 510
-                usd_viewer_button_y = 220
-                moveTo(usd_viewer_button_x, usd_viewer_button_y)
                 sleep(1)
                 pyautogui.click()
                 make_screen(os.path.join(args.output_path, "6_{}_before_usd_viewer.jpg".format(iteration)))
