@@ -57,7 +57,7 @@ if __name__ == '__main__':
         # Wait a minute to open Inventor
         while not inventor_window and (datetime.now() - start_time).total_seconds() <= 60:
             inventor_window = win32gui.FindWindow(None, "{}".format(args.tool_name))
-            sleep(30)
+            sleep(5)
 
         make_screen(os.path.join(args.output_path, "0_opened_inventor.jpg"))
 
@@ -67,7 +67,7 @@ if __name__ == '__main__':
         else:
             print("Inventor window found. Wait a bit")
             # TODO check window is ready by window content
-            sleep(3)
+            sleep(30)
 
             window_width = win32api.GetSystemMetrics(0)
             window_height = win32api.GetSystemMetrics(1)
@@ -115,7 +115,7 @@ if __name__ == '__main__':
 
             # Wait scene opening
             # TODO check that scene is opened by window content
-            sleep(10)
+            sleep(30)
             make_screen(os.path.join(args.output_path, "5_opened_scene.jpg"))
 
             # Open "Tools" tab
