@@ -116,6 +116,7 @@ def save_results(args, case, cases, test_case_status, render_time = 0.0):
         test_case_report["test_status"] = test_case_status
         test_case_report["render_time"] = render_time
         test_case_report["render_log"] = os.path.join("render_tool_logs", case["case"] + ".log")
+        test_case_report["execution_log"] = os.path.join("execution_logs", case["case"] + ".log")
         test_case_report["group_timeout_exceeded"] = False
         test_case_report["testing_start"] = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
         test_case_report["number_of_tries"] += 1
@@ -138,13 +139,14 @@ def execute_tests(args, current_conf):
 
         current_try = 0
 
-        case_logger = create_case_logger(case)
+        case_logger = create_case_logger(case, os.path.join(args.output, "execution_logs"))
 
         while current_try < args.retries:
             try:
                 process = None
 
                 case_logger.info("Start '{}' (try #{})".format(case["case"], current_try))
+                case_logger.info("Screen resolution: width = {}, height = {}".format(win32api.GetSystemMetrics(0), win32api.GetSystemMetrics(1)))
                 case_logger.info("Open Inventor")
 
                 process = Popen(args.tool, shell=True, stdout=PIPE, stderr=PIPE)
@@ -158,13 +160,13 @@ def execute_tests(args, current_conf):
                 else:
                     case_logger.info("Inventor window found. Wait a bit")
                     # TODO check window is ready by window content
-                    sleep(15)
+                    sleep(60)
 
                 open_scene(args, case, inventor_window, current_try)
 
                 # Wait scene opening
                 # TODO check that scene is opened by window content    
-                sleep(10)
+                sleep(30)
                 make_screen(os.path.join(args.output_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try)))
 
                 image_path = os.path.join("Color", test["case"] + ".jpg")
@@ -224,6 +226,8 @@ if __name__ == "__main__":
             os.makedirs(os.path.join(args.output, "Color"))
         if not os.path.exists(os.path.join(args.output, "render_tool_logs")):
             os.makedirs(os.path.join(args.output, "render_tool_logs"))
+        if not os.path.exists(os.path.join(args.output, "execution_logs")):
+            os.makedirs(os.path.join(args.output, "execution_logs"))
 
         render_device = get_gpu()
         system_pl = platform.system()

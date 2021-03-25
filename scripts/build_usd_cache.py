@@ -202,10 +202,10 @@ if __name__ == '__main__':
             make_screen(os.path.join(args.output_path, "10_usd_viewer_export.jpg"))
 
             # Set rendered image path
-            scene_path = os.path.abspath(os.path.join(args.output_path, "RESULT.jpg"))
+            image_path = os.path.abspath(os.path.join(args.output_path, "RESULT.jpg"))
             pyautogui.press("backspace")
             sleep(1)
-            pyautogui.typewrite(scene_path)
+            pyautogui.typewrite(image_path)
             sleep(2)
 
             # Click "Open" button
