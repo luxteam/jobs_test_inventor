@@ -137,9 +137,14 @@ def execute_tests(args, current_conf):
 
     for case in [x for x in cases if not is_case_skipped(x, current_conf)]:
 
+        screens_path = os.path.join(args.output_path, "Color", case["case"])
+
+        if not os.path.exists(screens_path):
+            os.makedirs(screens_path)
+
         current_try = 0
 
-        case_logger = create_case_logger(case, os.path.join(args.output, "execution_logs"))
+        create_case_logger(case, os.path.join(args.output, "execution_logs"))
 
         while current_try < args.retries:
             try:
@@ -153,7 +158,7 @@ def execute_tests(args, current_conf):
 
                 inventor_window = find_inventor_window(args)
 
-                make_screen(os.path.join(args.output, "opened_inventor_{}_try_{}.jpg".format(case["case"], current_try)))
+                make_screen(os.path.join(screens_path, "opened_inventor_{}_try_{}.jpg".format(case["case"], current_try)))
 
                 if not inventor_window:
                     raise Exception("Inventor window wasn't found")
@@ -162,12 +167,12 @@ def execute_tests(args, current_conf):
                     # TODO check window is ready by window content
                     sleep(60)
 
-                open_scene(args, case, inventor_window, current_try)
+                open_scene(args, case, inventor_window, current_try, screens_path)
 
                 # Wait scene opening
                 # TODO check that scene is opened by window content    
                 sleep(30)
-                make_screen(os.path.join(args.output_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try)))
+                make_screen(os.path.join(screens_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try)))
 
                 image_path = os.path.join("Color", test["case"] + ".jpg")
 
