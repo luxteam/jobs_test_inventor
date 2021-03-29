@@ -7,6 +7,7 @@ import pyscreenshot
 import logging
 import types
 import os
+from time import sleep
 
 
 case_logger = None
@@ -24,6 +25,7 @@ def create_case_logger(case, log_path):
     logger.addHandler(file_handler)
     logger.setLevel(logging.DEBUG)
 
+    global case_logger
     case_logger = logger
 
 
@@ -46,7 +48,7 @@ def moveTo(x, y):
 
 
 def get_window_rect(window):
-    window_rect = win32gui.GetWindowRect(inventor_window)
+    window_rect = win32gui.GetWindowRect(window)
 
     case_logger.info("Left-top corner position: x = {}, y = {}".format(window_rect[0], window_rect[1]))
     case_logger.info("Bottom-right corner position: x = {}, y = {}".format(window_rect[2], window_rect[3]))
@@ -88,7 +90,7 @@ def open_scene(args, case, current_try, screens_path):
     make_screen(os.path.join(screens_path, "choose_scene_{}_try_{}.jpg".format(case["case"], current_try)))
 
     # Set scene path
-    scene_path = os.path.abspath(os.path.join(args.res_path, args.testType, case["scene"]))
+    scene_path = os.path.abspath(os.path.join(args.res_path, case["scene"]))
     case_logger.info("Scene path: {}".format(scene_path))
     pyautogui.press("backspace")
     sleep(1)
@@ -166,7 +168,7 @@ def open_render_tab(args, case, current_try, screens_path):
     sleep(1)
 
 
-def render(args, case, current_try):
+def render(args, case, current_try, screens_path):
     # Render
     render_button_x = 345
     render_button_y = 160

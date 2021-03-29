@@ -5,10 +5,13 @@ import json
 import platform
 from datetime import datetime
 from shutil import copyfile
-from utils import *
+import utils
 import sys
 import traceback
 import win32gui
+import win32api
+from time import sleep
+import re
 
 sys.path.append(os.path.abspath(os.path.join(
     os.path.dirname(__file__), os.path.pardir, os.path.pardir)))
@@ -61,7 +64,7 @@ def prepare_empty_reports(args, current_conf):
         cases = json.load(json_file)
 
     for case in cases:
-        if is_case_skipped(case, current_conf):
+        if utils.is_case_skipped(case, current_conf):
             case['status'] = 'skipped'
 
         if case['status'] != 'done' and case['status'] != 'error':
@@ -113,6 +116,8 @@ def prepare_empty_reports(args, current_conf):
 def save_results(args, case, cases, test_case_status, render_time = 0.0):
     with open(os.path.join(args.output, case["case"] + CASE_REPORT_SUFFIX), "r") as file:
         test_case_report = json.loads(file.read())[0]
+        test_case_report["file_name"] = case["case"] + case.get("extension", '.jpg')
+        test_case_report["render_color_path"] = os.path.join("Color", test_case_report["file_name"])
         test_case_report["test_status"] = test_case_status
         test_case_report["render_time"] = render_time
         test_case_report["render_log"] = os.path.join("render_tool_logs", case["case"] + ".log")
@@ -135,68 +140,71 @@ def execute_tests(args, current_conf):
     with open(os.path.join(os.path.abspath(args.output), "test_cases.json"), "r") as json_file:
         cases = json.load(json_file)
 
-    for case in [x for x in cases if not is_case_skipped(x, current_conf)]:
+    for case in [x for x in cases if not utils.is_case_skipped(x, current_conf)]:
 
-        screens_path = os.path.join(args.output_path, "Color", case["case"])
+        screens_path = os.path.join(args.output, "Color", case["case"])
 
         if not os.path.exists(screens_path):
             os.makedirs(screens_path)
 
         current_try = 0
 
-        create_case_logger(case, os.path.join(args.output, "execution_logs"))
+        utils.create_case_logger(case, os.path.join(args.output, "execution_logs"))
 
         while current_try < args.retries:
             try:
                 process = None
 
-                case_logger.info("Start '{}' (try #{})".format(case["case"], current_try))
-                case_logger.info("Screen resolution: width = {}, height = {}".format(win32api.GetSystemMetrics(0), win32api.GetSystemMetrics(1)))
-                case_logger.info("Open Inventor")
+                utils.case_logger.info("Start '{}' (try #{})".format(case["case"], current_try))
+                utils.case_logger.info("Screen resolution: width = {}, height = {}".format(win32api.GetSystemMetrics(0), win32api.GetSystemMetrics(1)))
+                utils.case_logger.info("Open Inventor")
 
                 process = Popen(args.tool, shell=True, stdout=PIPE, stderr=PIPE)
 
-                inventor_window = find_inventor_window(args)
+                inventor_window = utils.find_inventor_window(args)
 
-                make_screen(os.path.join(screens_path, "opened_inventor_{}_try_{}.jpg".format(case["case"], current_try)))
+                utils.make_screen(os.path.join(screens_path, "opened_inventor_{}_try_{}.jpg".format(case["case"], current_try)))
 
                 if not inventor_window:
                     raise Exception("Inventor window wasn't found")
                 else:
-                    case_logger.info("Inventor window found. Wait a bit")
+                    utils.case_logger.info("Inventor window found. Wait a bit")
                     # TODO check window is ready by window content
                     sleep(60)
 
-                open_scene(args, case, inventor_window, current_try, screens_path)
+                utils.open_scene(args, case, current_try, screens_path)
 
                 # Wait scene opening
                 # TODO check that scene is opened by window content    
                 sleep(30)
-                make_screen(os.path.join(screens_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try)))
+                utils.make_screen(os.path.join(screens_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try)))
 
-                image_path = os.path.join("Color", test["case"] + ".jpg")
+                image_path = os.path.abspath(os.path.join(args.output, "Color", case["case"] + ".jpg"))
+                utils.case_logger.info("Image path: {}".format(image_path))
 
                 for function in case["functions"]:
                     if re.match("((^\S+|^\S+ \S+) = |^print|^if|^for|^with)", function):
-                        exec("extensions." + args.test_group + ".py\n" + function)
+                        exec(function)
                     else:
-                        eval("extensions." + args.test_group + ".py\n" + function)
+                        eval(function)
 
                 save_results(args, case, cases, "passed")
 
                 if not os.path.exists(image_path):
                     raise Exception("Output image doesn't exist")
 
+                utils.case_logger.info("Case '{}' finished".format(case["case"]))
+
                 break
             except Exception as e:
-                case_logger.error("Failed to execute test case (try #{}): {}".format(current_try, str(e)))
-                case_logger.error("Traceback: {}".format(traceback.format_exc()))
+                utils.case_logger.error("Failed to execute test case (try #{}): {}".format(current_try, str(e)))
+                utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
             finally:
                 if process:
                     close_process(process)
                 current_try += 1
         else:
-            case_logger.error("Failed to execute case '{}' at all".format(case["case"]))
+            utils.case_logger.error("Failed to execute case '{}' at all".format(case["case"]))
             rc = -1
             save_results(args, case, cases, "error")
 

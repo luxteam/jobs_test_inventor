@@ -3,10 +3,10 @@
         "case": "INV_SM_001",
         "status": "active",
         "functions": [
-            "open_usd_viewer(args, case, inventor_window, current_try, screens_path)",
-            "open_render_tab(args, case, inventor_window, current_try, screens_path)",
-            "render(args, case, inventor_window, current_try, screens_path)",
-            "save_image(args, case, inventor_window, current_try, image_path, screens_path)"
+            "utils.open_usd_viewer(args, case, current_try, screens_path)",
+            "utils.open_render_tab(args, case, current_try, screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
         ],
         "script_info": [
             "Sample render"
