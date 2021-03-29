@@ -140,7 +140,7 @@ def open_usd_viewer(args, case, current_try, screens_path):
             sleep(1)
 
         if usd_viewer_window:
-            case_logger.info("USD Viewer window was found. Wait cache building (try #{})".format(iteration))
+            case_logger.info("USD Viewer window was found. Wait a bit (try #{})".format(iteration))
             # TODO check window is ready by window content
             sleep(10)
             make_screen(os.path.join(screens_path, "usd_viewer_found_{}_try_{}.jpg".format(case["case"], current_try)))
@@ -153,19 +153,33 @@ def open_usd_viewer(args, case, current_try, screens_path):
         raise Exception("USD Viewer window wasn't found at all")
 
 
-def open_render_tab(args, case, current_try, screens_path):
-    # Open Render tab
-    left_menu_width = 180
-    right_menu_width = 130
-    # (window width - left menu width - right menu width) / 2 
-    toolbar_center_x = (win32api.GetSystemMetrics(0) - left_menu_width - right_menu_width) / 2
-    render_tab_x = left_menu_width + toolbar_center_x + 170
-    render_tab_y = 20
-    moveTo(render_tab_x, render_tab_y)
-    sleep(1)
-    pyautogui.click()
-    make_screen(os.path.join(screens_path, "usd_viewer_render_tab_{}_try_{}.jpg".format(case["case"], current_try)))
-    sleep(1)
+def open_usdviewer_tab(args, case, current_try, tab, screens_path):
+    tabs_offset = {
+        "review": -160,
+        "edit": -85,
+        "materials": 0,
+        "lightning": 90,
+        "render": 170
+    }
+
+    if tab.lower() not in tabs_offset:
+        raise Exception("Unknown USD Viewer tab")
+    else:
+        # Open Render tab
+        left_menu_width = 180
+        right_menu_width = 130
+        # (window width - left menu width - right menu width) / 2 
+        toolbar_center_x = (win32api.GetSystemMetrics(0) - left_menu_width - right_menu_width) / 2
+        render_tab_x = left_menu_width + toolbar_center_x + tabs_offset[tab.lower()]
+        render_tab_y = 20
+        moveTo(render_tab_x, render_tab_y)
+        # First click can't be ignored. Do it twice
+        sleep(1)
+        pyautogui.click()
+        sleep(1)
+        pyautogui.click()
+        make_screen(os.path.join(screens_path, "usd_viewer_{}_tab_{}_try_{}.jpg".format(tab.lower(), case["case"], current_try)))
+        sleep(1)
 
 
 def render(args, case, current_try, screens_path):
@@ -215,11 +229,11 @@ def save_image(args, case, current_try, image_path, screens_path):
 
 def set_viewport(args, case, current_try, value, screens_path):
     items_offset = {
-        "Perspective": 25,
-        "Top": 50,
-        "Side": 75,
-        "Front": 100,
-        "InventorViewportCamera": 125
+        "perspective": 25,
+        "top": 50,
+        "side": 75,
+        "front": 100,
+        "inventorviewportcamera": 125
     }
 
     # Open dropdown menu to select viewport
@@ -231,12 +245,12 @@ def set_viewport(args, case, current_try, value, screens_path):
     sleep(1)
     make_screen(os.path.join(screens_path, "open_viewport_menu_{}_try_{}.jpg".format(case["case"], current_try)))
 
-    if value not in items_offset:
+    if value.lower() not in items_offset:
         raise Exception("Unknown viewport value")
     else:
         # Select viewport value
         value_x = viewport_menu_x
-        value_y = viewport_menu_y + items_offset[value]
+        value_y = viewport_menu_y + items_offset[value.lower()]
         moveTo(value_x, value_y)
         sleep(1)
         make_screen(os.path.join(screens_path, "before_viewport_selected_{}_try_{}.jpg".format(case["case"], current_try)))
@@ -247,11 +261,11 @@ def set_viewport(args, case, current_try, value, screens_path):
 
 def set_quality(args, case, current_try, value, screens_path):
     items_offset = {
-        "Low": 25,
-        "1": 50,
-        "2": 75,
-        "3": 100,
-        "4": 125
+        "low": 25,
+        "medium": 50,
+        "high": 75,
+        "full": 100,
+        "full 2.0": 125
     }
 
     # Open dropdown menu to select quality
@@ -263,15 +277,38 @@ def set_quality(args, case, current_try, value, screens_path):
     sleep(1)
     make_screen(os.path.join(screens_path, "open_quality_menu_{}_try_{}.jpg".format(case["case"], current_try)))
 
-    if value not in items_offset:
+    if value.lower() not in items_offset:
         raise Exception("Unknown quality value")
     else:
         # Select quality value
         value_x = quality_menu_x
-        value_y = quality_menu_y + items_offset[value]
+        value_y = quality_menu_y + items_offset[value.lower()]
         moveTo(value_x, value_y)
         sleep(1)
         make_screen(os.path.join(screens_path, "before_quality_selected_{}_try_{}.jpg".format(case["case"], current_try)))
         pyautogui.click()
         sleep(1)
         make_screen(os.path.join(screens_path, "after_quality_selected_{}_try_{}.jpg".format(case["case"], current_try)))
+
+
+def set_lightning(args, case, current_try, lightning_name, screens_path):
+    # Search lightning name
+    lightning_name_field_x = win32api.GetSystemMetrics(0) - 320
+    lightning_name_field_y = 160
+    moveTo(lightning_name_field_x, lightning_name_field_y)
+    sleep(1)
+    pyautogui.click()
+    sleep(1)
+    pyautogui.typewrite(lightning_name)
+    sleep(1)
+    make_screen(os.path.join(screens_path, "search_lightning_name_{}_try_{}.jpg".format(case["case"], current_try)))
+
+    # Select lightning
+    lightning_item_x = win32api.GetSystemMetrics(0) - 540
+    lightning_item_y = 285
+    moveTo(lightning_item_x, lightning_item_y)
+    sleep(1)
+    pyautogui.click()
+    sleep(1)
+    make_screen(os.path.join(screens_path, "selected_lightning_{}_try_{}.jpg".format(case["case"], current_try)))
+    sleep(1)

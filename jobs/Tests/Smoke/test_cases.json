@@ -4,7 +4,7 @@
         "status": "active",
         "functions": [
             "utils.open_usd_viewer(args, case, current_try, screens_path)",
-            "utils.open_render_tab(args, case, current_try, screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
             "utils.save_image(args, case, current_try, image_path, screens_path)"
         ],
@@ -18,7 +18,7 @@
         "status": "active",
         "functions": [
             "utils.open_usd_viewer(args, case, current_try, screens_path)",
-            "utils.open_render_tab(args, case, current_try, screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
             "utils.set_quality(args, case, current_try, \"Low\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
@@ -27,6 +27,23 @@
         "script_info": [
             "Viewport - Perspective",
             "Quality - Low"
+        ],
+        "scene": "test_scene.iam"
+    },
+    {
+        "case": "INV_SM_003",
+        "status": "active",
+        "functions": [
+            "utils.open_usd_viewer(args, case, current_try, screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lightning\", screens_path)",
+            "utils.set_lightning(args, case, current_try, \"palermo sidewalk\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Lightning - palermo sidewalk"
         ],
         "scene": "test_scene.iam"
     }
