@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<package-manifest name="Inventor">
+
+    <variable name="Root" value="{CWD}"/>
+    <variable name="ResourcesDir" value = "{CWD}/Scripts"/>
+    <variable name="ScenesDir" value="{ResPath}"/>
+    <variable name="CommonDir" value="{CWD}/../jobs_launcher/common"/>
+    <variable name="BaselineDir" value="{CWD}/../Work/Baseline"/>
+
+</package-manifest>

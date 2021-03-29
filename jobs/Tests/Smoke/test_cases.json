@@ -1,0 +1,16 @@
+[
+    {
+        "case": "INV_SM_001",
+        "status": "active",
+        "functions": [
+            "open_usd_viewer(args, case, inventor_window, current_try)",
+            "open_render_tab(args, case, inventor_window, current_try)",
+            "render(args, case, inventor_window, current_try, case_logger)",
+            "save_image(args, case, inventor_window, current_try, image_path)"
+        ],
+        "script_info": [
+            "Sample render"
+        ],
+        "scene": "test_scene.iam"
+    }
+]
