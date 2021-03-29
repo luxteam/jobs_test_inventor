@@ -211,3 +211,67 @@ def save_image(args, case, current_try, image_path, screens_path):
 
     # Wait a bit to save image
     sleep(5)
+
+
+def set_viewport(args, case, current_try, value, screens_path):
+    items_offset = {
+        "Perspective": 25,
+        "Top": 50,
+        "Side": 75,
+        "Front": 100,
+        "InventorViewportCamera": 125
+    }
+
+    # Open dropdown menu to select viewport
+    viewport_menu_x = 890
+    viewport_menu_y = 115
+    moveTo(viewport_menu_x, viewport_menu_y)
+    sleep(1)
+    pyautogui.click()
+    sleep(1)
+    make_screen(os.path.join(screens_path, "open_viewport_menu_{}_try_{}.jpg".format(case["case"], current_try)))
+
+    if value not in items_offset:
+        raise Exception("Unknown viewport value")
+    else:
+        # Select viewport value
+        value_x = viewport_menu_x
+        value_y = viewport_menu_y + items_offset[value]
+        moveTo(value_x, value_y)
+        sleep(1)
+        make_screen(os.path.join(screens_path, "before_viewport_selected_{}_try_{}.jpg".format(case["case"], current_try)))
+        pyautogui.click()
+        sleep(1)
+        make_screen(os.path.join(screens_path, "after_viewport_selected_{}_try_{}.jpg".format(case["case"], current_try)))
+
+
+def set_quality(args, case, current_try, value, screens_path):
+    items_offset = {
+        "Low": 25,
+        "1": 50,
+        "2": 75,
+        "3": 100,
+        "4": 125
+    }
+
+    # Open dropdown menu to select quality
+    quality_menu_x = 1185
+    quality_menu_y = 115
+    moveTo(quality_menu_x, quality_menu_y)
+    sleep(1)
+    pyautogui.click()
+    sleep(1)
+    make_screen(os.path.join(screens_path, "open_quality_menu_{}_try_{}.jpg".format(case["case"], current_try)))
+
+    if value not in items_offset:
+        raise Exception("Unknown quality value")
+    else:
+        # Select quality value
+        value_x = quality_menu_x
+        value_y = quality_menu_y + items_offset[value]
+        moveTo(value_x, value_y)
+        sleep(1)
+        make_screen(os.path.join(screens_path, "before_quality_selected_{}_try_{}.jpg".format(case["case"], current_try)))
+        pyautogui.click()
+        sleep(1)
+        make_screen(os.path.join(screens_path, "after_quality_selected_{}_try_{}.jpg".format(case["case"], current_try)))

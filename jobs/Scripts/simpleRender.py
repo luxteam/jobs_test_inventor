@@ -12,6 +12,7 @@ import win32gui
 import win32api
 from time import sleep
 import re
+import importlib
 
 sys.path.append(os.path.abspath(os.path.join(
     os.path.dirname(__file__), os.path.pardir, os.path.pardir)))
@@ -120,7 +121,6 @@ def save_results(args, case, cases, test_case_status, render_time = 0.0):
         test_case_report["render_color_path"] = os.path.join("Color", test_case_report["file_name"])
         test_case_report["test_status"] = test_case_status
         test_case_report["render_time"] = render_time
-        test_case_report["render_log"] = os.path.join("render_tool_logs", case["case"] + ".log")
         test_case_report["execution_log"] = os.path.join("execution_logs", case["case"] + ".log")
         test_case_report["group_timeout_exceeded"] = False
         test_case_report["testing_start"] = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
@@ -139,6 +139,11 @@ def execute_tests(args, current_conf):
 
     with open(os.path.join(os.path.abspath(args.output), "test_cases.json"), "r") as json_file:
         cases = json.load(json_file)
+
+    spec = importlib.util.find_spec("extensions." + args.test_group)
+    group_module = importlib.util.module_from_spec(spec)
+    sys.modules["group_module"] = group_module
+    spec.loader.exec_module(group_module)
 
     for case in [x for x in cases if not utils.is_case_skipped(x, current_conf)]:
 

@@ -12,5 +12,22 @@
             "Sample render"
         ],
         "scene": "test_scene.iam"
+    },
+    {
+        "case": "INV_SM_002",
+        "status": "active",
+        "functions": [
+            "utils.open_usd_viewer(args, case, current_try, screens_path)",
+            "utils.open_render_tab(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
+            "utils.set_quality(args, case, current_try, \"Low\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Viewport - Perspective",
+            "Quality - Low"
+        ],
+        "scene": "test_scene.iam"
     }
 ]
