@@ -180,8 +180,8 @@ if __name__ == '__main__':
             sleep(1)
 
             # Render
-            render_button_x = 345
-            render_button_y = 160
+            render_button_x = 185
+            render_button_y = 155
             moveTo(render_button_x, render_button_y)
             sleep(1)
             pyautogui.click()
@@ -193,8 +193,8 @@ if __name__ == '__main__':
             sleep(15)
 
             # Export
-            export_x = 345
-            export_y = 200
+            export_x = 355
+            export_y = 240
             moveTo(export_x, export_y)
             sleep(1)
             pyautogui.click()
