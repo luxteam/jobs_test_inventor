@@ -46,5 +46,22 @@
             "Lightning - palermo sidewalk"
         ],
         "scene": "test_scene.iam"
+    },
+    {
+        "case": "INV_SM_004",
+        "status": "active",
+        "functions": [
+            "utils.convert_to_usd(args, case, current_try, screens_path)",
+            "utils.open_usd_viewer(args, case, current_try, screens_path)",
+            "getattr(group_module, \"open_converted_scene\")(args, case, current_try, screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Export scene to usda",
+            "Render exported scene"
+        ],
+        "scene": "test_scene.iam"
     }
 ]

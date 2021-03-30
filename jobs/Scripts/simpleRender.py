@@ -13,6 +13,7 @@ import win32api
 from time import sleep
 import re
 import importlib
+from glob import glob
 
 sys.path.append(os.path.abspath(os.path.join(
     os.path.dirname(__file__), os.path.pardir, os.path.pardir)))
@@ -158,6 +159,11 @@ def execute_tests(args, current_conf):
 
         while current_try < args.retries:
             try:
+                # clear dir with exported files
+                trash_files = glob(os.path.join(args.res_path, "..", "..", "Temp", "*"))
+                for file in trash_files:
+                    os.remove(file)
+
                 process = None
 
                 utils.case_logger.info("Start '{}' (try #{})".format(case["case"], current_try))
