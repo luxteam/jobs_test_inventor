@@ -10,9 +10,16 @@ import os
 from time import sleep
 
 
+current_image_num = 0
 case_logger = None
 usdviewer_window_name = "tcp://127.0.0.1:1984"
 usd_viewer_window = None
+
+
+def start_new_case(case, log_path):
+    global current_image_num
+    current_image_num = 0
+    create_case_logger(case, log_path)
 
 
 def create_case_logger(case, log_path):
@@ -38,10 +45,12 @@ def is_case_skipped(case, render_platform):
     return sum([render_platform & set(x) == set(x) for x in case.get('skip_on', '')])
 
 
-def make_screen(screen_path):
+def make_screen(screen_path, screen_name):
     screen = pyscreenshot.grab()
     screen = screen.convert('RGB')
-    screen.save(screen_path)
+    global current_image_num
+    screen.save(os.path.join(screen_path, "{}_{}".format(current_image_num, screen_name)))
+    current_image_num += 1
 
 
 def moveTo(x, y):
@@ -78,7 +87,7 @@ def open_scene(args, case, current_try, screens_path):
     file_tab_y = 55
     moveTo(file_tab_x, file_tab_y)
     sleep(1)
-    make_screen(os.path.join(screens_path, "before_choose_scene_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "before_choose_scene_{}_try_{}.jpg".format(case["case"], current_try))
     pyautogui.click()
     sleep(1)
 
@@ -89,7 +98,7 @@ def open_scene(args, case, current_try, screens_path):
     sleep(1)
     pyautogui.click()
     sleep(1)
-    make_screen(os.path.join(screens_path, "choose_scene_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "choose_scene_{}_try_{}.jpg".format(case["case"], current_try))
 
     # Set scene path
     scene_path = os.path.abspath(os.path.join(args.res_path, case["scene"]))
@@ -104,12 +113,13 @@ def open_scene(args, case, current_try, screens_path):
     open_button_y = inventor_window_rect[3] - 50
     moveTo(open_button_x, open_button_y)
     sleep(1)
-    make_screen(os.path.join(screens_path, "scene_path_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "scene_path_{}_try_{}.jpg".format(case["case"], current_try))
     pyautogui.click()
     sleep(1)
 
 
-def open_usd_viewer(args, case, current_try, screens_path):
+def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
+    open_tools_tab(args, case, current_try, screens_path)
 
     # try to open USD Viewer few times
     max_iterations = 5
@@ -126,7 +136,10 @@ def open_usd_viewer(args, case, current_try, screens_path):
         moveTo(usd_viewer_tabs_x, usd_viewer_tabs_y)
         sleep(1)
         pyautogui.click()
-        make_screen(os.path.join(screens_path, "before_{}_try_{}_iteration_{}.jpg".format(case["case"], current_try, iteration)))
+        if click_twice:
+            sleep(1)
+            pyautogui.click()
+        make_screen(screens_path, "before_{}_try_{}_iteration_{}.jpg".format(case["case"], current_try, iteration))
         sleep(1)
 
         start_time = datetime.now()
@@ -139,7 +152,7 @@ def open_usd_viewer(args, case, current_try, screens_path):
             case_logger.info("USD Viewer window was found. Wait a bit (try #{})".format(iteration))
             # TODO check window is ready by window content
             sleep(10)
-            make_screen(os.path.join(screens_path, "usd_viewer_found_{}_try_{}.jpg".format(case["case"], current_try)))
+            make_screen(screens_path, "usd_viewer_found_{}_try_{}.jpg".format(case["case"], current_try))
             sleep(20)
             break
         else:
@@ -174,7 +187,7 @@ def open_usdviewer_tab(args, case, current_try, tab, screens_path):
         pyautogui.click()
         sleep(1)
         pyautogui.click()
-        make_screen(os.path.join(screens_path, "usd_viewer_{}_tab_{}_try_{}.jpg".format(tab.lower(), case["case"], current_try)))
+        make_screen(screens_path, "usd_viewer_{}_tab_{}_try_{}.jpg".format(tab.lower(), case["case"], current_try))
         sleep(1)
 
 
@@ -185,7 +198,7 @@ def render(args, case, current_try, screens_path):
     moveTo(render_button_x, render_button_y)
     sleep(1)
     pyautogui.click()
-    make_screen(os.path.join(screens_path, "usd_viewer_render_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "usd_viewer_render_{}_try_{}.jpg".format(case["case"], current_try))
     sleep(1)
 
     # Wait render
@@ -201,7 +214,7 @@ def save_image(args, case, current_try, image_path, screens_path):
     sleep(1)
     pyautogui.click()
     sleep(1)
-    make_screen(os.path.join(screens_path, "usd_viewer_export_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "usd_viewer_export_{}_try_{}.jpg".format(case["case"], current_try))
 
     # Set rendered image path
     pyautogui.press("backspace")
@@ -216,7 +229,7 @@ def save_image(args, case, current_try, image_path, screens_path):
     open_button_y = usd_viewer_window_rect[3] - 30
     moveTo(open_button_x, open_button_y)
     sleep(1)
-    make_screen(os.path.join(screens_path, "save_rendered_image_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "save_rendered_image_{}_try_{}.jpg".format(case["case"], current_try))
     pyautogui.click()
     sleep(1)
 
@@ -240,7 +253,7 @@ def set_viewport(args, case, current_try, value, screens_path):
     sleep(1)
     pyautogui.click()
     sleep(1)
-    make_screen(os.path.join(screens_path, "open_viewport_menu_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "open_viewport_menu_{}_try_{}.jpg".format(case["case"], current_try))
 
     if value.lower() not in items_offset:
         raise Exception("Unknown viewport value")
@@ -250,10 +263,10 @@ def set_viewport(args, case, current_try, value, screens_path):
         value_y = viewport_menu_y + items_offset[value.lower()]
         moveTo(value_x, value_y)
         sleep(1)
-        make_screen(os.path.join(screens_path, "before_viewport_selected_{}_try_{}.jpg".format(case["case"], current_try)))
+        make_screen(screens_path, "before_viewport_selected_{}_try_{}.jpg".format(case["case"], current_try))
         pyautogui.click()
         sleep(1)
-        make_screen(os.path.join(screens_path, "after_viewport_selected_{}_try_{}.jpg".format(case["case"], current_try)))
+        make_screen(screens_path, "after_viewport_selected_{}_try_{}.jpg".format(case["case"], current_try))
 
 
 def set_quality(args, case, current_try, value, screens_path):
@@ -272,7 +285,7 @@ def set_quality(args, case, current_try, value, screens_path):
     sleep(1)
     pyautogui.click()
     sleep(1)
-    make_screen(os.path.join(screens_path, "open_quality_menu_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "open_quality_menu_{}_try_{}.jpg".format(case["case"], current_try))
 
     if value.lower() not in items_offset:
         raise Exception("Unknown quality value")
@@ -282,10 +295,10 @@ def set_quality(args, case, current_try, value, screens_path):
         value_y = quality_menu_y + items_offset[value.lower()]
         moveTo(value_x, value_y)
         sleep(1)
-        make_screen(os.path.join(screens_path, "before_quality_selected_{}_try_{}.jpg".format(case["case"], current_try)))
+        make_screen(screens_path, "before_quality_selected_{}_try_{}.jpg".format(case["case"], current_try))
         pyautogui.click()
         sleep(1)
-        make_screen(os.path.join(screens_path, "after_quality_selected_{}_try_{}.jpg".format(case["case"], current_try)))
+        make_screen(screens_path, "after_quality_selected_{}_try_{}.jpg".format(case["case"], current_try))
 
 
 def set_lightning(args, case, current_try, lightning_name, screens_path):
@@ -298,7 +311,7 @@ def set_lightning(args, case, current_try, lightning_name, screens_path):
     sleep(1)
     pyautogui.typewrite(lightning_name)
     sleep(1)
-    make_screen(os.path.join(screens_path, "search_lightning_name_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "search_lightning_name_{}_try_{}.jpg".format(case["case"], current_try))
 
     # Select lightning
     lightning_item_x = win32api.GetSystemMetrics(0) - 540
@@ -307,7 +320,7 @@ def set_lightning(args, case, current_try, lightning_name, screens_path):
     sleep(1)
     pyautogui.click()
     sleep(1)
-    make_screen(os.path.join(screens_path, "selected_lightning_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "selected_lightning_{}_try_{}.jpg".format(case["case"], current_try))
     sleep(1)
 
 
@@ -331,13 +344,13 @@ def convert_to_usd(args, case, current_try, screens_path):
     sleep(1)
     pyautogui.click()
     sleep(1)
-    make_screen(os.path.join(screens_path, "convertation_window_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "convertation_window_{}_try_{}.jpg".format(case["case"], current_try))
 
     # Convert (press enter button)
     pyautogui.press("enter")
     # wait convertation a bit
     sleep(5)
-    make_screen(os.path.join(screens_path, "after_convertation_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "after_convertation_{}_try_{}.jpg".format(case["case"], current_try))
 
 
 
@@ -348,7 +361,7 @@ def open_scene_usdviewer(args, case, current_try, scene_path, screens_path):
     moveTo(menu_button_x, menu_button_y)
     sleep(1)
     pyautogui.click()
-    make_screen(os.path.join(screens_path, "usdviewer_menu_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "usdviewer_menu_{}_try_{}.jpg".format(case["case"], current_try))
     sleep(1)
 
     select_usdviewer_menu_item(args, case, current_try, "open", screens_path)
@@ -366,7 +379,7 @@ def open_scene_usdviewer(args, case, current_try, scene_path, screens_path):
     open_button_y = usd_viewer_window_rect[3] - 30
     moveTo(open_button_x, open_button_y)
     sleep(1)
-    make_screen(os.path.join(screens_path, "usdviewer_open_scene_{}_try_{}.jpg".format(case["case"], current_try)))
+    make_screen(screens_path, "usdviewer_open_scene_{}_try_{}.jpg".format(case["case"], current_try))
     pyautogui.click()
     sleep(1)
 
@@ -395,7 +408,20 @@ def select_usdviewer_menu_item(args, case, current_try, item_name, screens_path)
         menu_item_y = 60 + items_offset[item_name.lower()]
         moveTo(menu_item_x, menu_item_y)
         sleep(1)
-        make_screen(os.path.join(screens_path, "before_menu_item_selected_{}_try_{}.jpg".format(case["case"], current_try)))
+        make_screen(screens_path, "before_menu_item_selected_{}_try_{}.jpg".format(case["case"], current_try))
         pyautogui.click()
         sleep(1)
-        make_screen(os.path.join(screens_path, "after_menu_item_selected_{}_try_{}.jpg".format(case["case"], current_try)))
+        make_screen(screens_path, "after_menu_item_selected_{}_try_{}.jpg".format(case["case"], current_try))
+
+
+def close_usdviewer(args, case, current_try, screens_path):
+    # Click close button
+    menu_button_x = win32api.GetSystemMetrics(0) - 23
+    menu_button_y = 17
+    moveTo(menu_button_x, menu_button_y)
+    sleep(1)
+    pyautogui.click()
+    sleep(5)
+    make_screen(screens_path, "usdviewer_closed_{}_try_{}.jpg".format(case["case"], current_try))
+    global usd_viewer_window
+    usd_viewer_window = None

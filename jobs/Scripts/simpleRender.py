@@ -155,7 +155,7 @@ def execute_tests(args, current_conf):
 
         current_try = 0
 
-        utils.create_case_logger(case, os.path.join(args.output, "execution_logs"))
+        utils.start_new_case(case, os.path.join(args.output, "execution_logs"))
 
         while current_try < args.retries:
             try:
@@ -174,7 +174,7 @@ def execute_tests(args, current_conf):
 
                 inventor_window = utils.find_inventor_window(args)
 
-                utils.make_screen(os.path.join(screens_path, "opened_inventor_{}_try_{}.jpg".format(case["case"], current_try)))
+                utils.make_screen(screens_path, "opened_inventor_{}_try_{}.jpg".format(case["case"], current_try))
 
                 if not inventor_window:
                     raise Exception("Inventor window wasn't found")
@@ -188,7 +188,7 @@ def execute_tests(args, current_conf):
                 # Wait scene opening
                 # TODO check that scene is opened by window content    
                 sleep(30)
-                utils.make_screen(os.path.join(screens_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try)))
+                utils.make_screen(screens_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try))
 
                 image_path = os.path.abspath(os.path.join(args.output, "Color", case["case"] + ".jpg"))
                 utils.case_logger.info("Image path: {}".format(image_path))
