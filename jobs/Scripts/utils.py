@@ -12,7 +12,9 @@ from time import sleep
 
 current_image_num = 0
 case_logger = None
-usdviewer_window_name = "tcp://127.0.0.1:1984"
+# TODO delete port variable then widnow name will be fixed
+usdviewer_window_name = "tcp://127.0.0.1:"
+usdviewer_port = 1984
 usd_viewer_window = None
 
 
@@ -125,7 +127,7 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
     max_iterations = 5
     iteration = 0
 
-    global usd_viewer_window
+    global usd_viewer_window, usdviewer_port
 
     while iteration < max_iterations:
         iteration += 1
@@ -145,7 +147,8 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
         start_time = datetime.now()
         # Wait USD Viewer window
         while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 30:
-            usd_viewer_window = win32gui.FindWindow(None, usdviewer_window_name)
+            usd_viewer_window = win32gui.FindWindow(None, usdviewer_window_name + str(usdviewer_port))
+            usdviewer_port += 2
             sleep(1)
 
         if usd_viewer_window:
