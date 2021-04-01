@@ -6,6 +6,13 @@ sys.path.append(os.path.abspath(os.path.join(
 import utils
 
 
-def open_converted_scene(args, case, current_try, screens_path):
-    scene_path = os.path.abspath(os.path.join(args.res_path, "..", "..", "Temp", case["scene"].replace(".iam", ".usd")))
+def open_converted_scene(args, case, current_try, screens_path, extension = ".usd"):
+    scene_name = os.path.split(case["scene"].replace(".iam", extension))[1]
+    scene_path = os.path.abspath(os.path.join(args.res_path, "..", "..", "Temp", scene_name))
     utils.open_scene_usdviewer(args, case, current_try, scene_path, screens_path)
+
+
+def open_usdviewer_console(args, case, current_try, screens_path, extension = ".usd"):
+    scene_name = os.path.split(case["scene"].replace(".iam", extension))[1]
+    scene_path = os.path.abspath(os.path.join(args.res_path, "..", "..", "Temp", scene_name))
+    utils.open_usdviewer_console(args, case, current_try, scene_path, screens_path)

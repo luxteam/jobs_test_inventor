@@ -8,6 +8,8 @@ import logging
 import types
 import os
 from time import sleep
+from subprocess import Popen, PIPE
+import traceback
 
 
 current_image_num = 0
@@ -16,12 +18,32 @@ case_logger = None
 usdviewer_window_name = "tcp://127.0.0.1:"
 usdviewer_port = 1984
 usd_viewer_window = None
+usd_viewer_console_process = None
+
+
+def close_process(process):
+    Popen("taskkill /F /PID {pid} /T".format(pid=process.pid))
 
 
 def start_new_case(case, log_path):
     global current_image_num
     current_image_num = 0
     create_case_logger(case, log_path)
+
+
+def start_new_try():
+    global usdviewer_port
+    usdviewer_port = 1984
+
+
+def post_try(current_try):
+    try:
+        global usd_viewer_console_process
+        if usd_viewer_console_process:
+            close_process(usd_viewer_console_process)
+    except e:
+        utils.case_logger.error("Failed to execute post try (try #{}): {}".format(current_try, str(e)))
+        utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
 
 
 def create_case_logger(case, log_path):
@@ -131,7 +153,8 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
 
     while iteration < max_iterations:
         iteration += 1
-        case_logger.info("Waiting USD Viewer window (try #{})".format(iteration))
+        window_name = usdviewer_window_name + str(usdviewer_port)
+        case_logger.info("Waiting USD Viewer window with name {} (try #{})".format(window_name, iteration))
         # Open USD Viewer
         usd_viewer_tabs_x = 1430
         usd_viewer_tabs_y = 120
@@ -147,7 +170,7 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
         start_time = datetime.now()
         # Wait USD Viewer window
         while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 30:
-            usd_viewer_window = win32gui.FindWindow(None, usdviewer_window_name + str(usdviewer_port))
+            usd_viewer_window = win32gui.FindWindow(None, window_name)
             usdviewer_port += 2
             sleep(1)
 
@@ -163,6 +186,25 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
     else:
         case_logger.info("USD Viewer window wasn't found at all")
         raise Exception("USD Viewer window wasn't found at all")
+
+
+def open_usdviewer_console(args, case, current_try, scene_path, screens_path):
+    console_command = "\"C:\\Program Files\\RPRViewer\\RPRViewer.exe\" \"{}\"".format(scene_path)
+    case_logger.info("Start: {}".format(console_command))
+    process = Popen(console_command, shell=True, stdout=PIPE, stderr=PIPE)
+    global usd_viewer_console_process
+    usd_viewer_console_process = process
+    # TODO check window is ready by window content
+    # Now window name = scene path
+    window_name = scene_path
+    sleep(10)
+    global usd_viewer_window
+    usd_viewer_window = win32gui.FindWindow(None, window_name)
+    make_screen(screens_path, "usd_viewer_console_{}_try_{}.jpg".format(case["case"], current_try))
+    if usd_viewer_window:
+        sleep(20)
+    else:
+        raise Exception("USD Viewer window from console wasn't found")
 
 
 def open_usdviewer_tab(args, case, current_try, tab, screens_path):
@@ -337,7 +379,7 @@ def open_tools_tab(args, case, current_try, screens_path):
     sleep(1)
 
 
-def convert_to_usd(args, case, current_try, screens_path):
+def convert_to_usd(args, case, current_try, wait_time, screens_path):
     open_tools_tab(args, case, current_try, screens_path)
 
     # Open convertation window
@@ -352,7 +394,7 @@ def convert_to_usd(args, case, current_try, screens_path):
     # Convert (press enter button)
     pyautogui.press("enter")
     # wait convertation a bit
-    sleep(5)
+    sleep(wait_time)
     make_screen(screens_path, "after_convertation_{}_try_{}.jpg".format(case["case"], current_try))
 
 
@@ -428,3 +470,58 @@ def close_usdviewer(args, case, current_try, screens_path):
     make_screen(screens_path, "usdviewer_closed_{}_try_{}.jpg".format(case["case"], current_try))
     global usd_viewer_window
     usd_viewer_window = None
+
+
+def set_convert_files_format(args, case, current_try, item_name, screens_path):
+    items_offset = {
+        ".usd": 100,
+        ".usda": 150
+    }
+
+    open_tools_tab(args, case, current_try, screens_path)
+
+    # Open plugin settings
+    plugin_settings_x = 1700
+    plugin_settings_y = 120
+    moveTo(plugin_settings_x, plugin_settings_y)
+    sleep(1)
+    pyautogui.click()
+    sleep(1)
+    make_screen(screens_path, "plugin_settings_window_{}_try_{}.jpg".format(case["case"], current_try))
+
+    inventor_window_rect = get_window_rect(win32gui.FindWindow(None, "{}".format(args.tool_name)))
+    inventor_window_center_x = (int)(inventor_window_rect[2] - inventor_window_rect[0]) / 2
+    inventor_window_center_y = (int)(inventor_window_rect[3] - inventor_window_rect[1]) / 2
+
+    # Select menu item
+    dropdown_menu_x = inventor_window_center_x - 35
+    dropdown_menu_y = inventor_window_center_y + 55
+    moveTo(dropdown_menu_x, dropdown_menu_y)
+    sleep(1)
+    pyautogui.click()
+    sleep(1)
+    make_screen(screens_path, "after_dropdown_menu_opened_{}_try_{}.jpg".format(case["case"], current_try))
+
+    # Find menu item
+    if item_name.lower() not in items_offset:
+        raise Exception("Unknown menu item")
+    else:
+        # Select menu item
+        setting_x = inventor_window_center_x - 35
+        setting_y = inventor_window_center_y + items_offset[item_name.lower()]
+        moveTo(setting_x, setting_y)
+        sleep(1)
+        make_screen(screens_path, "before_files_format_selected_{}_try_{}.jpg".format(case["case"], current_try))
+        pyautogui.click()
+        sleep(1)
+        make_screen(screens_path, "after_files_format_selected_{}_try_{}.jpg".format(case["case"], current_try))
+
+        # Select "Ok" button
+        ok_button_x = inventor_window_center_x + 150
+        ok_button_y = inventor_window_center_y + 175
+        moveTo(ok_button_x, ok_button_y)
+        sleep(1)
+        make_screen(screens_path, "before_settings_confirmed_{}_try_{}.jpg".format(case["case"], current_try))
+        pyautogui.click()
+        sleep(1)
+        make_screen(screens_path, "after_settings_confirmed_{}_try_{}.jpg".format(case["case"], current_try))

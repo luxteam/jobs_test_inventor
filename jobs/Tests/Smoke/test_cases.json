@@ -11,7 +11,7 @@
         "script_info": [
             "Sample render"
         ],
-        "scene": "test_scene.iam"
+        "scene": "TestScene\\test_scene.iam"
     },
     {
         "case": "INV_SM_002",
@@ -28,7 +28,8 @@
             "Viewport - Perspective",
             "Quality - Low"
         ],
-        "scene": "test_scene.iam"
+        "scene": "TestScene\\test_scene.iam",
+        "status": "skipped"
     },
     {
         "case": "INV_SM_003",
@@ -45,13 +46,14 @@
         "script_info": [
             "Lightning - palermo sidewalk"
         ],
-        "scene": "test_scene.iam"
+        "scene": "TestScene\\test_scene.iam"
     },
     {
         "case": "INV_SM_004",
         "status": "active",
         "functions": [
-            "utils.convert_to_usd(args, case, current_try, screens_path)",
+            "utils.set_convert_files_format(args, case, current_try, \".usd\", screens_path)",
+            "utils.convert_to_usd(args, case, current_try, 5, screens_path)",
             "utils.open_usdviewer(args, case, current_try, screens_path)",
             "getattr(group_module, \"open_converted_scene\")(args, case, current_try, screens_path)",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
@@ -59,13 +61,50 @@
             "utils.save_image(args, case, current_try, image_path, screens_path)"
         ],
         "script_info": [
-            "Export scene to usda",
+            "Export scene to usd",
             "Render exported scene"
         ],
-        "scene": "test_scene.iam"
+        "scene": "TestScene\\test_scene.iam"
+    },
+    {
+        "case": "INV_SM_005",
+        "status": "active",
+        "functions": [
+            "utils.set_convert_files_format(args, case, current_try, \".usda\", screens_path)",
+            "utils.convert_to_usd(args, case, current_try, 5, screens_path)",
+            "getattr(group_module, \"open_usdviewer_console\")(args, case, current_try, screens_path, \".usda\")",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Export scene to usda",
+            "Open exported scene through console",
+            "Render exported scene"
+        ],
+        "scene": "Desk\\Desk.iam"
     },
     {
         "case": "INV_SM_006",
+        "status": "active",
+        "functions": [
+            "utils.set_convert_files_format(args, case, current_try, \".usd\", screens_path)",
+            "utils.convert_to_usd(args, case, current_try, 30, screens_path)",
+            "getattr(group_module, \"open_usdviewer_console\")(args, case, current_try, screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Export scene to usd",
+            "Open exported scene through console",
+            "Render exported scene"
+        ],
+        "scene": "JetEngineModel\\Workspace\\_Jet Engine Model.iam",
+        "status": "skipped"
+    },
+    {
+        "case": "INV_SM_007",
         "status": "active",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
@@ -78,8 +117,8 @@
             "utils.save_image(args, case, current_try, image_path, screens_path)"
         ],
         "script_info": [
-            "Sample render"
+            "Reopen USD Viewer by click twice"
         ],
-        "scene": "test_scene.iam"
+        "scene": "TestScene\\test_scene.iam"
     }
 ]

@@ -29,10 +29,6 @@ def copy_test_cases(args):
             args.output), 'test_cases.json')))
 
 
-def close_process(process):
-    Popen("taskkill /F /PID {pid} /T".format(pid=process.pid))
-
-
 def copy_baselines(args, case, baseline_path, baseline_path_tr):
     try:
         copyfile(os.path.join(baseline_path_tr, case['case'] + CASE_REPORT_SUFFIX),
@@ -159,6 +155,7 @@ def execute_tests(args, current_conf):
 
         while current_try < args.retries:
             try:
+                utils.start_new_try()
                 # clear dir with exported files
                 trash_files = glob(os.path.join(args.res_path, "..", "..", "Temp", "*"))
                 for file in trash_files:
@@ -212,8 +209,9 @@ def execute_tests(args, current_conf):
                 utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
             finally:
                 if process:
-                    close_process(process)
+                    utils.close_process(process)
                 current_try += 1
+                utils.post_try(current_try)
         else:
             utils.case_logger.error("Failed to execute case '{}' at all".format(case["case"]))
             rc = -1
