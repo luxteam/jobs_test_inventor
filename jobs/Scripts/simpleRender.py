@@ -180,12 +180,13 @@ def execute_tests(args, current_conf):
                     # TODO check window is ready by window content
                     sleep(60)
 
-                utils.open_scene(args, case, current_try, screens_path)
+                if "scene" in case:
+                    utils.open_scene(args, case, current_try, screens_path)
 
-                # Wait scene opening
-                # TODO check that scene is opened by window content    
-                sleep(30)
-                utils.make_screen(screens_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try))
+                    # Wait scene opening
+                    # TODO check that scene is opened by window content    
+                    sleep(30)
+                    utils.make_screen(screens_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try))
 
                 image_path = os.path.abspath(os.path.join(args.output, "Color", case["case"] + ".jpg"))
                 utils.case_logger.info("Image path: {}".format(image_path))

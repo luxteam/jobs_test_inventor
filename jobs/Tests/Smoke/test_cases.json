@@ -120,5 +120,23 @@
             "Reopen USD Viewer by click twice"
         ],
         "scene": "TestScene\\test_scene.iam"
+    },
+    {
+        "case": "INV_SM_008",
+        "status": "active",
+        "functions": [
+            "getattr(group_module, \"start_assemble_creation\")(args, case, current_try, screens_path)",
+            "getattr(group_module, \"create_part\")(args, case, current_try, screens_path)",
+            "getattr(group_module, \"create_sketch\")(args, case, current_try, screens_path)",
+            "getattr(group_module, \"do_extrude\")(args, case, current_try, screens_path)",
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Create new assemble and part in new scene",
+            "Render new scene in USD Viewer"
+        ]
     }
 ]
