@@ -178,14 +178,14 @@ def execute_tests(args, current_conf):
                 else:
                     utils.case_logger.info("Inventor window found. Wait a bit")
                     # TODO check window is ready by window content
-                    sleep(60)
+                    sleep(20)
 
                 if "scene" in case:
                     utils.open_scene(args, case, current_try, screens_path)
 
                     # Wait scene opening
                     # TODO check that scene is opened by window content    
-                    sleep(30)
+                    sleep(case["open_time"])
                     utils.make_screen(screens_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try))
 
                 image_path = os.path.abspath(os.path.join(args.output, "Color", case["case"] + ".jpg"))

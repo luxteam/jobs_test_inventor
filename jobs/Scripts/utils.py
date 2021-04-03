@@ -106,23 +106,9 @@ def find_inventor_window(args):
 def open_scene(args, case, current_try, screens_path):
     inventor_window_rect = get_window_rect(win32gui.FindWindow(None, "{}".format(args.tool_name)))
 
-    # Open "File" tab
-    file_tab_x = 45
-    file_tab_y = 55
-    moveTo(file_tab_x, file_tab_y)
-    sleep(1)
-    make_screen(screens_path, "before_choose_scene_{}_try_{}.jpg".format(case["case"], current_try))
-    pyautogui.click()
-    sleep(1)
+    open_inventor_tab(args, case, current_try, "file", screens_path)
 
-    # Click "Open file" button
-    open_file_button_x = 110
-    open_file_button_y = 240
-    moveTo(open_file_button_x, open_file_button_y)
-    sleep(1)
-    pyautogui.click()
-    sleep(1)
-    make_screen(screens_path, "choose_scene_{}_try_{}.jpg".format(case["case"], current_try))
+    select_inventor_file_item(args, case, current_try, "open", screens_path)
 
     # Set scene path
     scene_path = os.path.abspath(os.path.join(args.res_path, case["scene"]))
@@ -143,7 +129,7 @@ def open_scene(args, case, current_try, screens_path):
 
 
 def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
-    open_tools_tab(args, case, current_try, screens_path)
+    open_inventor_tab(args, case, current_try, "tools", screens_path)
 
     # try to open USD Viewer few times
     max_iterations = 5
@@ -177,9 +163,9 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
         if usd_viewer_window:
             case_logger.info("USD Viewer window was found. Wait a bit (try #{})".format(iteration))
             # TODO check window is ready by window content
-            sleep(10)
+            sleep(5)
             make_screen(screens_path, "usd_viewer_found_{}_try_{}.jpg".format(case["case"], current_try))
-            sleep(20)
+            sleep(10)
             break
         else:
             case_logger.info("Waiting USD Viewer window wasn't found (try #{})".format(iteration))
@@ -369,18 +355,70 @@ def set_lightning(args, case, current_try, lightning_name, screens_path):
     sleep(1)
 
 
-def open_tools_tab(args, case, current_try, screens_path):
-    # Open "Tools" tab
-    tools_tab_x = 680
-    tools_tab_y = 55
-    moveTo(tools_tab_x, tools_tab_y)
-    sleep(1)
-    pyautogui.click()
-    sleep(1)
+def open_inventor_tab(args, case, current_try, tab_name, screens_path):
+    tabs_offset = {
+        "file": 35,
+        "assemble": 120,
+        "design": 225,
+        "3d model": 320,
+        "sketch": 410,
+        "annotate": 500,
+        "inspect": 600,
+        "tools": 680,
+        "manage": 760,
+        "view": 845,
+        "engironments": 950,
+        "get started": 1075,
+        "collaborate": 1190,
+        "electromechanical": 1335
+    }
+
+    # Find menu item
+    if tab_name.lower() not in tabs_offset:
+        raise Exception("Unknown Inventor tab")
+    else:
+        # Select menu item
+        menu_item_x = tabs_offset[tab_name.lower()]
+        menu_item_y = 55
+        moveTo(menu_item_x, menu_item_y)
+        sleep(1)
+        make_screen(screens_path, "before_{}_tab_selected_{}_try_{}.jpg".format(tab_name.lower(), case["case"], current_try))
+        pyautogui.click()
+        sleep(1)
+        make_screen(screens_path, "after_{}_tab_selected_{}_try_{}.jpg".format(tab_name.lower(), case["case"], current_try))
+
+
+def select_inventor_file_item(args, case, current_try, file_item, screens_path):
+    file_items_offset = {
+        "new": 170,
+        "open": 240,
+        "save": 310,
+        "save as": 380,
+        "export": 450,
+        "share": 520,
+        "manage": 590,
+        "iproperties": 660,
+        "print": 730,
+        "close": 800
+    }
+
+    # Find menu item
+    if file_item.lower() not in file_items_offset:
+        raise Exception("Unknown Inventor tab")
+    else:
+        # Select menu item
+        menu_item_x = 110
+        menu_item_y = file_items_offset[file_item.lower()]
+        moveTo(menu_item_x, menu_item_y)
+        sleep(1)
+        make_screen(screens_path, "before_{}_item_selected_{}_try_{}.jpg".format(file_item.lower(), case["case"], current_try))
+        pyautogui.click()
+        sleep(1)
+        make_screen(screens_path, "after_{}_item_selected_{}_try_{}.jpg".format(file_item.lower(), case["case"], current_try))
 
 
 def convert_to_usd(args, case, current_try, wait_time, screens_path):
-    open_tools_tab(args, case, current_try, screens_path)
+    open_inventor_tab(args, case, current_try, "tools", screens_path)
 
     # Open convertation window
     convert_button_x = 1560
@@ -478,7 +516,7 @@ def set_convert_files_format(args, case, current_try, item_name, screens_path):
         ".usda": 150
     }
 
-    open_tools_tab(args, case, current_try, screens_path)
+    open_inventor_tab(args, case, current_try, "tools", screens_path)
 
     # Open plugin settings
     plugin_settings_x = 1700
@@ -525,3 +563,38 @@ def set_convert_files_format(args, case, current_try, item_name, screens_path):
         pyautogui.click()
         sleep(1)
         make_screen(screens_path, "after_settings_confirmed_{}_try_{}.jpg".format(case["case"], current_try))
+
+
+def make_inventor_active(args, case, current_try, screens_path):
+    inventor_window = win32gui.FindWindow(None, "{}".format(args.tool_name))
+    win32gui.ShowWindow(inventor_window, 5)
+    win32gui.SetForegroundWindow(inventor_window)
+    sleep(1)
+    make_screen(screens_path, "make_inventor_active{}_try_{}.jpg".format(case["case"], current_try))
+
+
+def make_usdviewer_active(args, case, current_try, screens_path):
+    global usd_viewer_window
+    win32gui.ShowWindow(usd_viewer_window, 5)
+    win32gui.SetForegroundWindow(usd_viewer_window)
+    sleep(1)
+    make_screen(screens_path, "make_inventor_active{}_try_{}.jpg".format(case["case"], current_try))
+
+
+def close_scene(args, case, current_try, screens_path):
+    open_inventor_tab(args, case, current_try, "file", screens_path)
+
+    select_inventor_file_item(args, case, current_try, "close", screens_path)
+
+    inventor_window_rect = get_window_rect(win32gui.FindWindow(None, "{}".format(args.tool_name)))
+    inventor_window_center_x = (int)(inventor_window_rect[2] - inventor_window_rect[0]) / 2
+    inventor_window_center_y = (int)(inventor_window_rect[3] - inventor_window_rect[1]) / 2
+
+    # Click "No" button
+    no_button_x = inventor_window_center_x - 75
+    no_button_y = inventor_window_center_y + 55
+    moveTo(no_button_x, no_button_y)
+    sleep(1)
+    pyautogui.click()
+    sleep(1)
+    make_screen(screens_path, "after_no_button_clicked_{}_try_{}.jpg".format(case["case"], current_try))

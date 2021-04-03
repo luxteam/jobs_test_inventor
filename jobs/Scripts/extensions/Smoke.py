@@ -149,3 +149,36 @@ def do_extrude(args, case, current_try, screens_path):
     pyautogui.click()
     sleep(1)
     make_screen(screens_path, "after_return_button_clicked_{}_try_{}.jpg".format(case["case"], current_try))
+
+
+def move_part(args, case, current_try, screens_path):
+    open_inventor_tab(args, case, current_try, "assemble", screens_path)
+
+    # Click "Extrude" button
+    move_part_button_x = 220
+    move_part_button_y = 95
+    moveTo(move_part_button_x, move_part_button_y)
+    sleep(1)
+    pyautogui.click()
+    sleep(1)
+    make_screen(screens_path, "move_button_clicked_{}_try_{}.jpg".format(case["case"], current_try))
+
+    # Move detail
+    detail_x = 930
+    detail_y = 645
+    moveTo(detail_x, detail_y)
+    sleep(1)
+    pyautogui.mouseDown()
+    sleep(1)
+    moveTo(detail_x - 30, detail_y)
+    sleep(1)
+    pyautogui.mouseUp()
+    make_screen(screens_path, "detail_moved_{}_try_{}.jpg".format(case["case"], current_try))
+
+
+def save_temp_image(args, case, current_try, screens_path):
+    image_path = os.path.abspath(os.path.join(args.res_path, "..", "..", "Temp", "RESULT.jpg"))
+    save_image(args, case, current_try, image_path, screens_path)
+
+    if not os.path.exists(image_path):
+        raise Exception("USD Viewer doesn't work after closing of scene")
