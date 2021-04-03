@@ -38,21 +38,23 @@ def start_new_case(case, log_path):
     create_case_logger(case, log_path)
 
 
-def start_new_try():
-    # Reset USD Viewer port number after finishing of test case
-    global usdviewer_port, initial_usdviewer_port
-    usdviewer_port = initial_usdviewer_port
-
-
 def post_try(current_try):
     try:
+        # Clear saved USD Viewer window
+        global usd_viewer_window
+        usd_viewer_window = None
+
+        # Reset USD Viewer port number after finishing of test case
+        global usdviewer_port, initial_usdviewer_port
+        usdviewer_port = initial_usdviewer_port
+
         # Close USD Viewer started from console if it's necessary
         global usd_viewer_console_process
         if usd_viewer_console_process:
             close_process(usd_viewer_console_process)
     except e:
-        utils.case_logger.error("Failed to execute post try (try #{}): {}".format(current_try, str(e)))
-        utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
+        case_logger.error("Failed to execute post try (try #{}): {}".format(current_try, str(e)))
+        case_logger.error("Traceback: {}".format(traceback.format_exc()))
 
 
 def create_case_logger(case, log_path):
@@ -116,7 +118,7 @@ def move_and_click(args, case, current_try, x, y, name, screens_path, delay_afte
     sleep(1)
     make_screen(screens_path, "before_{}_clicked_{}_try_{}.jpg".format(name, case["case"], current_try))
     pyautogui.click()
-    sleep(wait_after_click)
+    sleep(delay_after_click)
     make_screen(screens_path, "after_{}_clicked_{}_try_{}.jpg".format(name, case["case"], current_try))
 
 
@@ -125,16 +127,12 @@ def click_item_with_offset(args, case, current_try, offsets, item_name, x, y, us
     if item_name.lower() not in offsets:
         raise Exception("Unknown item value")
     else:
-        # Select viewport value
-        item_x = x
-        item_y = y
-
         if use_x_direction:
-            item_x += items_offset[value.lower()]
+            x += offsets[item_name.lower()]
         else:
-            item_y += items_offset[value.lower()]
+            y += offsets[item_name.lower()]
 
-        moveTo(item_x, item_y)
+        moveTo(x, y)
         sleep(1)
         make_screen(screens_path, "before_{}_item_selected_{}_try_{}.jpg".format(item_name, case["case"], current_try))
         pyautogui.click()
@@ -273,11 +271,15 @@ def render(args, case, current_try, screens_path):
     sleep(15)
 
 
-def save_image(args, case, current_try, image_path, screens_path):
+def save_image(args, case, current_try, image_path, screens_path, is_scene_opened_from_viewer = False):
     case_logger.info("Save output image")
     # Export
     export_x = 355
-    export_y = 240
+    # If scene is opened from USD Viewer layout will be different
+    if is_scene_opened_from_viewer:
+        export_y = 200
+    else:
+        export_y = 240
     move_and_click(args, case, current_try, export_x, export_y, "export", screens_path)
 
     # Set rendered image path
@@ -313,7 +315,7 @@ def set_viewport(args, case, current_try, value, screens_path):
     }
 
     # Select viewport value
-    click_item_with_offset(args, case, current_try, items_offset, item_name, viewport_menu_x, viewport_menu_y, False, screens_path)
+    click_item_with_offset(args, case, current_try, items_offset, value, viewport_menu_x, viewport_menu_y, False, screens_path)
 
 
 def set_quality(args, case, current_try, value, screens_path):
@@ -332,7 +334,7 @@ def set_quality(args, case, current_try, value, screens_path):
     move_and_click(args, case, current_try, quality_menu_x, quality_menu_y, "quality_menu", screens_path)
 
     # Select quality value
-    click_item_with_offset(args, case, current_try, items_offset, item_name, quality_menu_x, quality_menu_y, False, screens_path)
+    click_item_with_offset(args, case, current_try, items_offset, value, quality_menu_x, quality_menu_y, False, screens_path)
 
 
 def set_lightning(args, case, current_try, lightning_name, screens_path):

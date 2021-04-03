@@ -4,7 +4,7 @@ from subprocess import Popen, PIPE
 import json
 import platform
 from datetime import datetime
-from shutil import copyfile
+from shutil import copyfile, rmtree
 import utils
 import sys
 import traceback
@@ -155,11 +155,17 @@ def execute_tests(args, current_conf):
 
         while current_try < args.retries:
             try:
-                utils.start_new_try()
-                # clear dir with exported files
-                trash_files = glob(os.path.join(args.res_path, "..", "..", "Temp", "*"))
+                # clear dir with temp files
+                trash_files = glob(os.path.join(args.res_path, "..", "..", "Temp", "*").replace("/", "\\"))
                 for file in trash_files:
-                    os.remove(file)
+                    try:
+                        if os.path.isdir(file):
+                            rmtree(file)
+                        else:
+                            os.remove(file)
+                    except Exception as e:
+                        utils.case_logger.error("Failed to clear file in dir with temp files (try #{}): {}".format(current_try, str(e)))
+                        utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
 
                 process = None
 
