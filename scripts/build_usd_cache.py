@@ -67,7 +67,7 @@ if __name__ == '__main__':
         else:
             print("Inventor window found. Wait a bit")
             # TODO check window is ready by window content
-            sleep(60)
+            sleep(90)
 
             window_width = win32api.GetSystemMetrics(0)
             window_height = win32api.GetSystemMetrics(1)
