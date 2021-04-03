@@ -12,12 +12,19 @@ from subprocess import Popen, PIPE
 import traceback
 
 
+# Counter which display current action number
 current_image_num = 0
+# Logger for current test case
 case_logger = None
 # TODO delete port variable then widnow name will be fixed
 usdviewer_window_name = "tcp://127.0.0.1:"
-usdviewer_port = 1984
+# Initial USD Viewer port (it's used in name of window)
+initial_usdviewer_port = 1984
+# Current port of USD Viewer (it's increased by 2 after each reopening of usdviewer without closing of Inventor)
+usdviewer_port = initial_usdviewer_port
+# Current USD Viewer window
 usd_viewer_window = None
+# Process of USD Viewer started from console (it's used in some cases)
 usd_viewer_console_process = None
 
 
@@ -32,12 +39,14 @@ def start_new_case(case, log_path):
 
 
 def start_new_try():
-    global usdviewer_port
-    usdviewer_port = 1984
+    # Reset USD Viewer port number after finishing of test case
+    global usdviewer_port, initial_usdviewer_port
+    usdviewer_port = initial_usdviewer_port
 
 
 def post_try(current_try):
     try:
+        # Close USD Viewer started from console if it's necessary
         global usd_viewer_console_process
         if usd_viewer_console_process:
             close_process(usd_viewer_console_process)
@@ -47,7 +56,6 @@ def post_try(current_try):
 
 
 def create_case_logger(case, log_path):
-
     formatter = logging.Formatter(fmt=u'[%(asctime)s] #%(levelname)-6s [F:%(filename)s L:%(lineno)d] >> %(message)s')
 
     file_handler = logging.FileHandler(filename=os.path.join(log_path, '{}.log'.format(case['case'])), mode='a')
@@ -73,7 +81,7 @@ def make_screen(screen_path, screen_name):
     screen = pyscreenshot.grab()
     screen = screen.convert('RGB')
     global current_image_num
-    screen.save(os.path.join(screen_path, "{}_{}".format(current_image_num, screen_name)))
+    screen.save(os.path.join(screen_path, "{:03}_{}".format(current_image_num, screen_name)))
     current_image_num += 1
 
 
@@ -103,6 +111,37 @@ def find_inventor_window(args):
     return inventor_window
 
 
+def move_and_click(args, case, current_try, x, y, name, screens_path, delay_after_click = 1):
+    moveTo(x, y)
+    sleep(1)
+    make_screen(screens_path, "before_{}_clicked_{}_try_{}.jpg".format(name, case["case"], current_try))
+    pyautogui.click()
+    sleep(wait_after_click)
+    make_screen(screens_path, "after_{}_clicked_{}_try_{}.jpg".format(name, case["case"], current_try))
+
+
+# Optimized method to select some item in menu/tool bar
+def click_item_with_offset(args, case, current_try, offsets, item_name, x, y, use_x_direction, screens_path):
+    if item_name.lower() not in offsets:
+        raise Exception("Unknown item value")
+    else:
+        # Select viewport value
+        item_x = x
+        item_y = y
+
+        if use_x_direction:
+            item_x += items_offset[value.lower()]
+        else:
+            item_y += items_offset[value.lower()]
+
+        moveTo(item_x, item_y)
+        sleep(1)
+        make_screen(screens_path, "before_{}_item_selected_{}_try_{}.jpg".format(item_name, case["case"], current_try))
+        pyautogui.click()
+        sleep(1)
+        make_screen(screens_path, "after_{}_item_selected_{}_try_{}.jpg".format(item_name, case["case"], current_try))
+
+
 def open_scene(args, case, current_try, screens_path):
     inventor_window_rect = get_window_rect(win32gui.FindWindow(None, "{}".format(args.tool_name)))
 
@@ -111,6 +150,7 @@ def open_scene(args, case, current_try, screens_path):
     select_inventor_file_item(args, case, current_try, "open", screens_path)
 
     # Set scene path
+    case_logger.info("Set scene path")
     scene_path = os.path.abspath(os.path.join(args.res_path, case["scene"]))
     case_logger.info("Scene path: {}".format(scene_path))
     pyautogui.press("backspace")
@@ -119,19 +159,16 @@ def open_scene(args, case, current_try, screens_path):
     sleep(2)
 
     # Click "Open" button
+    case_logger.info("Click 'Open' button")
     open_button_x = win32api.GetSystemMetrics(0) - 200
     open_button_y = inventor_window_rect[3] - 50
-    moveTo(open_button_x, open_button_y)
-    sleep(1)
-    make_screen(screens_path, "scene_path_{}_try_{}.jpg".format(case["case"], current_try))
-    pyautogui.click()
-    sleep(1)
+    move_and_click(args, case, current_try, open_button_x, open_button_y, "open_button", screens_path)
 
 
 def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
     open_inventor_tab(args, case, current_try, "tools", screens_path)
 
-    # try to open USD Viewer few times
+    # try to open USD Viewer few times (sometimes it can't be opened after first click)
     max_iterations = 5
     iteration = 0
 
@@ -175,6 +212,7 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
 
 
 def open_usdviewer_console(args, case, current_try, scene_path, screens_path):
+    case_logger.info("Open USD Viewer in console")
     console_command = "\"C:\\Program Files\\RPRViewer\\RPRViewer.exe\" \"{}\"".format(scene_path)
     case_logger.info("Start: {}".format(console_command))
     process = Popen(console_command, shell=True, stdout=PIPE, stderr=PIPE)
@@ -205,7 +243,8 @@ def open_usdviewer_tab(args, case, current_try, tab, screens_path):
     if tab.lower() not in tabs_offset:
         raise Exception("Unknown USD Viewer tab")
     else:
-        # Open Render tab
+        # Open tab
+        case_logger.info("Open USD Viewer tab: {}".format(tab))
         left_menu_width = 180
         right_menu_width = 130
         # (window width - left menu width - right menu width) / 2 
@@ -224,13 +263,10 @@ def open_usdviewer_tab(args, case, current_try, tab, screens_path):
 
 def render(args, case, current_try, screens_path):
     # Render
+    case_logger.info("Start render")
     render_button_x = 185
     render_button_y = 155
-    moveTo(render_button_x, render_button_y)
-    sleep(1)
-    pyautogui.click()
-    make_screen(screens_path, "usd_viewer_render_{}_try_{}.jpg".format(case["case"], current_try))
-    sleep(1)
+    move_and_click(args, case, current_try, render_button_x, render_button_y, "render_button", screens_path)
 
     # Wait render
     # TODO check that scene is rendered by window content
@@ -238,14 +274,11 @@ def render(args, case, current_try, screens_path):
 
 
 def save_image(args, case, current_try, image_path, screens_path):
+    case_logger.info("Save output image")
     # Export
     export_x = 355
     export_y = 240
-    moveTo(export_x, export_y)
-    sleep(1)
-    pyautogui.click()
-    sleep(1)
-    make_screen(screens_path, "usd_viewer_export_{}_try_{}.jpg".format(case["case"], current_try))
+    move_and_click(args, case, current_try, export_x, export_y, "export", screens_path)
 
     # Set rendered image path
     pyautogui.press("backspace")
@@ -253,22 +286,24 @@ def save_image(args, case, current_try, image_path, screens_path):
     pyautogui.typewrite(image_path)
     sleep(2)
 
-    # Click "Open" button
+    # Click "Save" button
     global usd_viewer_window
     usd_viewer_window_rect = get_window_rect(usd_viewer_window)
-    open_button_x = win32api.GetSystemMetrics(0) - 200
-    open_button_y = usd_viewer_window_rect[3] - 30
-    moveTo(open_button_x, open_button_y)
-    sleep(1)
-    make_screen(screens_path, "save_rendered_image_{}_try_{}.jpg".format(case["case"], current_try))
-    pyautogui.click()
-    sleep(1)
+    save_button_x = win32api.GetSystemMetrics(0) - 200
+    save_button_y = usd_viewer_window_rect[3] - 30
+    move_and_click(args, case, current_try, save_button_x, save_button_y, "save_button", screens_path)
 
     # Wait a bit to save image
     sleep(5)
 
 
 def set_viewport(args, case, current_try, value, screens_path):
+    case_logger.info("Set viewport: {}".format(value))
+    # Open dropdown menu to select viewport
+    viewport_menu_x = 890
+    viewport_menu_y = 115
+    move_and_click(args, case, current_try, viewport_menu_x, viewport_menu_y, "viewport_menu", screens_path)
+
     items_offset = {
         "perspective": 25,
         "top": 50,
@@ -277,30 +312,12 @@ def set_viewport(args, case, current_try, value, screens_path):
         "inventorviewportcamera": 125
     }
 
-    # Open dropdown menu to select viewport
-    viewport_menu_x = 890
-    viewport_menu_y = 115
-    moveTo(viewport_menu_x, viewport_menu_y)
-    sleep(1)
-    pyautogui.click()
-    sleep(1)
-    make_screen(screens_path, "open_viewport_menu_{}_try_{}.jpg".format(case["case"], current_try))
-
-    if value.lower() not in items_offset:
-        raise Exception("Unknown viewport value")
-    else:
-        # Select viewport value
-        value_x = viewport_menu_x
-        value_y = viewport_menu_y + items_offset[value.lower()]
-        moveTo(value_x, value_y)
-        sleep(1)
-        make_screen(screens_path, "before_viewport_selected_{}_try_{}.jpg".format(case["case"], current_try))
-        pyautogui.click()
-        sleep(1)
-        make_screen(screens_path, "after_viewport_selected_{}_try_{}.jpg".format(case["case"], current_try))
+    # Select viewport value
+    click_item_with_offset(args, case, current_try, items_offset, item_name, viewport_menu_x, viewport_menu_y, False, screens_path)
 
 
 def set_quality(args, case, current_try, value, screens_path):
+    case_logger.info("Set quality: {}".format(value))
     items_offset = {
         "low": 25,
         "medium": 50,
@@ -312,28 +329,15 @@ def set_quality(args, case, current_try, value, screens_path):
     # Open dropdown menu to select quality
     quality_menu_x = 1185
     quality_menu_y = 115
-    moveTo(quality_menu_x, quality_menu_y)
-    sleep(1)
-    pyautogui.click()
-    sleep(1)
-    make_screen(screens_path, "open_quality_menu_{}_try_{}.jpg".format(case["case"], current_try))
+    move_and_click(args, case, current_try, quality_menu_x, quality_menu_y, "quality_menu", screens_path)
 
-    if value.lower() not in items_offset:
-        raise Exception("Unknown quality value")
-    else:
-        # Select quality value
-        value_x = quality_menu_x
-        value_y = quality_menu_y + items_offset[value.lower()]
-        moveTo(value_x, value_y)
-        sleep(1)
-        make_screen(screens_path, "before_quality_selected_{}_try_{}.jpg".format(case["case"], current_try))
-        pyautogui.click()
-        sleep(1)
-        make_screen(screens_path, "after_quality_selected_{}_try_{}.jpg".format(case["case"], current_try))
+    # Select quality value
+    click_item_with_offset(args, case, current_try, items_offset, item_name, quality_menu_x, quality_menu_y, False, screens_path)
 
 
 def set_lightning(args, case, current_try, lightning_name, screens_path):
     # Search lightning name
+    case_logger.info("Set lightning: {}".format(lightning_name))
     lightning_name_field_x = win32api.GetSystemMetrics(0) - 320
     lightning_name_field_y = 160
     moveTo(lightning_name_field_x, lightning_name_field_y)
@@ -347,15 +351,11 @@ def set_lightning(args, case, current_try, lightning_name, screens_path):
     # Select lightning
     lightning_item_x = win32api.GetSystemMetrics(0) - 540
     lightning_item_y = 285
-    moveTo(lightning_item_x, lightning_item_y)
-    sleep(1)
-    pyautogui.click()
-    sleep(1)
-    make_screen(screens_path, "selected_lightning_{}_try_{}.jpg".format(case["case"], current_try))
-    sleep(1)
+    move_and_click(args, case, current_try, lightning_item_x, lightning_item_y, "lightning_item", screens_path)
 
 
 def open_inventor_tab(args, case, current_try, tab_name, screens_path):
+    case_logger.info("Open Inventor tab: {}".format(tab_name))
     tabs_offset = {
         "file": 35,
         "assemble": 120,
@@ -374,21 +374,11 @@ def open_inventor_tab(args, case, current_try, tab_name, screens_path):
     }
 
     # Find menu item
-    if tab_name.lower() not in tabs_offset:
-        raise Exception("Unknown Inventor tab")
-    else:
-        # Select menu item
-        menu_item_x = tabs_offset[tab_name.lower()]
-        menu_item_y = 55
-        moveTo(menu_item_x, menu_item_y)
-        sleep(1)
-        make_screen(screens_path, "before_{}_tab_selected_{}_try_{}.jpg".format(tab_name.lower(), case["case"], current_try))
-        pyautogui.click()
-        sleep(1)
-        make_screen(screens_path, "after_{}_tab_selected_{}_try_{}.jpg".format(tab_name.lower(), case["case"], current_try))
+    click_item_with_offset(args, case, current_try, tabs_offset, tab_name, 0, 55, True, screens_path)
 
 
 def select_inventor_file_item(args, case, current_try, file_item, screens_path):
+    case_logger.info("Select item in Inventor file menu: {}".format(file_item))
     file_items_offset = {
         "new": 170,
         "open": 240,
@@ -403,31 +393,17 @@ def select_inventor_file_item(args, case, current_try, file_item, screens_path):
     }
 
     # Find menu item
-    if file_item.lower() not in file_items_offset:
-        raise Exception("Unknown Inventor tab")
-    else:
-        # Select menu item
-        menu_item_x = 110
-        menu_item_y = file_items_offset[file_item.lower()]
-        moveTo(menu_item_x, menu_item_y)
-        sleep(1)
-        make_screen(screens_path, "before_{}_item_selected_{}_try_{}.jpg".format(file_item.lower(), case["case"], current_try))
-        pyautogui.click()
-        sleep(1)
-        make_screen(screens_path, "after_{}_item_selected_{}_try_{}.jpg".format(file_item.lower(), case["case"], current_try))
+    click_item_with_offset(args, case, current_try, file_items_offset, file_item, 110, 0, False, screens_path)
 
 
 def convert_to_usd(args, case, current_try, wait_time, screens_path):
+    case_logger.info("Convert to USD")
     open_inventor_tab(args, case, current_try, "tools", screens_path)
 
     # Open convertation window
     convert_button_x = 1560
     convert_button_y = 120
-    moveTo(convert_button_x, convert_button_y)
-    sleep(1)
-    pyautogui.click()
-    sleep(1)
-    make_screen(screens_path, "convertation_window_{}_try_{}.jpg".format(case["case"], current_try))
+    move_and_click(args, case, current_try, convert_button_x, convert_button_y, "convert_button", screens_path)
 
     # Convert (press enter button)
     pyautogui.press("enter")
@@ -439,13 +415,10 @@ def convert_to_usd(args, case, current_try, wait_time, screens_path):
 
 def open_scene_usdviewer(args, case, current_try, scene_path, screens_path):
     # Open convertation window
+    case_logger.info("Open scene from USD Viewer")
     menu_button_x = 20
     menu_button_y = 20
-    moveTo(menu_button_x, menu_button_y)
-    sleep(1)
-    pyautogui.click()
-    make_screen(screens_path, "usdviewer_menu_{}_try_{}.jpg".format(case["case"], current_try))
-    sleep(1)
+    move_and_click(args, case, current_try, menu_button_x, menu_button_y, "menu_button", screens_path)
 
     select_usdviewer_menu_item(args, case, current_try, "open", screens_path)
 
@@ -460,17 +433,14 @@ def open_scene_usdviewer(args, case, current_try, scene_path, screens_path):
     usd_viewer_window_rect = get_window_rect(usd_viewer_window)
     open_button_x = win32api.GetSystemMetrics(0) - 200
     open_button_y = usd_viewer_window_rect[3] - 30
-    moveTo(open_button_x, open_button_y)
-    sleep(1)
-    make_screen(screens_path, "usdviewer_open_scene_{}_try_{}.jpg".format(case["case"], current_try))
-    pyautogui.click()
-    sleep(1)
+    move_and_click(args, case, current_try, open_button_x, open_button_y, "open_button", screens_path)
 
     # Wait a bit to open scene
     sleep(15)
 
 
 def select_usdviewer_menu_item(args, case, current_try, item_name, screens_path):
+    case_logger.info("Select item in USD Viewer menu: {}".format(item_name))
     items_offset = {
         "open": 0,
         "open recent": 50,
@@ -483,34 +453,21 @@ def select_usdviewer_menu_item(args, case, current_try, item_name, screens_path)
     }
 
     # Find menu item
-    if item_name.lower() not in items_offset:
-        raise Exception("Unknown menu item")
-    else:
-        # Select menu item
-        menu_item_x = 160
-        menu_item_y = 60 + items_offset[item_name.lower()]
-        moveTo(menu_item_x, menu_item_y)
-        sleep(1)
-        make_screen(screens_path, "before_menu_item_selected_{}_try_{}.jpg".format(case["case"], current_try))
-        pyautogui.click()
-        sleep(1)
-        make_screen(screens_path, "after_menu_item_selected_{}_try_{}.jpg".format(case["case"], current_try))
+    click_item_with_offset(args, case, current_try, items_offset, item_name, 160, 60, False, screens_path)
 
 
 def close_usdviewer(args, case, current_try, screens_path):
     # Click close button
+    case_logger.info("Close USD Viewer")
     menu_button_x = win32api.GetSystemMetrics(0) - 23
     menu_button_y = 17
-    moveTo(menu_button_x, menu_button_y)
-    sleep(1)
-    pyautogui.click()
-    sleep(5)
-    make_screen(screens_path, "usdviewer_closed_{}_try_{}.jpg".format(case["case"], current_try))
+    move_and_click(args, case, current_try, menu_button_x, menu_button_y, "menu_button", screens_path, 5)
     global usd_viewer_window
     usd_viewer_window = None
 
 
 def set_convert_files_format(args, case, current_try, item_name, screens_path):
+    case_logger.info("Set convertation file format: {}".format(item_name))
     items_offset = {
         ".usd": 100,
         ".usda": 150
@@ -521,11 +478,7 @@ def set_convert_files_format(args, case, current_try, item_name, screens_path):
     # Open plugin settings
     plugin_settings_x = 1700
     plugin_settings_y = 120
-    moveTo(plugin_settings_x, plugin_settings_y)
-    sleep(1)
-    pyautogui.click()
-    sleep(1)
-    make_screen(screens_path, "plugin_settings_window_{}_try_{}.jpg".format(case["case"], current_try))
+    move_and_click(args, case, current_try, plugin_settings_x, plugin_settings_y, "plugin_settings", screens_path)
 
     inventor_window_rect = get_window_rect(win32gui.FindWindow(None, "{}".format(args.tool_name)))
     inventor_window_center_x = (int)(inventor_window_rect[2] - inventor_window_rect[0]) / 2
@@ -534,11 +487,7 @@ def set_convert_files_format(args, case, current_try, item_name, screens_path):
     # Select menu item
     dropdown_menu_x = inventor_window_center_x - 35
     dropdown_menu_y = inventor_window_center_y + 55
-    moveTo(dropdown_menu_x, dropdown_menu_y)
-    sleep(1)
-    pyautogui.click()
-    sleep(1)
-    make_screen(screens_path, "after_dropdown_menu_opened_{}_try_{}.jpg".format(case["case"], current_try))
+    move_and_click(args, case, current_try, dropdown_menu_x, dropdown_menu_y, "dropdown_menu", screens_path)
 
     # Find menu item
     if item_name.lower() not in items_offset:
@@ -547,25 +496,16 @@ def set_convert_files_format(args, case, current_try, item_name, screens_path):
         # Select menu item
         setting_x = inventor_window_center_x - 35
         setting_y = inventor_window_center_y + items_offset[item_name.lower()]
-        moveTo(setting_x, setting_y)
-        sleep(1)
-        make_screen(screens_path, "before_files_format_selected_{}_try_{}.jpg".format(case["case"], current_try))
-        pyautogui.click()
-        sleep(1)
-        make_screen(screens_path, "after_files_format_selected_{}_try_{}.jpg".format(case["case"], current_try))
+        move_and_click(args, case, current_try, setting_x, setting_y, "setting", screens_path)
 
         # Select "Ok" button
         ok_button_x = inventor_window_center_x + 150
         ok_button_y = inventor_window_center_y + 175
-        moveTo(ok_button_x, ok_button_y)
-        sleep(1)
-        make_screen(screens_path, "before_settings_confirmed_{}_try_{}.jpg".format(case["case"], current_try))
-        pyautogui.click()
-        sleep(1)
-        make_screen(screens_path, "after_settings_confirmed_{}_try_{}.jpg".format(case["case"], current_try))
+        move_and_click(args, case, current_try, ok_button_x, ok_button_y, "ok_button", screens_path)
 
 
 def make_inventor_active(args, case, current_try, screens_path):
+    case_logger.info("Make Inventor window active")
     inventor_window = win32gui.FindWindow(None, "{}".format(args.tool_name))
     win32gui.ShowWindow(inventor_window, 5)
     win32gui.SetForegroundWindow(inventor_window)
@@ -574,6 +514,7 @@ def make_inventor_active(args, case, current_try, screens_path):
 
 
 def make_usdviewer_active(args, case, current_try, screens_path):
+    case_logger.info("Make USD Viewer window")
     global usd_viewer_window
     win32gui.ShowWindow(usd_viewer_window, 5)
     win32gui.SetForegroundWindow(usd_viewer_window)
@@ -582,6 +523,7 @@ def make_usdviewer_active(args, case, current_try, screens_path):
 
 
 def close_scene(args, case, current_try, screens_path):
+    case_logger.info("Close scene")
     open_inventor_tab(args, case, current_try, "file", screens_path)
 
     select_inventor_file_item(args, case, current_try, "close", screens_path)
@@ -593,8 +535,4 @@ def close_scene(args, case, current_try, screens_path):
     # Click "No" button
     no_button_x = inventor_window_center_x - 75
     no_button_y = inventor_window_center_y + 55
-    moveTo(no_button_x, no_button_y)
-    sleep(1)
-    pyautogui.click()
-    sleep(1)
-    make_screen(screens_path, "after_no_button_clicked_{}_try_{}.jpg".format(case["case"], current_try))
+    move_and_click(args, case, current_try, no_button_x, no_button_y, "no_button", screens_path)

@@ -97,7 +97,7 @@ if __name__ == '__main__':
             make_screen(os.path.join(args.output_path, "3_choose_scene.jpg"))
 
             # Set scene path
-            scene_path = os.path.abspath(os.path.join(args.assets_path, "Smoke", "test_scene.iam"))
+            scene_path = os.path.abspath(os.path.join(args.assets_path, "Smoke", "TestScene", "test_scene.iam"))
             print("Scene path: {}".format(scene_path))
             pyautogui.press("backspace")
             sleep(1)
@@ -126,7 +126,7 @@ if __name__ == '__main__':
             pyautogui.click()
             sleep(1)
 
-            # try to open USD Viewer few times
+            # try to open USD Viewer few times (sometimes it can't be opened after first click)
             max_iterations = 5
             iteration = 0
             usd_viewer_window = None
@@ -146,7 +146,8 @@ if __name__ == '__main__':
                 start_time = datetime.now()
                 # Wait USD Viewer window
                 while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 30:
-                    usd_viewer_window = win32gui.FindWindow(None, "tcp://127.0.0.1:1984")
+                    usd_viewer_window_name = "tcp://127.0.0.1:1984"
+                    usd_viewer_window = win32gui.FindWindow(None, usd_viewer_window_name)
                     sleep(1)
 
                 if usd_viewer_window:
