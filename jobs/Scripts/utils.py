@@ -188,8 +188,6 @@ def open_scene(args, case, current_try, screens_path):
 
 
 def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
-    open_inventor_tab(args, case, current_try, "tools", screens_path)
-
     # try to open USD Viewer few times (sometimes it can't be opened after first click)
     max_iterations = 5
     iteration = 0
@@ -200,6 +198,9 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
         iteration += 1
         window_name = usdviewer_window_name + str(usdviewer_port)
         case_logger.info("Waiting USD Viewer window with name {} (try #{})".format(window_name, iteration))
+
+        open_inventor_tab(args, case, current_try, "tools", screens_path)
+
         # Open USD Viewer
         usd_viewer_tabs_x = 1430
         usd_viewer_tabs_y = 120

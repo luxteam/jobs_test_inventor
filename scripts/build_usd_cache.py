@@ -139,14 +139,6 @@ if __name__ == '__main__':
             sleep(30)
             make_screen(os.path.join(args.output_path, "005_opened_scene.jpg"))
 
-            # Open "Tools" tab
-            tools_tab_x = 680
-            tools_tab_y = 55
-            moveTo(tools_tab_x, tools_tab_y)
-            sleep(1)
-            pyautogui.click()
-            sleep(1)
-
             # try to open USD Viewer few times (sometimes it can't be opened after first click)
             max_iterations = 5
             iteration = 0
@@ -155,6 +147,15 @@ if __name__ == '__main__':
             while iteration < max_iterations:
                 iteration += 1
                 print("Waiting USD Viewer window (try #{})".format(iteration))
+
+                # Open "Tools" tab
+                tools_tab_x = 680
+                tools_tab_y = 55
+                moveTo(tools_tab_x, tools_tab_y)
+                sleep(1)
+                pyautogui.click()
+                sleep(1)
+                
                 # Open USD Viewer
                 usd_viewer_tabs_x = 1430
                 usd_viewer_tabs_y = 120
