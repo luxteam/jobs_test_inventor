@@ -8,10 +8,9 @@ import logging
 import types
 import os
 from time import sleep
-from psutil import Popen
+from psutil import Popen, NoSuchProcess
 from subprocess import PIPE
 import traceback
-import psutil
 
 
 # Counter which display current action number
@@ -51,7 +50,7 @@ def close_process(process):
         sleep(10)
         status = process.status()
         case_logger.error("Process is alive: {}. Name: {}. Status: {}".format(process, process.name(), status))
-    except psutil.NoSuchProcess:
+    except NoSuchProcess:
         case_logger.info("Process is killed: {}".format(process))
 
 

@@ -5,7 +5,7 @@ import win32api
 import pyautogui
 from time import sleep
 from datetime import datetime
-from psutil import Popen, process_iter
+from psutil import Popen, process_iter, NoSuchProcess
 from subprocess import PIPE
 import traceback
 import pyscreenshot
@@ -25,7 +25,7 @@ def close_process(process):
             sleep(10)
             status = ch.status()
             print("Process is alive: {}. Name: {}. Status: {}".format(ch, ch.name(), status))
-        except psutil.NoSuchProcess:
+        except NoSuchProcess:
             print("Process is killed: {}".format(ch))
 
     try:
