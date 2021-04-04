@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
         start_time = datetime.now()
         # Wait a minute to open Inventor
-        while not inventor_window and (datetime.now() - start_time).total_seconds() <= 60:
+        while not inventor_window and (datetime.now() - start_time).total_seconds() <= 90:
             inventor_window = win32gui.FindWindow(None, "{}".format(args.tool_name))
             sleep(1)
 
