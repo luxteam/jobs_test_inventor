@@ -1,6 +1,7 @@
 import argparse
 import os
-from subprocess import Popen, PIPE
+from psutil import Popen, process_iter
+from subprocess import PIPE
 import json
 import platform
 from datetime import datetime
@@ -115,13 +116,14 @@ def save_results(args, case, cases, test_case_status, render_time = 0.0):
     with open(os.path.join(args.output, case["case"] + CASE_REPORT_SUFFIX), "r") as file:
         test_case_report = json.loads(file.read())[0]
         test_case_report["file_name"] = case["case"] + case.get("extension", '.jpg')
-        test_case_report["render_color_path"] = os.path.join("Color", test_case_report["file_name"])
         test_case_report["test_status"] = test_case_status
         test_case_report["render_time"] = render_time
         test_case_report["execution_log"] = os.path.join("execution_logs", case["case"] + ".log")
         test_case_report["group_timeout_exceeded"] = False
         test_case_report["testing_start"] = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
         test_case_report["number_of_tries"] += 1
+        if test_case_status == "passed":
+            test_case_report["render_color_path"] = os.path.join("Color", test_case_report["file_name"])
 
     with open(os.path.join(args.output, case["case"] + CASE_REPORT_SUFFIX), "w") as file:
         json.dump([test_case_report], file, indent=4)
@@ -184,7 +186,7 @@ def execute_tests(args, current_conf):
                 else:
                     utils.case_logger.info("Inventor window found. Wait a bit")
                     # TODO check window is ready by window content
-                    sleep(20)
+                    sleep(30)
 
                 if "scene" in case:
                     utils.open_scene(args, case, current_try, screens_path)
@@ -216,9 +218,18 @@ def execute_tests(args, current_conf):
                 utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
             finally:
                 if process:
+                    utils.case_logger.info("Close Inventor process")
                     utils.close_process(process)
-                current_try += 1
+
                 utils.post_try(current_try)
+
+                # RPRViewer.exe isn't a child process of Inventor. It won't be killed if Inventor is killed
+                for proc in process_iter():
+                    if proc.name() == "RPRViewer.exe":
+                        utils.case_logger.info("Kill viewer")
+                        utils.close_process(proc)
+                current_try += 1
+                utils.case_logger.info("Post actions finished")
         else:
             utils.case_logger.error("Failed to execute case '{}' at all".format(case["case"]))
             rc = -1

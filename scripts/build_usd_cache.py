@@ -1,12 +1,12 @@
 import argparse
 import os
-import subprocess
 import win32gui
 import win32api
 import pyautogui
 from time import sleep
 from datetime import datetime
-from subprocess import Popen, PIPE
+from psutil import Popen, process_iter
+from subprocess import PIPE
 import traceback
 import pyscreenshot
 from shutil import rmtree
@@ -15,7 +15,28 @@ pyautogui.FAILSAFE = False
 
 
 def close_process(process):
-    Popen("taskkill /F /PID {pid} /T".format(pid=process.pid))
+    child_processes = process.children()
+    print("Child processes: {}".format(child_processes))
+    for ch in child_processes:
+        try:
+            ch.terminate()
+            sleep(10)
+            ch.kill()
+            sleep(10)
+            status = ch.status()
+            print("Process is alive: {}. Name: {}. Status: {}".format(ch, ch.name(), status))
+        except psutil.NoSuchProcess:
+            print("Process is killed: {}".format(ch))
+
+    try:
+        process.terminate()
+        sleep(10)
+        process.kill()
+        sleep(10)
+        status = process.status()
+        print("Process is alive: {}. Name: {}. Status: {}".format(process, process.name(), status))
+    except psutil.NoSuchProcess:
+        print("Process is killed: {}".format(process))
 
 
 def make_screen(screen_path):
@@ -227,5 +248,11 @@ if __name__ == '__main__':
     finally:
         if process:
             close_process(process)
+        # RPRViewer.exe isn't a child process of Inventor. It won't be killed if Inventor is killed
+        for proc in process_iter():
+            if proc.name() == "RPRViewer.exe":
+                print("Kill viewer")
+                close_process(proc)
+        print("Post actions finished")
 
     exit(rc)

@@ -8,8 +8,10 @@ import logging
 import types
 import os
 from time import sleep
-from subprocess import Popen, PIPE
+from psutil import Popen
+from subprocess import PIPE
 import traceback
+import psutil
 
 
 # Counter which display current action number
@@ -29,7 +31,28 @@ usd_viewer_console_process = None
 
 
 def close_process(process):
-    Popen("taskkill /F /PID {pid} /T".format(pid=process.pid))
+    child_processes = process.children()
+    case_logger.info("Child processes: {}".format(child_processes))
+    for ch in child_processes:
+        try:
+            ch.terminate()
+            sleep(10)
+            ch.kill()
+            sleep(10)
+            status = ch.status()
+            case_logger.error("Process is alive: {}. Name: {}. Status: {}".format(ch, ch.name(), status))
+        except psutil.NoSuchProcess:
+            case_logger.info("Process is killed: {}".format(ch))
+
+    try:
+        process.terminate()
+        sleep(10)
+        process.kill()
+        sleep(10)
+        status = process.status()
+        case_logger.error("Process is alive: {}. Name: {}. Status: {}".format(process, process.name(), status))
+    except psutil.NoSuchProcess:
+        case_logger.info("Process is killed: {}".format(process))
 
 
 def start_new_case(case, log_path):
@@ -51,8 +74,10 @@ def post_try(current_try):
         # Close USD Viewer started from console if it's necessary
         global usd_viewer_console_process
         if usd_viewer_console_process:
+            case_logger.info("Close USD Viewer process opened from console")
             close_process(usd_viewer_console_process)
-    except e:
+            usd_viewer_console_process = None
+    except Exception as e:
         case_logger.error("Failed to execute post try (try #{}): {}".format(current_try, str(e)))
         case_logger.error("Traceback: {}".format(traceback.format_exc()))
 
@@ -516,7 +541,7 @@ def make_inventor_active(args, case, current_try, screens_path):
 
 
 def make_usdviewer_active(args, case, current_try, screens_path):
-    case_logger.info("Make USD Viewer window")
+    case_logger.info("Make USD Viewer window active")
     global usd_viewer_window
     win32gui.ShowWindow(usd_viewer_window, 5)
     win32gui.SetForegroundWindow(usd_viewer_window)
