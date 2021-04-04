@@ -40,7 +40,7 @@ def close_process(process):
             sleep(10)
             status = ch.status()
             case_logger.error("Process is alive: {}. Name: {}. Status: {}".format(ch, ch.name(), status))
-        except psutil.NoSuchProcess:
+        except NoSuchProcess:
             case_logger.info("Process is killed: {}".format(ch))
 
     try:
