@@ -25,7 +25,7 @@ def close_process(process):
             sleep(10)
             status = ch.status()
             print("Process is alive: {}. Name: {}. Status: {}".format(ch, ch.name(), status))
-        except psutil.NoSuchProcess:
+        except NoSuchProcess:
             print("Process is killed: {}".format(ch))
 
     try:
@@ -35,7 +35,7 @@ def close_process(process):
         sleep(10)
         status = process.status()
         print("Process is alive: {}. Name: {}. Status: {}".format(process, process.name(), status))
-    except psutil.NoSuchProcess:
+    except NoSuchProcess:
         print("Process is killed: {}".format(process))
 
 
