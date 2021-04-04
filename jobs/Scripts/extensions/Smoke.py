@@ -39,10 +39,8 @@ def create_part(args, case, current_try, screens_path):
     create_button_y = 120
     utils.move_and_click(args, case, current_try, create_button_x, create_button_y, "create_button", screens_path)
 
-    # Click "Ok" button to create new part
-    ok_button_x = 755
-    ok_button_y = 540
-    utils.move_and_click(args, case, current_try, ok_button_x, ok_button_y, "ok_button", screens_path, 5)
+    # Press "Ok" button (press enter button)
+    pyautogui.press("enter")
 
     # Click on empty viewport
     empty_viewport_x = 1000
@@ -94,10 +92,8 @@ def do_extrude(args, case, current_try, screens_path):
     extrude_button_y = 120
     utils.move_and_click(args, case, current_try, extrude_button_x, extrude_button_y, "extrude_button", screens_path)
 
-    # Click "Ok" button
-    ok_button_x = 315
-    ok_button_y = 550
-    utils.move_and_click(args, case, current_try, ok_button_x, ok_button_y, "ok_button", screens_path)
+    # Press "Ok" button (press enter button)
+    pyautogui.press("enter")
 
     # Click "Return" button
     return_button_x = 1875
