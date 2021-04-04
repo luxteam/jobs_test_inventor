@@ -5,7 +5,7 @@ import win32api
 import pyautogui
 from time import sleep
 from datetime import datetime
-from psutil import Popen, process_iter
+from psutil import Popen, process_iter, NoSuchProcess
 from subprocess import PIPE
 import traceback
 import pyscreenshot
