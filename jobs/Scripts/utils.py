@@ -21,7 +21,7 @@ case_logger = None
 usdviewer_window_name = "tcp://127.0.0.1:"
 # Initial USD Viewer port (it's used in name of window)
 initial_usdviewer_port = 1984
-# Current port of USD Viewer (it's increased by 2 after each reopening of usdviewer without closing of Inventor)
+# Current port of USD Viewer (it's increased by 1 or by 2 after each reopening of usdviewer without closing of Inventor)
 usdviewer_port = initial_usdviewer_port
 # Current USD Viewer window
 usd_viewer_window = None
@@ -196,8 +196,7 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
 
     while iteration < max_iterations:
         iteration += 1
-        window_name = usdviewer_window_name + str(usdviewer_port)
-        case_logger.info("Waiting USD Viewer window with name {} (try #{})".format(window_name, iteration))
+        case_logger.info("Waiting USD Viewer window (try #{})".format(iteration))
 
         open_inventor_tab(args, case, current_try, "tools", screens_path)
 
@@ -216,8 +215,12 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
         start_time = datetime.now()
         # Wait USD Viewer window
         while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 30:
-            usd_viewer_window = win32gui.FindWindow(None, window_name)
-            usdviewer_port += 2
+            # Port number in window name can be increased by 1 or by 2
+            for i in range(3):
+                usd_viewer_window = win32gui.FindWindow(None, usdviewer_window_name + str(usdviewer_port + i))
+                if usd_viewer_window:
+                    usdviewer_port = usdviewer_port + i
+                    break
             sleep(1)
 
         if usd_viewer_window:
