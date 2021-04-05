@@ -76,7 +76,7 @@ if __name__ == '__main__':
 
         start_time = datetime.now()
         # Wait a minute to open Inventor
-        while not inventor_window and (datetime.now() - start_time).total_seconds() <= 90:
+        while not inventor_window and (datetime.now() - start_time).total_seconds() <= 120:
             inventor_window = win32gui.FindWindow(None, "{}".format(args.tool_name))
             sleep(1)
 
@@ -88,7 +88,7 @@ if __name__ == '__main__':
         else:
             print("Inventor window found. Wait a bit")
             # TODO check window is ready by window content
-            sleep(90)
+            sleep(120)
 
             window_width = win32api.GetSystemMetrics(0)
             window_height = win32api.GetSystemMetrics(1)
