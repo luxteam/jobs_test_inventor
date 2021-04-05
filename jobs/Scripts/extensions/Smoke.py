@@ -117,7 +117,8 @@ def move_part(args, case, current_try, screens_path):
     sleep(1)
     pyautogui.mouseDown()
     sleep(1)
-    utils.moveTo(detail_x - 30, detail_y)
+    # Move detail a bit
+    utils.moveTo(detail_x - 150, detail_y)
     sleep(1)
     pyautogui.mouseUp()
     utils.make_screen(screens_path, "detail_moved_{}_try_{}.jpg".format(case["case"], current_try))
