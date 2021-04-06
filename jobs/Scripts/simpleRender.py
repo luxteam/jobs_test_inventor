@@ -51,10 +51,14 @@ def prepare_empty_reports(args, current_conf):
     main_logger.info('Create empty report files')
 
     baseline_path_tr = os.path.join(
-        'c:/TestResources/usd_viewer_autotests_baselines', args.test_group)
+        'c:/TestResources/usd_inventor_autotests_baselines', args.test_group)
 
     baseline_path = os.path.join(
         args.output, os.path.pardir, os.path.pardir, os.path.pardir, 'Baseline', args.test_group)
+
+    if not os.path.exists(baseline_path):
+        os.makedirs(baseline_path)
+        os.makedirs(os.path.join(baseline_path, 'Color'))
 
     copyfile(os.path.abspath(os.path.join(args.output, '..', '..', '..', '..', 'jobs_launcher',
                                           'common', 'img', 'error.jpg')), os.path.join(args.output, 'Color', 'failed.jpg'))
