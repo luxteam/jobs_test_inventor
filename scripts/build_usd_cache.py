@@ -1,12 +1,12 @@
 import argparse
 import os
-import subprocess
 import win32gui
 import win32api
 import pyautogui
 from time import sleep
 from datetime import datetime
-from subprocess import Popen, PIPE
+from psutil import Popen, process_iter, NoSuchProcess
+from subprocess import PIPE
 import traceback
 import pyscreenshot
 from shutil import rmtree
@@ -15,7 +15,28 @@ pyautogui.FAILSAFE = False
 
 
 def close_process(process):
-    Popen("taskkill /F /PID {pid} /T".format(pid=process.pid))
+    child_processes = process.children()
+    print("Child processes: {}".format(child_processes))
+    for ch in child_processes:
+        try:
+            ch.terminate()
+            sleep(10)
+            ch.kill()
+            sleep(10)
+            status = ch.status()
+            print("Process is alive: {}. Name: {}. Status: {}".format(ch, ch.name(), status))
+        except NoSuchProcess:
+            print("Process is killed: {}".format(ch))
+
+    try:
+        process.terminate()
+        sleep(10)
+        process.kill()
+        sleep(10)
+        status = process.status()
+        print("Process is alive: {}. Name: {}. Status: {}".format(process, process.name(), status))
+    except NoSuchProcess:
+        print("Process is killed: {}".format(process))
 
 
 def make_screen(screen_path):
@@ -55,11 +76,11 @@ if __name__ == '__main__':
 
         start_time = datetime.now()
         # Wait a minute to open Inventor
-        while not inventor_window and (datetime.now() - start_time).total_seconds() <= 60:
+        while not inventor_window and (datetime.now() - start_time).total_seconds() <= 120:
             inventor_window = win32gui.FindWindow(None, "{}".format(args.tool_name))
             sleep(1)
 
-        make_screen(os.path.join(args.output_path, "0_opened_inventor.jpg"))
+        make_screen(os.path.join(args.output_path, "000_opened_inventor.jpg"))
 
         if not inventor_window:
             print("Inventor window wasn't found")
@@ -67,7 +88,7 @@ if __name__ == '__main__':
         else:
             print("Inventor window found. Wait a bit")
             # TODO check window is ready by window content
-            sleep(60)
+            sleep(120)
 
             window_width = win32api.GetSystemMetrics(0)
             window_height = win32api.GetSystemMetrics(1)
@@ -82,7 +103,7 @@ if __name__ == '__main__':
             file_tab_y = 55
             moveTo(file_tab_x, file_tab_y)
             sleep(1)
-            make_screen(os.path.join(args.output_path, "1_before_file_tab_scene.jpg"))
+            make_screen(os.path.join(args.output_path, "001_before_file_tab_scene.jpg"))
             pyautogui.click()
             sleep(1)
 
@@ -91,13 +112,13 @@ if __name__ == '__main__':
             open_file_button_y = 240
             moveTo(open_file_button_x, open_file_button_y)
             sleep(1)
-            make_screen(os.path.join(args.output_path, "2_before_choose_scene.jpg"))
+            make_screen(os.path.join(args.output_path, "002_before_choose_scene.jpg"))
             pyautogui.click()
             sleep(1)
-            make_screen(os.path.join(args.output_path, "3_choose_scene.jpg"))
+            make_screen(os.path.join(args.output_path, "003_choose_scene.jpg"))
 
             # Set scene path
-            scene_path = os.path.abspath(os.path.join(args.assets_path, "Smoke", "test_scene.iam"))
+            scene_path = os.path.abspath(os.path.join(args.assets_path, "Smoke", "TestScene", "test_scene.iam"))
             print("Scene path: {}".format(scene_path))
             pyautogui.press("backspace")
             sleep(1)
@@ -109,24 +130,16 @@ if __name__ == '__main__':
             open_button_y = inventor_window_rect[3] - 50
             moveTo(open_button_x, open_button_y)
             sleep(1)
-            make_screen(os.path.join(args.output_path, "4_scene_path.jpg"))
+            make_screen(os.path.join(args.output_path, "004_scene_path.jpg"))
             pyautogui.click()
             sleep(1)
 
             # Wait scene opening
             # TODO check that scene is opened by window content
             sleep(30)
-            make_screen(os.path.join(args.output_path, "5_opened_scene.jpg"))
+            make_screen(os.path.join(args.output_path, "005_opened_scene.jpg"))
 
-            # Open "Tools" tab
-            tools_tab_x = 680
-            tools_tab_y = 55
-            moveTo(tools_tab_x, tools_tab_y)
-            sleep(1)
-            pyautogui.click()
-            sleep(1)
-
-            # try to open USD Viewer few times
+            # try to open USD Viewer few times (sometimes it can't be opened after first click)
             max_iterations = 5
             iteration = 0
             usd_viewer_window = None
@@ -134,26 +147,36 @@ if __name__ == '__main__':
             while iteration < max_iterations:
                 iteration += 1
                 print("Waiting USD Viewer window (try #{})".format(iteration))
+
+                # Open "Tools" tab
+                tools_tab_x = 680
+                tools_tab_y = 55
+                moveTo(tools_tab_x, tools_tab_y)
+                sleep(1)
+                pyautogui.click()
+                sleep(1)
+                
                 # Open USD Viewer
                 usd_viewer_tabs_x = 1430
                 usd_viewer_tabs_y = 120
                 moveTo(usd_viewer_tabs_x, usd_viewer_tabs_y)
                 sleep(1)
                 pyautogui.click()
-                make_screen(os.path.join(args.output_path, "6_{}_before_usd_viewer.jpg".format(iteration)))
+                make_screen(os.path.join(args.output_path, "006_{}_before_usd_viewer.jpg".format(iteration)))
                 sleep(1)
 
                 start_time = datetime.now()
                 # Wait USD Viewer window
                 while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 30:
-                    usd_viewer_window = win32gui.FindWindow(None, "tcp://127.0.0.1:1984")
+                    usd_viewer_window_name = "tcp://127.0.0.1:1984"
+                    usd_viewer_window = win32gui.FindWindow(None, usd_viewer_window_name)
                     sleep(1)
 
                 if usd_viewer_window:
                     print("USD Viewer window was found. Wait cache building (try #{})".format(iteration))
                     # TODO check window is ready by window content
                     sleep(30)
-                    make_screen(os.path.join(args.output_path, "7_usd_viewer_found.jpg"))
+                    make_screen(os.path.join(args.output_path, "007_usd_viewer_found.jpg"))
                     sleep(90)
                     break
                 else:
@@ -176,7 +199,7 @@ if __name__ == '__main__':
             moveTo(render_tab_x, render_tab_y)
             sleep(1)
             pyautogui.click()
-            make_screen(os.path.join(args.output_path, "8_usd_viewer_render_tab.jpg"))
+            make_screen(os.path.join(args.output_path, "008_usd_viewer_render_tab.jpg"))
             sleep(1)
 
             # Render
@@ -185,7 +208,7 @@ if __name__ == '__main__':
             moveTo(render_button_x, render_button_y)
             sleep(1)
             pyautogui.click()
-            make_screen(os.path.join(args.output_path, "9_usd_viewer_render.jpg"))
+            make_screen(os.path.join(args.output_path, "009_usd_viewer_render.jpg"))
             sleep(1)
 
             # Wait render
@@ -199,13 +222,13 @@ if __name__ == '__main__':
             sleep(1)
             pyautogui.click()
             sleep(1)
-            make_screen(os.path.join(args.output_path, "10_usd_viewer_export.jpg"))
+            make_screen(os.path.join(args.output_path, "010_usd_viewer_export.jpg"))
 
             # Set rendered image path
-            scene_path = os.path.abspath(os.path.join(args.output_path, "RESULT.jpg"))
+            image_path = os.path.abspath(os.path.join(args.output_path, "RESULT.jpg"))
             pyautogui.press("backspace")
             sleep(1)
-            pyautogui.typewrite(scene_path)
+            pyautogui.typewrite(image_path)
             sleep(2)
 
             # Click "Open" button
@@ -213,7 +236,7 @@ if __name__ == '__main__':
             open_button_y = usd_viewer_window_rect[3] - 30
             moveTo(open_button_x, open_button_y)
             sleep(1)
-            make_screen(os.path.join(args.output_path, "11_save_rendered_image.jpg"))
+            make_screen(os.path.join(args.output_path, "011_save_rendered_image.jpg"))
             pyautogui.click()
             sleep(1)
 
@@ -226,5 +249,11 @@ if __name__ == '__main__':
     finally:
         if process:
             close_process(process)
+        # RPRViewer.exe isn't a child process of Inventor. It won't be killed if Inventor is killed
+        for proc in process_iter():
+            if proc.name() == "RPRViewer.exe":
+                print("Kill viewer")
+                close_process(proc)
+        print("Post actions finished")
 
     exit(rc)
