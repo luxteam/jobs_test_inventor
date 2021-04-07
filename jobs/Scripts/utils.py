@@ -214,7 +214,7 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
 
         start_time = datetime.now()
         # Wait USD Viewer window
-        while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 30:
+        while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 10:
             # Port number in window name can be increased by 1 or by 2
             for i in range(3):
                 usd_viewer_window = win32gui.FindWindow(None, usdviewer_window_name + str(usdviewer_port + i))
