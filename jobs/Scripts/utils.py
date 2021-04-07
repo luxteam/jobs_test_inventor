@@ -262,7 +262,7 @@ def open_usdviewer_tab(args, case, current_try, tab, screens_path):
         "review": -160,
         "edit": -85,
         "materials": 0,
-        "lightning": 90,
+        "lighting": 90,
         "render": 170
     }
 
@@ -365,23 +365,23 @@ def set_quality(args, case, current_try, value, screens_path):
     click_item_with_offset(args, case, current_try, items_offset, value, quality_menu_x, quality_menu_y, False, screens_path)
 
 
-def set_lightning(args, case, current_try, lightning_name, screens_path):
-    # Search lightning name
-    case_logger.info("Set lightning: {}".format(lightning_name))
-    lightning_name_field_x = win32api.GetSystemMetrics(0) - 320
-    lightning_name_field_y = 160
-    moveTo(lightning_name_field_x, lightning_name_field_y)
+def set_lighting(args, case, current_try, lighting_name, screens_path):
+    # Search lighting name
+    case_logger.info("Set lighting: {}".format(lighting_name))
+    lighting_name_field_x = win32api.GetSystemMetrics(0) - 320
+    lighting_name_field_y = 160
+    moveTo(lighting_name_field_x, lighting_name_field_y)
     sleep(1)
     pyautogui.click()
     sleep(1)
-    pyautogui.typewrite(lightning_name)
+    pyautogui.typewrite(lighting_name)
     sleep(1)
-    make_screen(screens_path, "search_lightning_name_{}_try_{}.jpg".format(case["case"], current_try))
+    make_screen(screens_path, "search_lighting_name_{}_try_{}.jpg".format(case["case"], current_try))
 
-    # Select lightning
-    lightning_item_x = win32api.GetSystemMetrics(0) - 540
-    lightning_item_y = 285
-    move_and_click(args, case, current_try, lightning_item_x, lightning_item_y, "lightning_item", screens_path)
+    # Select lighting
+    lighting_item_x = win32api.GetSystemMetrics(0) - 540
+    lighting_item_y = 285
+    move_and_click(args, case, current_try, lighting_item_x, lighting_item_y, "lighting_item", screens_path)
 
 
 def open_inventor_tab(args, case, current_try, tab_name, screens_path):
