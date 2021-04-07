@@ -1,5 +1,89 @@
 [
     {
+        "case": "USD_VP_006",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"InventorViewportCamera\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Camera - InventorViewportCamera"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "keep_tools": true
+    },
+    {
+        "case": "USD_VP_007",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Camera - Perspective"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "keep_tools": true
+    },
+    {
+        "case": "USD_VP_008",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Top\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Camera - Top"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "keep_tools": true
+    },
+    {
+        "case": "USD_VP_009",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Side\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Camera - Side"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "keep_tools": true
+    },
+    {
+        "case": "USD_VP_010",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Front\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Camera - Front"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10
+    },
+    {
         "case": "USD_VP_001",
         "status": "active",
         "functions": [
@@ -83,89 +167,5 @@
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
         "keep_tools": true
-    },
-    {
-        "case": "USD_VP_006",
-        "status": "active",
-        "functions": [
-            "utils.open_usdviewer(args, case, current_try, screens_path)",
-            "utils.set_viewport(args, case, current_try, \"InventorCameraView\", screens_path)",
-            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
-            "utils.render(args, case, current_try, screens_path)",
-            "utils.save_image(args, case, current_try, image_path, screens_path)"
-        ],
-        "script_info": [
-            "Camera - InventorCameraView"
-        ],
-        "scene": "Desk\\Desk.iam",
-        "open_time": 10,
-        "keep_tools": true
-    },
-    {
-        "case": "USD_VP_007",
-        "status": "active",
-        "functions": [
-            "utils.open_usdviewer(args, case, current_try, screens_path)",
-            "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
-            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
-            "utils.render(args, case, current_try, screens_path)",
-            "utils.save_image(args, case, current_try, image_path, screens_path)"
-        ],
-        "script_info": [
-            "Camera - Perspective"
-        ],
-        "scene": "Desk\\Desk.iam",
-        "open_time": 10,
-        "keep_tools": true
-    },
-    {
-        "case": "USD_VP_008",
-        "status": "active",
-        "functions": [
-            "utils.open_usdviewer(args, case, current_try, screens_path)",
-            "utils.set_viewport(args, case, current_try, \"Top\", screens_path)",
-            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
-            "utils.render(args, case, current_try, screens_path)",
-            "utils.save_image(args, case, current_try, image_path, screens_path)"
-        ],
-        "script_info": [
-            "Camera - Top"
-        ],
-        "scene": "Desk\\Desk.iam",
-        "open_time": 10,
-        "keep_tools": true
-    },
-    {
-        "case": "USD_VP_009",
-        "status": "active",
-        "functions": [
-            "utils.open_usdviewer(args, case, current_try, screens_path)",
-            "utils.set_viewport(args, case, current_try, \"Side\", screens_path)",
-            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
-            "utils.render(args, case, current_try, screens_path)",
-            "utils.save_image(args, case, current_try, image_path, screens_path)"
-        ],
-        "script_info": [
-            "Camera - Side"
-        ],
-        "scene": "Desk\\Desk.iam",
-        "open_time": 10,
-        "keep_tools": true
-    },
-    {
-        "case": "USD_VP_010",
-        "status": "active",
-        "functions": [
-            "utils.open_usdviewer(args, case, current_try, screens_path)",
-            "utils.set_viewport(args, case, current_try, \"Front\", screens_path)",
-            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
-            "utils.render(args, case, current_try, screens_path)",
-            "utils.save_image(args, case, current_try, image_path, screens_path)"
-        ],
-        "script_info": [
-            "Camera - Front"
-        ],
-        "scene": "Desk\\Desk.iam",
-        "open_time": 10
     }
 ]
