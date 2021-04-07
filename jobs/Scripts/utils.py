@@ -329,11 +329,6 @@ def save_image(args, case, current_try, image_path, screens_path, is_scene_opene
 
 def set_viewport(args, case, current_try, value, screens_path):
     case_logger.info("Set viewport: {}".format(value))
-    # Open dropdown menu to select viewport
-    viewport_menu_x = 740
-    viewport_menu_y = 115
-    move_and_click(args, case, current_try, viewport_menu_x, viewport_menu_y, "viewport_menu", screens_path)
-
     items_offset = {
         "perspective": 25,
         "top": 50,
@@ -344,6 +339,11 @@ def set_viewport(args, case, current_try, value, screens_path):
 
     # Open review tab
     open_usdviewer_tab(args, case, current_try, "review", screens_path)
+
+    # Open dropdown menu to select viewport
+    viewport_menu_x = 740
+    viewport_menu_y = 115
+    move_and_click(args, case, current_try, viewport_menu_x, viewport_menu_y, "viewport_menu", screens_path)
 
     # Select viewport value
     click_item_with_offset(args, case, current_try, items_offset, value, viewport_menu_x, viewport_menu_y, False, screens_path)
