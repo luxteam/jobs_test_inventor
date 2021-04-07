@@ -330,7 +330,7 @@ def save_image(args, case, current_try, image_path, screens_path, is_scene_opene
 def set_viewport(args, case, current_try, value, screens_path):
     case_logger.info("Set viewport: {}".format(value))
     # Open dropdown menu to select viewport
-    viewport_menu_x = 890
+    viewport_menu_x = 740
     viewport_menu_y = 115
     move_and_click(args, case, current_try, viewport_menu_x, viewport_menu_y, "viewport_menu", screens_path)
 
@@ -342,6 +342,9 @@ def set_viewport(args, case, current_try, value, screens_path):
         "inventorviewportcamera": 125
     }
 
+    # Open review tab
+    open_usdviewer_tab(args, case, current_try, "review", screens_path)
+
     # Select viewport value
     click_item_with_offset(args, case, current_try, items_offset, value, viewport_menu_x, viewport_menu_y, False, screens_path)
 
@@ -349,20 +352,25 @@ def set_viewport(args, case, current_try, value, screens_path):
 def set_quality(args, case, current_try, value, screens_path):
     case_logger.info("Set quality: {}".format(value))
     items_offset = {
-        "low": 25,
-        "medium": 50,
-        "high": 75,
-        "full": 100,
-        "full 2.0": 125
+        "wireframe": 25,
+        "solid color": 50,
+        "ambient occlusion": 75,
+        "texture": 100,
+        "full": 125
     }
 
+    # Open review tab
+    open_usdviewer_tab(args, case, current_try, "review", screens_path)
+
     # Open dropdown menu to select quality
-    quality_menu_x = 1185
+    quality_menu_x = 1060
     quality_menu_y = 115
     move_and_click(args, case, current_try, quality_menu_x, quality_menu_y, "quality_menu", screens_path)
 
     # Select quality value
     click_item_with_offset(args, case, current_try, items_offset, value, quality_menu_x, quality_menu_y, False, screens_path)
+
+    sleep(5)
 
 
 def set_lightning(args, case, current_try, lightning_name, screens_path):
