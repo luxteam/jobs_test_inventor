@@ -180,7 +180,7 @@ def open_scene(args, case, current_try, screens_path):
     pyautogui.press("backspace")
     sleep(1)
     pyautogui.typewrite(scene_path)
-    sleep(2)
+    sleep(1)
 
     # Click "Open" button
     case_logger.info("Click 'Open' button")
@@ -295,15 +295,19 @@ def open_usdviewer_tab(args, case, current_try, tab, screens_path):
 
 
 def render(args, case, current_try, screens_path):
+    render_delay = 15
+    if "render_delay" in case:
+        render_delay = case["render_delay"]
+
     # Render
-    case_logger.info("Start render")
+    case_logger.info("Start render. Delay: {}".format(render_delay))
     render_button_x = 185
     render_button_y = 155
     move_and_click(args, case, current_try, render_button_x, render_button_y, "render_button", screens_path)
 
     # Wait render
     # TODO check that scene is rendered by window content
-    sleep(15)
+    sleep(render_delay)
 
 
 def save_image(args, case, current_try, image_path, screens_path, is_scene_opened_from_viewer = False):
@@ -321,7 +325,7 @@ def save_image(args, case, current_try, image_path, screens_path, is_scene_opene
     pyautogui.press("backspace")
     sleep(1)
     pyautogui.typewrite(image_path)
-    sleep(2)
+    sleep(1)
 
     # Click "Save" button
     global usd_viewer_window
@@ -331,7 +335,7 @@ def save_image(args, case, current_try, image_path, screens_path, is_scene_opene
     move_and_click(args, case, current_try, save_button_x, save_button_y, "save_button", screens_path)
 
     # Wait a bit to save image
-    sleep(5)
+    sleep(3)
 
 
 def set_viewport(args, case, current_try, value, screens_path):
@@ -493,7 +497,7 @@ def open_scene_usdviewer(args, case, current_try, scene_path, screens_path):
     pyautogui.press("backspace")
     sleep(1)
     pyautogui.typewrite(scene_path)
-    sleep(2)
+    sleep(1)
 
     # Click "Open" button
     global usd_viewer_window
