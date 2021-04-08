@@ -399,6 +399,28 @@ def set_lightning(args, case, current_try, lightning_name, screens_path):
     move_and_click(args, case, current_try, lightning_item_x, lightning_item_y, "lightning_item", screens_path)
 
 
+def select_material(args, case, current_try, material_name, screens_path):
+    # Search material name
+    case_logger.info("Set material: {}".format(material_name))
+    material_name_field_x = win32api.GetSystemMetrics(0) - 320
+    material_name_field_y = 205
+    moveTo(material_name_field_x, material_name_field_y)
+    sleep(1)
+    pyautogui.click()
+    sleep(1)
+    # TODO double click doesn't work
+    pyautogui.press("backspace", presses=30)
+    sleep(1)
+    pyautogui.typewrite(material_name)
+    sleep(1)
+    make_screen(screens_path, "search_material_name_{}_try_{}.jpg".format(case["case"], current_try))
+
+    # Select material
+    material_item_x = win32api.GetSystemMetrics(0) - 540
+    material_item_y = 285
+    move_and_click(args, case, current_try, material_item_x, material_item_y, "material_item", screens_path)
+
+
 def open_inventor_tab(args, case, current_try, tab_name, screens_path):
     case_logger.info("Open Inventor tab: {}".format(tab_name))
     tabs_offset = {
