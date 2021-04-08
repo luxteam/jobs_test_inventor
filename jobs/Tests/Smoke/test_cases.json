@@ -70,7 +70,7 @@
     },
     {
         "case": "INV_SM_005",
-        "status": "skipped",
+        "status": "active",
         "functions": [
             "utils.set_convert_files_format(args, case, current_try, \".usda\", screens_path)",
             "utils.convert_to_usd(args, case, current_try, 30, screens_path)",
