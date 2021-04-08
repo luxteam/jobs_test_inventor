@@ -51,7 +51,7 @@
     },
     {
         "case": "INV_SM_004",
-        "status": "skipped",
+        "status": "active",
         "functions": [
             "utils.set_convert_files_format(args, case, current_try, \".usd\", screens_path)",
             "utils.convert_to_usd(args, case, current_try, 5, screens_path)",
@@ -70,7 +70,7 @@
     },
     {
         "case": "INV_SM_005",
-        "status": "skipped",
+        "status": "active",
         "functions": [
             "utils.set_convert_files_format(args, case, current_try, \".usda\", screens_path)",
             "utils.convert_to_usd(args, case, current_try, 30, screens_path)",
