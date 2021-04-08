@@ -27,6 +27,8 @@ usdviewer_port = initial_usdviewer_port
 usd_viewer_window = None
 # Process of USD Viewer started from console (it's used in some cases)
 usd_viewer_console_process = None
+# Indicate that tools are opened
+tools_opened = False
 
 
 def close_process(process):
@@ -188,6 +190,10 @@ def open_scene(args, case, current_try, screens_path):
 
 
 def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
+    global tools_opened
+    if tools_opened:
+        return
+
     # try to open USD Viewer few times (sometimes it can't be opened after first click)
     max_iterations = 5
     iteration = 0
@@ -225,6 +231,7 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
 
         if usd_viewer_window:
             case_logger.info("USD Viewer window was found. Wait a bit (try #{})".format(iteration))
+            tools_opened = True
             # TODO check window is ready by window content
             sleep(5)
             make_screen(screens_path, "usd_viewer_found_{}_try_{}.jpg".format(case["case"], current_try))

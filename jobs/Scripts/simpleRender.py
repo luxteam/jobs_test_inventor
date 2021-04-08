@@ -148,7 +148,6 @@ def execute_tests(args, current_conf):
     sys.modules["group_module"] = group_module
     spec.loader.exec_module(group_module)
 
-    tools_opened = False
     process = None
     inventor_window = None
 
@@ -184,7 +183,7 @@ def execute_tests(args, current_conf):
                 utils.case_logger.info("Start '{}' (try #{})".format(case["case"], current_try))
                 utils.case_logger.info("Screen resolution: width = {}, height = {}".format(win32api.GetSystemMetrics(0), win32api.GetSystemMetrics(1)))
                     
-                if not tools_opened:
+                if not utils.tools_opened:
                     utils.case_logger.info("Open Inventor")
 
                     process = Popen(args.tool, shell=True, stdout=PIPE, stderr=PIPE)
@@ -207,8 +206,6 @@ def execute_tests(args, current_conf):
                         # TODO check that scene is opened by window content    
                         sleep(case["open_time"])
                         utils.make_screen(screens_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try))
-
-                    tools_opened = True
 
                 image_path = os.path.abspath(os.path.join(args.output, "Color", case["case"] + ".jpg"))
                 utils.case_logger.info("Image path: {}".format(image_path))
@@ -250,25 +247,23 @@ def execute_tests(args, current_conf):
                     current_try += 1
                     utils.case_logger.info("Post actions finished")
 
-                    tools_opened = False
+                    utils.tools_opened = False
         else:
             utils.case_logger.error("Failed to execute case '{}' at all".format(case["case"]))
             rc = -1
             save_results(args, case, cases, "error", error_messages = error_messages)
 
-    if tools_opened:
+    if utils.tools_opened:
         if process:
             utils.case_logger.info("Close Inventor process")
             utils.close_process(process)
-
-        utils.post_try(current_try)
 
         # RPRViewer.exe isn't a child process of Inventor. It won't be killed if Inventor is killed
         for proc in process_iter():
             if proc.name() == "RPRViewer.exe":
                 utils.case_logger.info("Kill viewer")
                 utils.close_process(proc)
-        current_try += 1
+
         utils.case_logger.info("Post actions finished")
 
     return rc

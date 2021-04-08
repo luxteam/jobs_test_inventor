@@ -81,13 +81,15 @@
             "Camera - Front"
         ],
         "scene": "Desk\\Desk.iam",
-        "open_time": 10
+        "open_time": 10,
+        "keep_tools": true
     },
     {
         "case": "USD_VP_001",
         "status": "active",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"InventorViewportCamera\", screens_path)",
             "utils.set_quality(args, case, current_try, \"Full\", screens_path)",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
@@ -102,7 +104,7 @@
     },
     {
         "case": "USD_VP_002",
-        "status": "active",
+        "status": "skipped",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
             "utils.set_quality(args, case, current_try, \"Wireframe\", screens_path)",
@@ -119,7 +121,7 @@
     },
     {
         "case": "USD_VP_003",
-        "status": "active",
+        "status": "skipped",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
             "utils.set_quality(args, case, current_try, \"Solid Color\", screens_path)",
@@ -136,7 +138,7 @@
     },
     {
         "case": "USD_VP_004",
-        "status": "active",
+        "status": "skipped",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
             "utils.set_quality(args, case, current_try, \"Ambient Occlusion\", screens_path)",
@@ -153,7 +155,7 @@
     },
     {
         "case": "USD_VP_005",
-        "status": "active",
+        "status": "skipped",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
             "utils.set_quality(args, case, current_try, \"Texture\", screens_path)",
