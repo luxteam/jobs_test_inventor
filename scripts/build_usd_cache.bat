@@ -1,4 +1,4 @@
-set PATH=c:\python35\;c:\python35\scripts\;%PATH%
+set PATH=c:\python39\;c:\python35\scripts\;%PATH%
 set TOOL_VERSION=%1
 if not defined TOOL_VERSION set TOOL_VERSION=2022
 set OUTPUT_PATH=%2
