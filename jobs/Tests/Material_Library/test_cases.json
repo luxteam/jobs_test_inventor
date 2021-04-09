@@ -1,6 +1,6 @@
 [
     {
-        "case": "USD_MATLIB_001",
+        "case": "INV_MATLIB_001",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BarnFindOrange Solid\")"
@@ -14,7 +14,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_002",
+        "case": "INV_MATLIB_002",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
@@ -28,7 +28,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_003",
+        "case": "INV_MATLIB_003",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BeachBumAqua Metallic\")"
@@ -42,7 +42,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_004",
+        "case": "INV_MATLIB_004",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BlueBayou Solid\")"
@@ -56,7 +56,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_005",
+        "case": "INV_MATLIB_005",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BoulevardBlack Solid\")"
@@ -70,7 +70,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_006",
+        "case": "INV_MATLIB_006",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BurnOutBlue Metallic\")"
@@ -84,7 +84,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_007",
+        "case": "INV_MATLIB_007",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"CandyPantsViolet Metallic\")"
@@ -98,7 +98,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_008",
+        "case": "INV_MATLIB_008",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Metallic\")"
@@ -112,7 +112,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_009",
+        "case": "INV_MATLIB_009",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Pearlescent\")"
@@ -126,7 +126,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_010",
+        "case": "INV_MATLIB_010",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Solid\")"
@@ -140,7 +140,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_011",
+        "case": "INV_MATLIB_011",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Champagne Metallic\")"
@@ -154,7 +154,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_012",
+        "case": "INV_MATLIB_012",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"CherryGumball Solid\")"
@@ -168,7 +168,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_013",
+        "case": "INV_MATLIB_013",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"ChopTopSilver Metallic\")"
@@ -182,7 +182,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_014",
+        "case": "INV_MATLIB_014",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"CruiseNightBlue Metallic\")"
@@ -196,7 +196,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_015",
+        "case": "INV_MATLIB_015",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"DesertedTan Flat\")"
@@ -210,7 +210,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_016",
+        "case": "INV_MATLIB_016",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"EastwoodBluePearl Pearlescent\")"
@@ -224,7 +224,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_017",
+        "case": "INV_MATLIB_017",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"EastwoodRoyalBlue Metallic\")"
@@ -238,7 +238,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_018",
+        "case": "INV_MATLIB_018",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"ElectricYellow Solid\")"
@@ -252,7 +252,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_019",
+        "case": "INV_MATLIB_019",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"EuroRacingGreen Metallic\")"
@@ -266,7 +266,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_020",
+        "case": "INV_MATLIB_020",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"EyeCandyGreen Solid\")"
@@ -280,7 +280,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_021",
+        "case": "INV_MATLIB_021",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"GasserGreen Pearlescent\")"
@@ -294,7 +294,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_022",
+        "case": "INV_MATLIB_022",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"HugginOrange Solid\")"
@@ -308,7 +308,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_023",
+        "case": "INV_MATLIB_023",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"LimeSqueezinGreen Solid\")"
@@ -322,7 +322,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_024",
+        "case": "INV_MATLIB_024",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"MalibuSunsetOrange Pearlescent\")"
@@ -336,7 +336,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_025",
+        "case": "INV_MATLIB_025",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"OrangeUBad Solid\")"
@@ -350,7 +350,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_026",
+        "case": "INV_MATLIB_026",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"PinupRed Solid\")"
@@ -364,7 +364,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_027",
+        "case": "INV_MATLIB_027",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"PlumCrazy Metallic\")"
@@ -378,7 +378,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_028",
+        "case": "INV_MATLIB_028",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"ProStreetRed Solid\")"
@@ -392,7 +392,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_029",
+        "case": "INV_MATLIB_029",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"PureWhite Solid\")"
@@ -406,7 +406,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_030",
+        "case": "INV_MATLIB_030",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"QuarterMileCandyRed Solid\")"
@@ -420,7 +420,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_031",
+        "case": "INV_MATLIB_031",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"RatRodblack Solid\")"
@@ -434,7 +434,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_032",
+        "case": "INV_MATLIB_032",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"ReptileRed Solid\")"
@@ -448,7 +448,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_033",
+        "case": "INV_MATLIB_033",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"RodzBerry Metallic\")"
@@ -462,7 +462,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_034",
+        "case": "INV_MATLIB_034",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"RottenLimeGreen Solid\")"
@@ -476,7 +476,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_035",
+        "case": "INV_MATLIB_035",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"SaltWaterTaffyTeal Metallic\")"
@@ -490,7 +490,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_036",
+        "case": "INV_MATLIB_036",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"StraightAxleRedPearl Pearlescent\")"
@@ -504,7 +504,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_037",
+        "case": "INV_MATLIB_037",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"SugarCoatItGold Metallic\")"
@@ -518,7 +518,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_038",
+        "case": "INV_MATLIB_038",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"TequilaLimeNGold Solid\")"
@@ -532,7 +532,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_039",
+        "case": "INV_MATLIB_039",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"TunnelRamGray Metallic\")"
@@ -546,7 +546,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_040",
+        "case": "INV_MATLIB_040",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"USABrightWhite Solid\")"
@@ -560,7 +560,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_041",
+        "case": "INV_MATLIB_041",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"USABrightWhiteFlat Solid\")"
@@ -574,7 +574,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_042",
+        "case": "INV_MATLIB_042",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"VinoRojo Solid\")"
@@ -588,7 +588,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_043",
+        "case": "INV_MATLIB_043",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Carbon Fiber\")"
@@ -602,7 +602,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_044",
+        "case": "INV_MATLIB_044",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Carbon Fiber Glossy\")"
@@ -616,7 +616,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_045",
+        "case": "INV_MATLIB_045",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Carbon Fiber GlossyCoat\")"
@@ -630,7 +630,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_046",
+        "case": "INV_MATLIB_046",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Carbon Fiber SemiGlossy\")"
@@ -644,7 +644,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_047",
+        "case": "INV_MATLIB_047",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"FiberGlass\")"
@@ -658,7 +658,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_048",
+        "case": "INV_MATLIB_048",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Concrete BrickCracks Grey\")"
@@ -672,7 +672,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_049",
+        "case": "INV_MATLIB_049",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Concrete PaintedCracks\")"
@@ -686,7 +686,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_050",
+        "case": "INV_MATLIB_050",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Concrete PaintedRough\")"
@@ -700,7 +700,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_051",
+        "case": "INV_MATLIB_051",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Concrete Stone\")"
@@ -714,7 +714,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_052",
+        "case": "INV_MATLIB_052",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Concrete Tiles\")"
@@ -728,7 +728,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_053",
+        "case": "INV_MATLIB_053",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Concrete WornBare\")"
@@ -742,7 +742,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_054",
+        "case": "INV_MATLIB_054",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Concrete WornBare SmoothBump\")"
@@ -756,7 +756,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_055",
+        "case": "INV_MATLIB_055",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Emissive Fluorescent Yellow\")"
@@ -770,7 +770,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_056",
+        "case": "INV_MATLIB_056",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Emissive Fluorescent Cyan\")"
@@ -784,7 +784,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_057",
+        "case": "INV_MATLIB_057",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Emissive Fluorescent Magenta\")"
@@ -798,7 +798,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_058",
+        "case": "INV_MATLIB_058",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Emissive Fluorescent White\")"
@@ -812,7 +812,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_059",
+        "case": "INV_MATLIB_059",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Emissive CoolLight\")"
@@ -826,7 +826,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_060",
+        "case": "INV_MATLIB_060",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Aluminium Anodized\")"
@@ -840,7 +840,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_061",
+        "case": "INV_MATLIB_061",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Aluminium Directional\")"
@@ -854,7 +854,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_062",
+        "case": "INV_MATLIB_062",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Aluminium Oxidiazed\")"
@@ -868,7 +868,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_063",
+        "case": "INV_MATLIB_063",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Aluminium Polished\")"
@@ -882,7 +882,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_064",
+        "case": "INV_MATLIB_064",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Aluminium SandBlasted\")"
@@ -896,7 +896,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_065",
+        "case": "INV_MATLIB_065",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brass Matte\")"
@@ -910,7 +910,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_066",
+        "case": "INV_MATLIB_066",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brass Cartridge\")"
@@ -924,7 +924,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_067",
+        "case": "INV_MATLIB_067",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brass Oxidized\")"
@@ -938,7 +938,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_068",
+        "case": "INV_MATLIB_068",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brass Patinated\")"
@@ -952,7 +952,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_069",
+        "case": "INV_MATLIB_069",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brass Standard\")"
@@ -966,7 +966,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_070",
+        "case": "INV_MATLIB_070",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Bronze Corrision\")"
@@ -980,7 +980,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_071",
+        "case": "INV_MATLIB_071",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Bronze Matte\")"
@@ -994,7 +994,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_072",
+        "case": "INV_MATLIB_072",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Bronze Oxidized\")"
@@ -1008,7 +1008,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_073",
+        "case": "INV_MATLIB_073",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Bronze Polished2\")"
@@ -1022,7 +1022,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_074",
+        "case": "INV_MATLIB_074",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Bronze Rough\")"
@@ -1036,7 +1036,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_075",
+        "case": "INV_MATLIB_075",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Chrome Dusty\")"
@@ -1050,7 +1050,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_076",
+        "case": "INV_MATLIB_076",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Chrome Matte\")"
@@ -1064,7 +1064,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_077",
+        "case": "INV_MATLIB_077",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Chrome Sandblasted\")"
@@ -1078,7 +1078,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_078",
+        "case": "INV_MATLIB_078",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Chrome Scratched\")"
@@ -1092,7 +1092,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_079",
+        "case": "INV_MATLIB_079",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Copper Brushed2\")"
@@ -1106,7 +1106,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_080",
+        "case": "INV_MATLIB_080",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Copper Dented\")"
@@ -1120,7 +1120,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_081",
+        "case": "INV_MATLIB_081",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Copper Old\")"
@@ -1134,7 +1134,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_082",
+        "case": "INV_MATLIB_082",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Copper Wrought\")"
@@ -1148,7 +1148,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_083",
+        "case": "INV_MATLIB_083",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Generic\")"
@@ -1162,7 +1162,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_084",
+        "case": "INV_MATLIB_084",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Gold\")"
@@ -1176,7 +1176,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_085",
+        "case": "INV_MATLIB_085",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Gold Foil Rough\")"
@@ -1190,7 +1190,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_086",
+        "case": "INV_MATLIB_086",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Gold Paint\")"
@@ -1204,7 +1204,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_087",
+        "case": "INV_MATLIB_087",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Gold Paint Cracked\")"
@@ -1218,7 +1218,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_088",
+        "case": "INV_MATLIB_088",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Gold Rough\")"
@@ -1232,7 +1232,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_089",
+        "case": "INV_MATLIB_089",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Iron Hammered\")"
@@ -1246,7 +1246,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_090",
+        "case": "INV_MATLIB_090",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Iron Oxidized\")"
@@ -1260,7 +1260,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_091",
+        "case": "INV_MATLIB_091",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Iron Rugged\")"
@@ -1274,7 +1274,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_092",
+        "case": "INV_MATLIB_092",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Iron Smooth\")"
@@ -1288,7 +1288,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_093",
+        "case": "INV_MATLIB_093",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Iron Worn\")"
@@ -1302,7 +1302,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_094",
+        "case": "INV_MATLIB_094",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Lead Rough\")"
@@ -1316,7 +1316,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_095",
+        "case": "INV_MATLIB_095",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Lead Rusted\")"
@@ -1330,7 +1330,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_096",
+        "case": "INV_MATLIB_096",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Lead Sandblasted\")"
@@ -1344,7 +1344,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_097",
+        "case": "INV_MATLIB_097",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Lead Smooth\")"
@@ -1358,7 +1358,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_098",
+        "case": "INV_MATLIB_098",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
@@ -1372,7 +1372,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_099",
+        "case": "INV_MATLIB_099",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Steel Galvanized\")"
@@ -1386,7 +1386,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_100",
+        "case": "INV_MATLIB_100",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Steel Oxidized\")"
@@ -1400,7 +1400,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_101",
+        "case": "INV_MATLIB_101",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Steel Smooth\")"
@@ -1414,7 +1414,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_102",
+        "case": "INV_MATLIB_102",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Steel Worn\")"
@@ -1428,7 +1428,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_103",
+        "case": "INV_MATLIB_103",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Fabric Matte Solid Beige\")"
@@ -1442,7 +1442,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_104",
+        "case": "INV_MATLIB_104",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Fabric Matte Solid Red\")"
@@ -1456,7 +1456,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_105",
+        "case": "INV_MATLIB_105",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Fabric Matte Transparent Beige\")"
@@ -1470,7 +1470,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_106",
+        "case": "INV_MATLIB_106",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Fabric Matte Transparent Red\")"
@@ -1484,7 +1484,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_107",
+        "case": "INV_MATLIB_107",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Fabric Silk\")"
@@ -1498,7 +1498,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_108",
+        "case": "INV_MATLIB_108",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Fur Carpet Displacement\")"
@@ -1512,7 +1512,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_109",
+        "case": "INV_MATLIB_109",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass antique\")"
@@ -1526,7 +1526,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_110",
+        "case": "INV_MATLIB_110",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass CarBreakLight\")"
@@ -1540,7 +1540,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_111",
+        "case": "INV_MATLIB_111",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass CarHeadLight\")"
@@ -1554,7 +1554,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_112",
+        "case": "INV_MATLIB_112",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass CarIndicatorLight\")"
@@ -1568,7 +1568,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_113",
+        "case": "INV_MATLIB_113",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Clear Window\")"
@@ -1582,7 +1582,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_114",
+        "case": "INV_MATLIB_114",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Solid Blue\")"
@@ -1596,7 +1596,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_115",
+        "case": "INV_MATLIB_115",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Solid Brown\")"
@@ -1610,7 +1610,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_116",
+        "case": "INV_MATLIB_116",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Solid Clear\")"
@@ -1624,7 +1624,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_117",
+        "case": "INV_MATLIB_117",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Solid Clear Scratched\")"
@@ -1638,7 +1638,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_118",
+        "case": "INV_MATLIB_118",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Solid Frosted\")"
@@ -1652,7 +1652,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_119",
+        "case": "INV_MATLIB_119",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Solid Green\")"
@@ -1666,7 +1666,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_120",
+        "case": "INV_MATLIB_120",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Solid GreenBlue\")"
@@ -1680,7 +1680,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_121",
+        "case": "INV_MATLIB_121",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Solid GreenBlue Scratched\")"
@@ -1694,7 +1694,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_122",
+        "case": "INV_MATLIB_122",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Solid Red\")"
@@ -1708,7 +1708,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_123",
+        "case": "INV_MATLIB_123",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Solid Tinted\")"
@@ -1722,7 +1722,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_124",
+        "case": "INV_MATLIB_124",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Solid Yellow\")"
@@ -1736,7 +1736,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_125",
+        "case": "INV_MATLIB_125",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Thin Bronze\")"
@@ -1750,7 +1750,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_126",
+        "case": "INV_MATLIB_126",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Thin Green\")"
@@ -1764,7 +1764,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_127",
+        "case": "INV_MATLIB_127",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Tinted Dark\")"
@@ -1778,7 +1778,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_128",
+        "case": "INV_MATLIB_128",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Glass Used\")"
@@ -1792,7 +1792,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_129",
+        "case": "INV_MATLIB_129",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Mirror\")"
@@ -1806,7 +1806,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_130",
+        "case": "INV_MATLIB_130",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Ground Dark\")"
@@ -1820,7 +1820,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_131",
+        "case": "INV_MATLIB_131",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Ground Dark Displacement\")"
@@ -1834,7 +1834,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_132",
+        "case": "INV_MATLIB_132",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Ground Grass\")"
@@ -1848,7 +1848,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_133",
+        "case": "INV_MATLIB_133",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Ground Grass Cut Displacement\")"
@@ -1862,7 +1862,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_134",
+        "case": "INV_MATLIB_134",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Ground Grass Displacement\")"
@@ -1876,7 +1876,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_135",
+        "case": "INV_MATLIB_135",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Jewels Diamond\")"
@@ -1890,7 +1890,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_136",
+        "case": "INV_MATLIB_136",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Jewels Emerald\")"
@@ -1904,7 +1904,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_137",
+        "case": "INV_MATLIB_137",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Jewels Ruby\")"
@@ -1918,7 +1918,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_138",
+        "case": "INV_MATLIB_138",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Leather Beige\")"
@@ -1932,7 +1932,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_139",
+        "case": "INV_MATLIB_139",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Leather Black\")"
@@ -1946,7 +1946,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_140",
+        "case": "INV_MATLIB_140",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Leather Brown\")"
@@ -1960,7 +1960,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_141",
+        "case": "INV_MATLIB_141",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Liquids Alcohol Champagne\")"
@@ -1974,7 +1974,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_142",
+        "case": "INV_MATLIB_142",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Water Transparent\")"
@@ -1988,7 +1988,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_143",
+        "case": "INV_MATLIB_143",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Water Transparent Bump\")"
@@ -2002,7 +2002,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_144",
+        "case": "INV_MATLIB_144",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Water Transparent Displacement\")"
@@ -2016,7 +2016,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_145",
+        "case": "INV_MATLIB_145",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Black\")"
@@ -2030,7 +2030,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_146",
+        "case": "INV_MATLIB_146",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Bue\")"
@@ -2044,7 +2044,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_147",
+        "case": "INV_MATLIB_147",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Dark Grey\")"
@@ -2058,7 +2058,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_148",
+        "case": "INV_MATLIB_148",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Ice Silver\")"
@@ -2072,7 +2072,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_149",
+        "case": "INV_MATLIB_149",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Indy Yellow\")"
@@ -2086,7 +2086,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_150",
+        "case": "INV_MATLIB_150",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Inferno\")"
@@ -2100,7 +2100,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_151",
+        "case": "INV_MATLIB_151",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Jasmine Green\")"
@@ -2114,7 +2114,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_152",
+        "case": "INV_MATLIB_152",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Lapis Blue\")"
@@ -2128,7 +2128,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_153",
+        "case": "INV_MATLIB_153",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Lava Red\")"
@@ -2142,7 +2142,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_154",
+        "case": "INV_MATLIB_154",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint North Grey\")"
@@ -2156,7 +2156,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_155",
+        "case": "INV_MATLIB_155",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Tungsten\")"
@@ -2170,7 +2170,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_156",
+        "case": "INV_MATLIB_156",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Venetian Red\")"
@@ -2184,7 +2184,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_157",
+        "case": "INV_MATLIB_157",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Vibrant Violet\")"
@@ -2198,7 +2198,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_158",
+        "case": "INV_MATLIB_158",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Car Paint Wilderness Green\")"
@@ -2212,7 +2212,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_159",
+        "case": "INV_MATLIB_159",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Metallic Paint Matte Red\")"
@@ -2226,7 +2226,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_160",
+        "case": "INV_MATLIB_160",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Metallic Paint Red\")"
@@ -2240,7 +2240,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_161",
+        "case": "INV_MATLIB_161",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Metallic Paint Silver\")"
@@ -2254,7 +2254,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_162",
+        "case": "INV_MATLIB_162",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Scratched Metallic Paint Red\")"
@@ -2268,7 +2268,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_163",
+        "case": "INV_MATLIB_163",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Scratched Metallic Paint Yellow\")"
@@ -2282,13 +2282,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_164",
+        "case": "INV_MATLIB_164",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Aluminium Brushed\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Aluminium Brushed"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2296,13 +2296,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_165",
+        "case": "INV_MATLIB_165",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Aluminium Cast\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Aluminium Cast"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2310,13 +2310,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_166",
+        "case": "INV_MATLIB_166",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Aluminium Corrugated\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Aluminium Corrugated"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2324,13 +2324,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_167",
+        "case": "INV_MATLIB_167",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Aluminium Matte\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Aluminium Matte"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2338,13 +2338,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_168",
+        "case": "INV_MATLIB_168",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brass Brushed\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Brass Brushed"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2352,13 +2352,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_169",
+        "case": "INV_MATLIB_169",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brass Polished\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Brass Polished"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2366,13 +2366,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_170",
+        "case": "INV_MATLIB_170",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brass Satin\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Brass Satin"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2380,13 +2380,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_171",
+        "case": "INV_MATLIB_171",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Cast Iron\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Cast Iron"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2394,13 +2394,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_172",
+        "case": "INV_MATLIB_172",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Chrome\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Chrome"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2408,13 +2408,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_173",
+        "case": "INV_MATLIB_173",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Copper Brushed\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Copper Brushed"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2422,13 +2422,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_174",
+        "case": "INV_MATLIB_174",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Copper Polished\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Copper Polished"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2436,13 +2436,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_175",
+        "case": "INV_MATLIB_175",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Copper Satin\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Copper Satin"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2450,13 +2450,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_176",
+        "case": "INV_MATLIB_176",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Galvanized Steel\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Galvanized Steel"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2464,13 +2464,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_177",
+        "case": "INV_MATLIB_177",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Gun Metal\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Gun Metal"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2478,13 +2478,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_178",
+        "case": "INV_MATLIB_178",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Mercury\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Mercury"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2492,13 +2492,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_179",
+        "case": "INV_MATLIB_179",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Metal Plate\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Metal Plate"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2506,13 +2506,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_180",
+        "case": "INV_MATLIB_180",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rust Metal\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Rust Metal"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2520,13 +2520,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_181",
+        "case": "INV_MATLIB_181",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Stainless Steel\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Stainless Steel"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2534,13 +2534,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_182",
+        "case": "INV_MATLIB_182",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Stainless Steel Brushed\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Metals - Stainless Steel Brushed"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2548,13 +2548,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_183",
+        "case": "INV_MATLIB_183",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint EggShell LaserLemon\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint EggShell LaserLemon"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2562,13 +2562,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_184",
+        "case": "INV_MATLIB_184",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint EggShell SleekWhite\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint EggShell SleekWhite"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2576,13 +2576,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_185",
+        "case": "INV_MATLIB_185",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint EggShell SunValley\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint EggShell SunValley"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2590,13 +2590,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_186",
+        "case": "INV_MATLIB_186",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint EggShell Tanzanite\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint EggShell Tanzanite"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2604,13 +2604,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_187",
+        "case": "INV_MATLIB_187",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint EggShell TartOrange\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint EggShell TartOrange"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2618,13 +2618,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_188",
+        "case": "INV_MATLIB_188",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint EggShell TropicalSea\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint EggShell TropicalSea"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2632,13 +2632,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_189",
+        "case": "INV_MATLIB_189",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Flat LaserLemon\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Flat LaserLemon"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2646,13 +2646,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_190",
+        "case": "INV_MATLIB_190",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Flat SleekWhite\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Flat SleekWhite"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2660,13 +2660,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_191",
+        "case": "INV_MATLIB_191",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Flat SunValley\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Flat SunValley"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2674,13 +2674,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_192",
+        "case": "INV_MATLIB_192",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Flat Tanzanite\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Flat Tanzanite"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2688,13 +2688,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_193",
+        "case": "INV_MATLIB_193",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Flat TartOrange\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Flat TartOrange"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2702,13 +2702,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_194",
+        "case": "INV_MATLIB_194",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Flat TawnyDayLily\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Flat TawnyDayLily"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2716,13 +2716,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_195",
+        "case": "INV_MATLIB_195",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Flat TropicalSea\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Flat TropicalSea"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2730,13 +2730,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_196",
+        "case": "INV_MATLIB_196",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Flat VoilePink\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Flat VoilePink"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2744,13 +2744,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_197",
+        "case": "INV_MATLIB_197",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Glossy LaserLemon\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Glossy LaserLemon"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2758,13 +2758,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_198",
+        "case": "INV_MATLIB_198",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Glossy SleekWhite\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Glossy SleekWhite"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2772,13 +2772,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_199",
+        "case": "INV_MATLIB_199",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Glossy SunValley\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Glossy SunValley"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2786,13 +2786,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_200",
+        "case": "INV_MATLIB_200",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Glossy Tanzanite\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Glossy Tanzanite"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2800,13 +2800,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_201",
+        "case": "INV_MATLIB_201",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BarnFindOrange Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Glossy TartOrange\")"
         ],
         "script_info": [
-            "Car Paints - BarnFindOrange Solid"
+            "Paint - Paint Glossy TartOrange"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2814,13 +2814,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_202",
+        "case": "INV_MATLIB_202",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Paint Glossy TropicalSea\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Paint - Paint Glossy TropicalSea"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2828,13 +2828,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_203",
+        "case": "INV_MATLIB_203",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Plastic Glossy Black\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Plastic - Plastic Glossy Black"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2842,13 +2842,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_204",
+        "case": "INV_MATLIB_204",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Plastic Glossy Red\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Plastic - Plastic Glossy Red"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2856,13 +2856,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_205",
+        "case": "INV_MATLIB_205",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Plastic Matte Black\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Plastic - Plastic Matte Black"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2870,13 +2870,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_206",
+        "case": "INV_MATLIB_206",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Plastic Matte Red\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Plastic - Plastic Matte Red"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2884,13 +2884,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_207",
+        "case": "INV_MATLIB_207",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Plastic Matte White\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Plastic - Plastic Matte White"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2898,13 +2898,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_208",
+        "case": "INV_MATLIB_208",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Styrofoam\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Plastic - Styrofoam"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2912,13 +2912,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_209",
+        "case": "INV_MATLIB_209",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Porcelain Black\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Porcelain - Porcelain Black"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2926,13 +2926,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_210",
+        "case": "INV_MATLIB_210",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Porcelain Blue\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Porcelain - Porcelain Blue"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2940,13 +2940,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_211",
+        "case": "INV_MATLIB_211",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Porcelain Cracked white\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Porcelain - Porcelain Cracked white"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2954,13 +2954,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_212",
+        "case": "INV_MATLIB_212",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Porcelain Matte White\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Porcelain - Porcelain Matte White"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2968,7 +2968,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_213",
+        "case": "INV_MATLIB_213",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
@@ -2982,13 +2982,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_214",
+        "case": "INV_MATLIB_214",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Porcelain New White\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Porcelain - Porcelain New White"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -2996,13 +2996,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_215",
+        "case": "INV_MATLIB_215",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Porcelain Old White\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Porcelain - Porcelain Old White"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3010,13 +3010,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_216",
+        "case": "INV_MATLIB_216",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Porcelain White\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Porcelain - Porcelain White"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3024,13 +3024,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_217",
+        "case": "INV_MATLIB_217",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Bronze Polished\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "PreciousMetals - Bronze Polished"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3038,13 +3038,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_218",
+        "case": "INV_MATLIB_218",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Bronze Satin\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "PreciousMetals - Bronze Satin"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3052,13 +3052,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_219",
+        "case": "INV_MATLIB_219",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Gold Brushed\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "PreciousMetals - Gold Brushed"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3066,13 +3066,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_220",
+        "case": "INV_MATLIB_220",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Gold Polished\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "PreciousMetals - Gold Polished"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3080,13 +3080,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_221",
+        "case": "INV_MATLIB_221",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Gold Satin\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "PreciousMetals - Gold Satin"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3094,13 +3094,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_222",
+        "case": "INV_MATLIB_222",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Silver Brushed\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "PreciousMetals - Silver Brushed"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3108,13 +3108,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_223",
+        "case": "INV_MATLIB_223",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Silver Polished\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "PreciousMetals - Silver Polished"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3122,13 +3122,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_224",
+        "case": "INV_MATLIB_224",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Silver Satin\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "PreciousMetals - Silver Satin"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3136,13 +3136,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_225",
+        "case": "INV_MATLIB_225",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brick Basic V2\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Brick Basic V2"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3150,13 +3150,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_226",
+        "case": "INV_MATLIB_226",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brick Color Displacement\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Brick Color Displacement"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3164,13 +3164,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_227",
+        "case": "INV_MATLIB_227",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brick Damage\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Brick Damage"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3178,13 +3178,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_228",
+        "case": "INV_MATLIB_228",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brick Irregular\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Brick Irregular"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3192,13 +3192,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_229",
+        "case": "INV_MATLIB_229",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brick Natural V1\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Brick Natural V1"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3206,13 +3206,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_230",
+        "case": "INV_MATLIB_230",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brick Old V2\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Brick Old V2"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3220,13 +3220,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_231",
+        "case": "INV_MATLIB_231",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Brick Old V3\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Brick Old V3"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3234,13 +3234,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_232",
+        "case": "INV_MATLIB_232",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Stone Cladding\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Stone Cladding"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3248,13 +3248,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_233",
+        "case": "INV_MATLIB_233",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Stone Granit BWB\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Stone Granit BWB"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3262,13 +3262,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_234",
+        "case": "INV_MATLIB_234",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Stone Marble Blue\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Stone Marble Blue"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3276,13 +3276,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_235",
+        "case": "INV_MATLIB_235",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Stone Marble Blue Matte\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Stone Marble Blue Matte"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3290,13 +3290,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_236",
+        "case": "INV_MATLIB_236",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Stone Marble Grey\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Stone Marble Grey"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3304,13 +3304,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_237",
+        "case": "INV_MATLIB_237",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Stone Marble Pink\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Stone Marble Pink"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3318,13 +3318,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_238",
+        "case": "INV_MATLIB_238",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Stone Marble Pink Matte\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Stone Marble Pink Matte"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3332,13 +3332,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_239",
+        "case": "INV_MATLIB_239",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Stone Marble Yellow Matte\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Stone Marble Yellow Matte"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3346,13 +3346,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_240",
+        "case": "INV_MATLIB_240",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Stone Rough Marble\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Stone - Stone Rough Marble"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3360,13 +3360,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_241",
+        "case": "INV_MATLIB_241",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Floor Ceramic Tiles Checker\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Tiles - Floor Ceramic Tiles Checker"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3374,13 +3374,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_242",
+        "case": "INV_MATLIB_242",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Floor Ceramic Tiles Color\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Tiles - Floor Ceramic Tiles Color"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3388,13 +3388,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_243",
+        "case": "INV_MATLIB_243",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Floor Ceramic Tiles Color Variation 8x8\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Tiles - Floor Ceramic Tiles Color Variation 8x8"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3402,13 +3402,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_244",
+        "case": "INV_MATLIB_244",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Floor Tiles Rustic Color 4x4\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Tiles - Floor Tiles Rustic Color 4x4"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3416,13 +3416,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_245",
+        "case": "INV_MATLIB_245",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Tiling BeigeMarble\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Tiles - Tiling BeigeMarble"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3430,13 +3430,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_246",
+        "case": "INV_MATLIB_246",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Tiling Blue Checkered\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Tiles - Tiling Blue Checkered"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3444,13 +3444,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_247",
+        "case": "INV_MATLIB_247",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Tiling BlueMarble\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Tiles - Tiling BlueMarble"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3458,13 +3458,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_248",
+        "case": "INV_MATLIB_248",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Tiling Checkered\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Tiles - Tiling Checkered"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3472,13 +3472,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_249",
+        "case": "INV_MATLIB_249",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Tiling Old\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Tiles - Tiling Old"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3486,13 +3486,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_250",
+        "case": "INV_MATLIB_250",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Tiling White\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Tiles - Tiling White"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3500,13 +3500,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_251",
+        "case": "INV_MATLIB_251",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Tiling White marble\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Render Tiles - Tiling White marble"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3514,13 +3514,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_252",
+        "case": "INV_MATLIB_252",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Roofing ClayShingles Beige\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Roofing - Roofing ClayShingles Beige"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3528,13 +3528,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_253",
+        "case": "INV_MATLIB_253",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Roofing CorrugatedIron\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Roofing - Roofing CorrugatedIron"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3542,13 +3542,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_254",
+        "case": "INV_MATLIB_254",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Roofing RedClay Tiles\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Roofing - Roofing RedClay Tiles"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3556,13 +3556,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_255",
+        "case": "INV_MATLIB_255",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber Bumpy\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber Bumpy"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3570,13 +3570,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_256",
+        "case": "INV_MATLIB_256",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber Diamonds\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber Diamonds"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3584,13 +3584,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_257",
+        "case": "INV_MATLIB_257",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber Ribbed\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber Ribbed"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3598,13 +3598,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_258",
+        "case": "INV_MATLIB_258",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber Smooth Clear\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber Smooth Clear"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3612,13 +3612,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_259",
+        "case": "INV_MATLIB_259",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber SmoothMatte\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber SmoothMatte"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3626,13 +3626,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_260",
+        "case": "INV_MATLIB_260",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber SmoothMatte Black\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber SmoothMatte Black"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3640,13 +3640,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_261",
+        "case": "INV_MATLIB_261",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber SmoothMatte Blue\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber SmoothMatte Blue"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3654,13 +3654,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_262",
+        "case": "INV_MATLIB_262",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber SmoothMatte Green\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber SmoothMatte Green"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3668,13 +3668,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_263",
+        "case": "INV_MATLIB_263",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber SmoothMatte Red\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber SmoothMatte Red"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3682,13 +3682,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_264",
+        "case": "INV_MATLIB_264",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber SmoothShiny\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber SmoothShiny"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3696,13 +3696,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_265",
+        "case": "INV_MATLIB_265",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber SmoothShiny Black\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber SmoothShiny Black"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3710,13 +3710,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_266",
+        "case": "INV_MATLIB_266",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber SmoothShiny Blue\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber SmoothShiny Blue"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3724,13 +3724,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_267",
+        "case": "INV_MATLIB_267",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber SmoothShiny Green\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber SmoothShiny Green"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3738,13 +3738,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_268",
+        "case": "INV_MATLIB_268",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber SmoothShiny Red\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber SmoothShiny Red"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3752,13 +3752,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_269",
+        "case": "INV_MATLIB_269",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Rubber Used\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Rubber - Rubber Used"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3766,13 +3766,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_270",
+        "case": "INV_MATLIB_270",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Acrylic Refractive Glossy Green\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "TransparentPlastic - Acrylic Refractive Glossy Green"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3780,13 +3780,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_271",
+        "case": "INV_MATLIB_271",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Acrylic Refractive Glossy Neon Green\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "TransparentPlastic - Acrylic Refractive Glossy Neon Green"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3794,13 +3794,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_272",
+        "case": "INV_MATLIB_272",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Acrylic Refractive Glossy Neon Orange\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "TransparentPlastic - Acrylic Refractive Glossy Neon Orange"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3808,13 +3808,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_273",
+        "case": "INV_MATLIB_273",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Acrylic Refractive Glossy Red\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "TransparentPlastic - Acrylic Refractive Glossy Red"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3822,13 +3822,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_274",
+        "case": "INV_MATLIB_274",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Acrylic Refractive Matte Green\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "TransparentPlastic - Acrylic Refractive Matte Green"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3836,13 +3836,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_275",
+        "case": "INV_MATLIB_275",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Acrylic Refractive Matte Red\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "TransparentPlastic - Acrylic Refractive Matte Red"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3850,13 +3850,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_276",
+        "case": "INV_MATLIB_276",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Acrylic Transparent Matte Red\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "TransparentPlastic - Acrylic Transparent Matte Red"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3864,13 +3864,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_277",
+        "case": "INV_MATLIB_277",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Acrylic Transparent Glossy Red\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "TransparentPlastic - Acrylic Transparent Glossy Red"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3878,13 +3878,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_278",
+        "case": "INV_MATLIB_278",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Plastic Transparent Solid ClearBlue\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "TransparentPlastic - Plastic Transparent Solid ClearBlue"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3892,13 +3892,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_279",
+        "case": "INV_MATLIB_279",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Plastic Transparent Thin ClearBlue\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "TransparentPlastic - Plastic Transparent Thin ClearBlue"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3906,13 +3906,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_280",
+        "case": "INV_MATLIB_280",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Colored Glass\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Volume - Colored Glass"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3920,13 +3920,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_281",
+        "case": "INV_MATLIB_281",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Jade\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Volume - Jade"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3934,13 +3934,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_282",
+        "case": "INV_MATLIB_282",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Milk\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Volume - Milk"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3948,13 +3948,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_283",
+        "case": "INV_MATLIB_283",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wax\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Volume - Wax"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3962,13 +3962,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_284",
+        "case": "INV_MATLIB_284",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Bark\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Bark"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3976,13 +3976,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_285",
+        "case": "INV_MATLIB_285",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Beech Glossy\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Beech Glossy"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -3990,13 +3990,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_286",
+        "case": "INV_MATLIB_286",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Beech Unfinished\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Beech Unfinished"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4004,13 +4004,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_287",
+        "case": "INV_MATLIB_287",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Cedar Glossy\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Cedar Glossy"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4018,13 +4018,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_288",
+        "case": "INV_MATLIB_288",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Cedar Unfinished\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Cedar Unfinished"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4032,13 +4032,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_289",
+        "case": "INV_MATLIB_289",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Clear Rustic\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Clear Rustic"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4046,13 +4046,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_290",
+        "case": "INV_MATLIB_290",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Mahogany Glossy\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Mahogany Glossy"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4060,13 +4060,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_291",
+        "case": "INV_MATLIB_291",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Mahogany Unfinished\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Mahogany Unfinished"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4074,13 +4074,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_292",
+        "case": "INV_MATLIB_292",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Maple Glossy\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Maple Glossy"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4088,13 +4088,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_293",
+        "case": "INV_MATLIB_293",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Maple Unfinished\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Maple Unfinished"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4102,13 +4102,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_294",
+        "case": "INV_MATLIB_294",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Natural Maple\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Natural Maple"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4116,13 +4116,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_295",
+        "case": "INV_MATLIB_295",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Oak Glossy\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Oak Glossy"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4130,13 +4130,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_296",
+        "case": "INV_MATLIB_296",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Oak Unfinished\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Oak Unfinished"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4144,13 +4144,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_297",
+        "case": "INV_MATLIB_297",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Planks Oak Glossy\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Planks Oak Glossy"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4158,13 +4158,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_298",
+        "case": "INV_MATLIB_298",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Planks Oak Unfinished\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Planks Oak Unfinished"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4172,13 +4172,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_299",
+        "case": "INV_MATLIB_299",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Rustic\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Rustic"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4186,13 +4186,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_300",
+        "case": "INV_MATLIB_300",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Rustic Cherry\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Rustic Cherry"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4200,13 +4200,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_301",
+        "case": "INV_MATLIB_301",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Wenge Glossy\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Wenge Glossy"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -4214,13 +4214,13 @@
         "keep_tools": true
     },
     {
-        "case": "USD_MATLIB_302",
+        "case": "INV_MATLIB_302",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Wood Wenge Unfinished\")"
         ],
         "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
+            "Wood - Wood Wenge Unfinished"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
