@@ -131,3 +131,11 @@ def save_temp_image(args, case, current_try, screens_path):
 
     if not os.path.exists(image_path):
         raise Exception("USD Viewer doesn't work after closing of scene")
+
+
+def select_pool_bottom_part(args, case, current_try, screens_path):
+    # Select bottom part of Pool scene by click
+    utils.case_logger.info("Select bottom part of Pool scene")
+    select_part_x = 935
+    select_part_y = 760
+    utils.move_and_click(args, case, current_try, select_part_x, select_part_y, "select_part", screens_path)

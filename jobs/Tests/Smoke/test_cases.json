@@ -89,7 +89,7 @@
     },
     {
         "case": "INV_SM_006",
-        "status": "skipped",
+        "status": "active",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
@@ -150,6 +150,25 @@
             "Check workability of USD Viewer after closing of scene"
         ],
         "scene": "TestScene\\test_scene.iam",
+        "open_time": 10
+    },
+    {
+        "case": "INV_SM_009",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"materials\", screens_path)",
+            "utils.zoom_scene(args, case, current_try, screens_path, 3, -1)",
+            "getattr(group_module, \"select_pool_bottom_part\")(args, case, current_try, screens_path)",
+            "utils.select_material(args, case, current_try, \"Wood Beech Unfinished\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Material - Wood Beech Unfinished"
+        ],
+        "scene": "Pool\\Assembly2.iam",
         "open_time": 10
     }
 ]
