@@ -588,7 +588,7 @@ def zoom_scene(args, case, current_try, screens_path, scroll_times, scroll_direc
     case_logger.info("Zoom scene {} times. Scroll direction: {}".format(scroll_times, scroll_direction))
     scene_x = 900
     scene_y = 550
-    moveTo(scene_x, scene_y)
+    move_and_click(args, case, current_try, scene_x, scene_y, "zoom", screens_path)
     sleep(1)
     for i in range(scroll_times):
         pyautogui.scroll(1000 * scroll_direction)

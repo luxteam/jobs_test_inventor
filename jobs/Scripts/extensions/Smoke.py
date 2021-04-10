@@ -2,6 +2,7 @@ import os
 import sys
 from time import sleep
 import pyautogui
+import win32gui
 
 sys.path.append(os.path.abspath(os.path.join(
     os.path.dirname(__file__), os.path.pardir)))
@@ -136,6 +137,7 @@ def save_temp_image(args, case, current_try, screens_path):
 def select_pool_bottom_part(args, case, current_try, screens_path):
     # Select bottom part of Pool scene by click
     utils.case_logger.info("Select bottom part of Pool scene")
-    select_part_x = 935
-    select_part_y = 700
+    inventor_window_rect = utils.get_window_rect(win32gui.FindWindow(None, "{}".format(args.tool_name)))
+    select_part_x = 1300
+    select_part_y = inventor_window_rect[3] - 30
     utils.move_and_click(args, case, current_try, select_part_x, select_part_y, "select_part", screens_path)
