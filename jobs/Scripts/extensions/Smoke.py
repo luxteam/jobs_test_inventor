@@ -138,6 +138,6 @@ def select_pool_bottom_part(args, case, current_try, screens_path):
     # Select bottom part of Pool scene by click
     utils.case_logger.info("Select bottom part of Pool scene")
     inventor_window_rect = utils.get_window_rect(win32gui.FindWindow(None, "{}".format(args.tool_name)))
-    select_part_x = 1300
-    select_part_y = inventor_window_rect[3] - 30
+    select_part_x = 725
+    select_part_y = inventor_window_rect[3] - 415
     utils.move_and_click(args, case, current_try, select_part_x, select_part_y, "select_part", screens_path)
