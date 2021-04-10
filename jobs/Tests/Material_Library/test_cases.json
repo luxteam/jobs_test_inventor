@@ -2971,20 +2971,6 @@
         "case": "INV_MATLIB_213",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"BasketCaseBlue Solid\")"
-        ],
-        "script_info": [
-            "Car Paints - BasketCaseBlue Solid"
-        ],
-        "scene": "Desk\\Desk.iam",
-        "open_time": 10,
-        "render_delay": 5,
-        "keep_tools": true
-    },
-    {
-        "case": "INV_MATLIB_214",
-        "status": "active",
-        "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Porcelain New White\")"
         ],
         "script_info": [
@@ -2996,7 +2982,7 @@
         "keep_tools": true
     },
     {
-        "case": "INV_MATLIB_215",
+        "case": "INV_MATLIB_214",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Porcelain Old White\")"
@@ -3010,13 +2996,27 @@
         "keep_tools": true
     },
     {
-        "case": "INV_MATLIB_216",
+        "case": "INV_MATLIB_215",
         "status": "active",
         "functions": [
             "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Porcelain White\")"
         ],
         "script_info": [
             "Porcelain - Porcelain White"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 5,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_MATLIB_216",
+        "status": "active",
+        "functions": [
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Bronze Brushed\")"
+        ],
+        "script_info": [
+            "PreciousMetals - Bronze Brushed"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
