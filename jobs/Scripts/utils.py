@@ -403,7 +403,7 @@ def set_lightning(args, case, current_try, lightning_name, screens_path):
     move_and_click(args, case, current_try, lightning_item_x, lightning_item_y, "lightning_item", screens_path)
 
 
-def select_material(args, case, current_try, material_name, screens_path):
+def select_material(args, case, current_try, material_name, screens_path, material_in_row = 1, material_row = 1):
     # Search material name
     case_logger.info("Set material: {}".format(material_name))
     material_name_field_x = win32api.GetSystemMetrics(0) - 320
@@ -422,7 +422,20 @@ def select_material(args, case, current_try, material_name, screens_path):
     # Select material
     material_item_x = win32api.GetSystemMetrics(0) - 540
     material_item_y = 285
-    move_and_click(args, case, current_try, material_item_x, material_item_y, "material_item", screens_path)
+    # Consider number of material in row of materials presets
+    material_item_x += (material_in_row - 1) * 137
+
+    moveTo(material_item_x, material_item_y)
+    # Scroll to necessary row with presets
+    for i in range(material_row - 1):
+        pyautogui.scroll(-1000)
+        sleep(0.2)
+        pyautogui.scroll(-1000)
+        sleep(0.2)
+    make_screen(screens_path, "before_material_clicked_{}_try_{}.jpg".format(case["case"], current_try))
+    pyautogui.click()
+    sleep(1)
+    make_screen(screens_path, "after_material_clicked_{}_try_{}.jpg".format(case["case"], current_try))
 
 
 def open_inventor_tab(args, case, current_try, tab_name, screens_path):

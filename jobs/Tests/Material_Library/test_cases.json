@@ -1165,7 +1165,7 @@
         "case": "INV_MATLIB_084",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Gold\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Gold\", 3)"
         ],
         "script_info": [
             "ExtendedMetals - Gold"
@@ -2397,7 +2397,7 @@
         "case": "INV_MATLIB_172",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Chrome\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Chrome\", 1, 2)"
         ],
         "script_info": [
             "Metals - Chrome"
@@ -2411,7 +2411,7 @@
         "case": "INV_MATLIB_173",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Copper Brushed\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Copper Brushed\", 2)"
         ],
         "script_info": [
             "Metals - Copper Brushed"
@@ -3027,7 +3027,7 @@
         "case": "INV_MATLIB_217",
         "status": "active",
         "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Bronze Polished\")"
+            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Bronze Polished\", 2)"
         ],
         "script_info": [
             "PreciousMetals - Bronze Polished"
