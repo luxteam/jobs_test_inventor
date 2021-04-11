@@ -1,6 +1,6 @@
 [
     {
-        "case": "USD_VP_006",
+        "case": "INV_VP_006",
         "status": "active",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
@@ -17,7 +17,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_VP_007",
+        "case": "INV_VP_007",
         "status": "active",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
@@ -34,7 +34,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_VP_008",
+        "case": "INV_VP_008",
         "status": "active",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
@@ -51,7 +51,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_VP_009",
+        "case": "INV_VP_009",
         "status": "active",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
@@ -68,7 +68,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_VP_010",
+        "case": "INV_VP_010",
         "status": "active",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
@@ -85,7 +85,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_VP_001",
+        "case": "INV_VP_001",
         "status": "active",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
@@ -103,7 +103,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_VP_002",
+        "case": "INV_VP_002",
         "status": "skipped",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
@@ -120,7 +120,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_VP_003",
+        "case": "INV_VP_003",
         "status": "skipped",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
@@ -137,7 +137,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_VP_004",
+        "case": "INV_VP_004",
         "status": "skipped",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
@@ -154,7 +154,7 @@
         "keep_tools": true
     },
     {
-        "case": "USD_VP_005",
+        "case": "INV_VP_005",
         "status": "skipped",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",

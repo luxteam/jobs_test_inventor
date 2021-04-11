@@ -29,6 +29,21 @@ def copy_test_cases(args):
         os.path.realpath(os.path.join(os.path.abspath(
             args.output), 'test_cases.json')))
 
+    with open(os.path.join(os.path.abspath(args.output), "test_cases.json"), "r") as json_file:
+        cases = json.load(json_file)
+
+    if os.path.exists(args.test_cases) and args.test_cases:
+        with open(args.test_cases) as file:
+            # FIXME remove '_' - MatLib group ducktape
+            test_cases = json.load(file)['groups'][args.test_group.replace("_", "")]
+            if test_cases:
+                necessary_cases = [
+                    item for item in cases if item['case'] in test_cases]
+                cases = necessary_cases
+
+        with open(os.path.join(args.output, 'test_cases.json'), "w+") as file:
+            json.dump(cases, file, indent=4)
+
 
 def copy_baselines(args, case, baseline_path, baseline_path_tr):
     try:

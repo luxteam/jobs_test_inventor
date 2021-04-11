@@ -406,7 +406,7 @@ def set_lightning(args, case, current_try, lightning_name, screens_path):
 def select_material(args, case, current_try, material_name, screens_path, material_in_row = 1, material_row = 1):
     # Search material name
     case_logger.info("Set material: {}".format(material_name))
-    material_name_field_x = win32api.GetSystemMetrics(0) - 320
+    material_name_field_x = win32api.GetSystemMetrics(0) - 250
     material_name_field_y = 205
     moveTo(material_name_field_x, material_name_field_y)
     sleep(1)
