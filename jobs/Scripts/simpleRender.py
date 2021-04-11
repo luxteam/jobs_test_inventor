@@ -201,7 +201,7 @@ def execute_tests(args, current_conf):
                 if not utils.tools_opened:
                     utils.case_logger.info("Open Inventor")
 
-                    process = Popen(args.tool, shell=True, stdout=PIPE, stderr=PIPE)
+                    process = Popen(args.tool)
 
                     inventor_window = utils.find_inventor_window(args)
 

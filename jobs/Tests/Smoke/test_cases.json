@@ -37,14 +37,14 @@
         "status": "active",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
-            "utils.open_usdviewer_tab(args, case, current_try, \"lightning\", screens_path)",
-            "utils.set_lightning(args, case, current_try, \"palermo sidewalk\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"Studio light\", screens_path)",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
             "utils.save_image(args, case, current_try, image_path, screens_path)"
         ],
         "script_info": [
-            "Lightning - palermo sidewalk"
+            "Lighting - Studio light"
         ],
         "scene": "TestScene\\test_scene.iam",
         "open_time": 10
@@ -55,17 +55,17 @@
         "functions": [
             "utils.set_convert_files_format(args, case, current_try, \".usd\", screens_path)",
             "utils.convert_to_usd(args, case, current_try, 5, screens_path)",
-            "utils.open_usdviewer(args, case, current_try, screens_path)",
-            "getattr(group_module, \"open_converted_scene\")(args, case, current_try, screens_path)",
+            "getattr(group_module, \"open_usdviewer_console\")(args, case, current_try, screens_path, \".usd\")",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
-            "utils.save_image(args, case, current_try, image_path, screens_path, True)"
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
         ],
         "script_info": [
             "Export scene to usd",
+            "Open exported scene through console",
             "Render exported scene"
         ],
-        "scene": "TestScene\\test_scene.iam",
+        "scene": "Desk\\Desk.iam",
         "open_time": 10
     },
     {
@@ -73,7 +73,7 @@
         "status": "active",
         "functions": [
             "utils.set_convert_files_format(args, case, current_try, \".usda\", screens_path)",
-            "utils.convert_to_usd(args, case, current_try, 5, screens_path)",
+            "utils.convert_to_usd(args, case, current_try, 30, screens_path)",
             "getattr(group_module, \"open_usdviewer_console\")(args, case, current_try, screens_path, \".usda\")",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
@@ -84,31 +84,12 @@
             "Open exported scene through console",
             "Render exported scene"
         ],
-        "scene": "Desk\\Desk.iam",
-        "open_time": 10
-    },
-    {
-        "case": "INV_SM_006",
-        "status": "skipped",
-        "functions": [
-            "utils.set_convert_files_format(args, case, current_try, \".usd\", screens_path)",
-            "utils.convert_to_usd(args, case, current_try, 30, screens_path)",
-            "getattr(group_module, \"open_usdviewer_console\")(args, case, current_try, screens_path)",
-            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
-            "utils.render(args, case, current_try, screens_path)",
-            "utils.save_image(args, case, current_try, image_path, screens_path)"
-        ],
-        "script_info": [
-            "Export scene to usd",
-            "Open exported scene through console",
-            "Render exported scene"
-        ],
         "scene": "JetEngineModel\\Workspace\\_Jet Engine Model.iam",
         "open_time": 30
     },
     {
-        "case": "INV_SM_007",
-        "status": "active",
+        "case": "INV_SM_006",
+        "status": "skipped",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
@@ -126,7 +107,7 @@
         "open_time": 10
     },
     {
-        "case": "INV_SM_008",
+        "case": "INV_SM_007",
         "status": "active",
         "functions": [
             "getattr(group_module, \"start_assemble_creation\")(args, case, current_try, screens_path)",
@@ -144,7 +125,7 @@
         ]
     },
     {
-        "case": "INV_SM_009",
+        "case": "INV_SM_008",
         "status": "active",
         "functions": [
             "utils.open_usdviewer(args, case, current_try, screens_path)",
