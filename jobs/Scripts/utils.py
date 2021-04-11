@@ -620,3 +620,22 @@ def close_scene(args, case, current_try, screens_path):
     no_button_x = inventor_window_center_x - 75
     no_button_y = inventor_window_center_y + 55
     move_and_click(args, case, current_try, no_button_x, no_button_y, "no_button", screens_path)
+
+
+def click_restart_button(args, case, current_try, screens_path):
+    case_logger.info("Click restart button")
+    # Restart button can have different positions. Click all possible positions
+    # offset = width of restart button
+    offset_x = 35
+    restart_button_x = 1000
+    restart_button_y = 115
+    for i in range(5):
+        moveTo(restart_button_x, restart_button_y)
+        sleep(0.2)
+        pyautogui.click()
+        sleep(0.2)
+        restart_button_x += offset_x
+    
+    sleep(2)
+    make_screen(screens_path, "after_restart_button_{}_try_{}.jpg".format(case["case"], current_try))
+    

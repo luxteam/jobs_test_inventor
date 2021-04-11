@@ -11,6 +11,7 @@ import utils
 def run_case(args, case, current_try, screens_path, image_path, material_name, material_in_row = 1, material_row = 1):
     utils.open_usdviewer(args, case, current_try, screens_path)
     utils.open_usdviewer_tab(args, case, current_try, "materials", screens_path)
+    utils.click_restart_button(args, case, current_try, screens_path)
     select_part_desk_top(args, case, current_try, screens_path)
     utils.select_material(args, case, current_try, material_name, screens_path, material_in_row, material_row)
     utils.open_usdviewer_tab(args, case, current_try, "render", screens_path)
