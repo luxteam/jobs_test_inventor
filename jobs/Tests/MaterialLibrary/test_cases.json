@@ -56,34 +56,6 @@
         "keep_tools": true
     },
     {
-        "case": "INV_MATLIB_044",
-        "status": "active",
-        "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Carbon Fiber Glossy\")"
-        ],
-        "script_info": [
-            "Composites - Carbon Fiber Glossy"
-        ],
-        "scene": "Desk\\Desk.iam",
-        "open_time": 10,
-        "render_delay": 30,
-        "keep_tools": true
-    },
-    {
-        "case": "INV_MATLIB_045",
-        "status": "active",
-        "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Carbon Fiber GlossyCoat\")"
-        ],
-        "script_info": [
-            "Composites - Carbon Fiber GlossyCoat"
-        ],
-        "scene": "Desk\\Desk.iam",
-        "open_time": 10,
-        "render_delay": 30,
-        "keep_tools": true
-    },
-    {
         "case": "INV_MATLIB_048",
         "status": "active",
         "functions": [
@@ -91,34 +63,6 @@
         ],
         "script_info": [
             "Concrete - Concrete BrickCracks Grey"
-        ],
-        "scene": "Desk\\Desk.iam",
-        "open_time": 10,
-        "render_delay": 30,
-        "keep_tools": true
-    },
-    {
-        "case": "INV_MATLIB_049",
-        "status": "active",
-        "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Concrete PaintedCracks\")"
-        ],
-        "script_info": [
-            "Concrete - Concrete PaintedCracks"
-        ],
-        "scene": "Desk\\Desk.iam",
-        "open_time": 10,
-        "render_delay": 30,
-        "keep_tools": true
-    },
-    {
-        "case": "INV_MATLIB_050",
-        "status": "active",
-        "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Concrete PaintedRough\")"
-        ],
-        "script_info": [
-            "Concrete - Concrete PaintedRough"
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
@@ -290,7 +234,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 40,
         "keep_tools": true
     },
     {
@@ -346,7 +290,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 45,
+        "render_delay": 120,
         "keep_tools": true
     },
     {
