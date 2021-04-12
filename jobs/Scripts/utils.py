@@ -185,15 +185,13 @@ def open_scene(args, case, current_try, screens_path):
 
 
 def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
-    global tools_opened
-    if tools_opened:
+    global tools_opened, usd_viewer_window
+    if tools_opened and usd_viewer_window:
         return
 
     # try to open USD Viewer few times (sometimes it can't be opened after first click)
     max_iterations = 5
     iteration = 0
-
-    global usd_viewer_window
 
     while iteration < max_iterations:
         iteration += 1
@@ -321,12 +319,8 @@ def save_image(args, case, current_try, image_path, screens_path, is_scene_opene
     pyautogui.typewrite(image_path)
     sleep(1)
 
-    # Click "Save" button
-    global usd_viewer_window
-    usd_viewer_window_rect = get_window_rect(usd_viewer_window)
-    save_button_x = win32api.GetSystemMetrics(0) - 200
-    save_button_y = usd_viewer_window_rect[3] - 30
-    move_and_click(args, case, current_try, save_button_x, save_button_y, "save_button", screens_path)
+    # Click "Save" button (press enter)
+    pyautogui.press("enter")
 
     # Wait a bit to save image
     sleep(3)
