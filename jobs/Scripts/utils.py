@@ -21,8 +21,7 @@ case_logger = None
 usdviewer_window_name = "tcp://127.0.0.1:"
 # Initial USD Viewer port (it's used in name of window)
 initial_usdviewer_port = 1984
-# Current port of USD Viewer (it's increased by 1 or by 2 after each reopening of usdviewer without closing of Inventor)
-usdviewer_port = initial_usdviewer_port
+
 # Current USD Viewer window
 usd_viewer_window = None
 # Process of USD Viewer started from console (it's used in some cases)
@@ -35,9 +34,9 @@ def close_process(process):
     for ch in child_processes:
         try:
             ch.terminate()
-            sleep(10)
+            sleep(2)
             ch.kill()
-            sleep(10)
+            sleep(2)
             status = ch.status()
             case_logger.error("Process is alive: {}. Name: {}. Status: {}".format(ch, ch.name(), status))
         except NoSuchProcess:
@@ -45,9 +44,9 @@ def close_process(process):
 
     try:
         process.terminate()
-        sleep(10)
+        sleep(2)
         process.kill()
-        sleep(10)
+        sleep(2)
         status = process.status()
         case_logger.error("Process is alive: {}. Name: {}. Status: {}".format(process, process.name(), status))
     except NoSuchProcess:
@@ -65,10 +64,6 @@ def post_try(current_try):
         # Clear saved USD Viewer window
         global usd_viewer_window
         usd_viewer_window = None
-
-        # Reset USD Viewer port number after finishing of test case
-        global usdviewer_port, initial_usdviewer_port
-        usdviewer_port = initial_usdviewer_port
 
         # Close USD Viewer started from console if it's necessary
         global usd_viewer_console_process
@@ -192,7 +187,7 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
     max_iterations = 5
     iteration = 0
 
-    global usd_viewer_window, usdviewer_port
+    global usd_viewer_window
 
     while iteration < max_iterations:
         iteration += 1
@@ -215,11 +210,10 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
         start_time = datetime.now()
         # Wait USD Viewer window
         while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 30:
-            # Port number in window name can be increased by 1 or by 2
-            for i in range(3):
-                usd_viewer_window = win32gui.FindWindow(None, usdviewer_window_name + str(usdviewer_port + i))
+            # Port number in window name can be increased after restarting of Viewer without restarting of Inventor
+            for i in range(10):
+                usd_viewer_window = win32gui.FindWindow(None, usdviewer_window_name + str(initial_usdviewer_port + i))
                 if usd_viewer_window:
-                    usdviewer_port = usdviewer_port + i
                     break
             sleep(1)
 
@@ -382,6 +376,28 @@ def set_lighting(args, case, current_try, lighting_name, screens_path):
     lighting_item_x = win32api.GetSystemMetrics(0) - 540
     lighting_item_y = 285
     move_and_click(args, case, current_try, lighting_item_x, lighting_item_y, "lighting_item", screens_path)
+
+
+def select_material(args, case, current_try, material_name, screens_path):
+    # Search material name
+    case_logger.info("Set material: {}".format(material_name))
+    material_name_field_x = win32api.GetSystemMetrics(0) - 320
+    material_name_field_y = 205
+    moveTo(material_name_field_x, material_name_field_y)
+    sleep(1)
+    pyautogui.click()
+    sleep(1)
+    # TODO double click doesn't work
+    pyautogui.press("backspace", presses=30)
+    sleep(1)
+    pyautogui.typewrite(material_name)
+    sleep(1)
+    make_screen(screens_path, "search_material_name_{}_try_{}.jpg".format(case["case"], current_try))
+
+    # Select material
+    material_item_x = win32api.GetSystemMetrics(0) - 540
+    material_item_y = 285
+    move_and_click(args, case, current_try, material_item_x, material_item_y, "material_item", screens_path)
 
 
 def open_inventor_tab(args, case, current_try, tab_name, screens_path):
@@ -566,3 +582,15 @@ def close_scene(args, case, current_try, screens_path):
     no_button_x = inventor_window_center_x - 75
     no_button_y = inventor_window_center_y + 55
     move_and_click(args, case, current_try, no_button_x, no_button_y, "no_button", screens_path)
+
+
+def zoom_scene(args, case, current_try, screens_path, scroll_times, scroll_direction):
+    case_logger.info("Zoom scene {} times. Scroll direction: {}".format(scroll_times, scroll_direction))
+    scene_x = 900
+    scene_y = 550
+    move_and_click(args, case, current_try, scene_x, scene_y, "zoom", screens_path)
+    sleep(1)
+    for i in range(scroll_times):
+        pyautogui.scroll(1000 * scroll_direction)
+        sleep(0.2)
+    sleep(1)
