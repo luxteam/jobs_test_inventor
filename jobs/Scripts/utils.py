@@ -26,6 +26,8 @@ initial_usdviewer_port = 1984
 usd_viewer_window = None
 # Process of USD Viewer started from console (it's used in some cases)
 usd_viewer_console_process = None
+# Indicate that tools are opened
+tools_opened = False
 
 
 def close_process(process):
@@ -173,7 +175,7 @@ def open_scene(args, case, current_try, screens_path):
     pyautogui.press("backspace")
     sleep(1)
     pyautogui.typewrite(scene_path)
-    sleep(2)
+    sleep(1)
 
     # Click "Open" button
     case_logger.info("Click 'Open' button")
@@ -183,6 +185,10 @@ def open_scene(args, case, current_try, screens_path):
 
 
 def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
+    global tools_opened
+    if tools_opened:
+        return
+
     # try to open USD Viewer few times (sometimes it can't be opened after first click)
     max_iterations = 5
     iteration = 0
@@ -219,6 +225,7 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
 
         if usd_viewer_window:
             case_logger.info("USD Viewer window was found. Wait a bit (try #{})".format(iteration))
+            tools_opened = True
             # TODO check window is ready by window content
             sleep(5)
             make_screen(screens_path, "usd_viewer_found_{}_try_{}.jpg".format(case["case"], current_try))
@@ -282,15 +289,19 @@ def open_usdviewer_tab(args, case, current_try, tab, screens_path):
 
 
 def render(args, case, current_try, screens_path):
+    render_delay = 15
+    if "render_delay" in case:
+        render_delay = case["render_delay"]
+
     # Render
-    case_logger.info("Start render")
+    case_logger.info("Start render. Delay: {}".format(render_delay))
     render_button_x = 185
     render_button_y = 155
     move_and_click(args, case, current_try, render_button_x, render_button_y, "render_button", screens_path)
 
     # Wait render
     # TODO check that scene is rendered by window content
-    sleep(15)
+    sleep(render_delay)
 
 
 def save_image(args, case, current_try, image_path, screens_path, is_scene_opened_from_viewer = False):
@@ -308,7 +319,7 @@ def save_image(args, case, current_try, image_path, screens_path, is_scene_opene
     pyautogui.press("backspace")
     sleep(1)
     pyautogui.typewrite(image_path)
-    sleep(2)
+    sleep(1)
 
     # Click "Save" button
     global usd_viewer_window
@@ -318,16 +329,11 @@ def save_image(args, case, current_try, image_path, screens_path, is_scene_opene
     move_and_click(args, case, current_try, save_button_x, save_button_y, "save_button", screens_path)
 
     # Wait a bit to save image
-    sleep(5)
+    sleep(3)
 
 
 def set_viewport(args, case, current_try, value, screens_path):
     case_logger.info("Set viewport: {}".format(value))
-    # Open dropdown menu to select viewport
-    viewport_menu_x = 890
-    viewport_menu_y = 115
-    move_and_click(args, case, current_try, viewport_menu_x, viewport_menu_y, "viewport_menu", screens_path)
-
     items_offset = {
         "perspective": 25,
         "top": 50,
@@ -336,6 +342,14 @@ def set_viewport(args, case, current_try, value, screens_path):
         "inventorviewportcamera": 125
     }
 
+    # Open review tab
+    open_usdviewer_tab(args, case, current_try, "review", screens_path)
+
+    # Open dropdown menu to select viewport
+    viewport_menu_x = 740
+    viewport_menu_y = 115
+    move_and_click(args, case, current_try, viewport_menu_x, viewport_menu_y, "viewport_menu", screens_path)
+
     # Select viewport value
     click_item_with_offset(args, case, current_try, items_offset, value, viewport_menu_x, viewport_menu_y, False, screens_path)
 
@@ -343,20 +357,25 @@ def set_viewport(args, case, current_try, value, screens_path):
 def set_quality(args, case, current_try, value, screens_path):
     case_logger.info("Set quality: {}".format(value))
     items_offset = {
-        "low": 25,
-        "medium": 50,
-        "high": 75,
-        "full": 100,
-        "full 2.0": 125
+        "wireframe": 25,
+        "solid color": 50,
+        "ambient occlusion": 75,
+        "texture": 100,
+        "full": 125
     }
 
+    # Open review tab
+    open_usdviewer_tab(args, case, current_try, "review", screens_path)
+
     # Open dropdown menu to select quality
-    quality_menu_x = 1185
+    quality_menu_x = 1060
     quality_menu_y = 115
     move_and_click(args, case, current_try, quality_menu_x, quality_menu_y, "quality_menu", screens_path)
 
     # Select quality value
     click_item_with_offset(args, case, current_try, items_offset, value, quality_menu_x, quality_menu_y, False, screens_path)
+
+    sleep(5)
 
 
 def set_lighting(args, case, current_try, lighting_name, screens_path):
@@ -378,10 +397,10 @@ def set_lighting(args, case, current_try, lighting_name, screens_path):
     move_and_click(args, case, current_try, lighting_item_x, lighting_item_y, "lighting_item", screens_path)
 
 
-def select_material(args, case, current_try, material_name, screens_path):
+def select_material(args, case, current_try, material_name, screens_path, material_in_row = 1, material_row = 1):
     # Search material name
     case_logger.info("Set material: {}".format(material_name))
-    material_name_field_x = win32api.GetSystemMetrics(0) - 320
+    material_name_field_x = win32api.GetSystemMetrics(0) - 250
     material_name_field_y = 205
     moveTo(material_name_field_x, material_name_field_y)
     sleep(1)
@@ -397,7 +416,20 @@ def select_material(args, case, current_try, material_name, screens_path):
     # Select material
     material_item_x = win32api.GetSystemMetrics(0) - 540
     material_item_y = 285
-    move_and_click(args, case, current_try, material_item_x, material_item_y, "material_item", screens_path)
+    # Consider number of material in row of materials presets
+    material_item_x += (material_in_row - 1) * 137
+
+    moveTo(material_item_x, material_item_y)
+    # Scroll to necessary row with presets
+    for i in range(material_row - 1):
+        pyautogui.scroll(-1000)
+        sleep(0.2)
+        pyautogui.scroll(-1000)
+        sleep(0.2)
+    make_screen(screens_path, "before_material_clicked_{}_try_{}.jpg".format(case["case"], current_try))
+    pyautogui.click()
+    sleep(1)
+    make_screen(screens_path, "after_material_clicked_{}_try_{}.jpg".format(case["case"], current_try))
 
 
 def open_inventor_tab(args, case, current_try, tab_name, screens_path):
@@ -472,7 +504,7 @@ def open_scene_usdviewer(args, case, current_try, scene_path, screens_path):
     pyautogui.press("backspace")
     sleep(1)
     pyautogui.typewrite(scene_path)
-    sleep(2)
+    sleep(1)
 
     # Click "Open" button
     global usd_viewer_window
@@ -583,6 +615,24 @@ def close_scene(args, case, current_try, screens_path):
     no_button_y = inventor_window_center_y + 55
     move_and_click(args, case, current_try, no_button_x, no_button_y, "no_button", screens_path)
 
+
+def click_restart_button(args, case, current_try, screens_path):
+    case_logger.info("Click restart button")
+    # Restart button can have different positions. Click all possible positions
+    # offset = width of restart button
+    offset_x = 35
+    restart_button_x = 1000
+    restart_button_y = 115
+    for i in range(5):
+        moveTo(restart_button_x, restart_button_y)
+        sleep(0.2)
+        pyautogui.click()
+        sleep(0.2)
+        restart_button_x += offset_x
+    
+    sleep(2)
+    make_screen(screens_path, "after_restart_button_{}_try_{}.jpg".format(case["case"], current_try))
+    
 
 def zoom_scene(args, case, current_try, screens_path, scroll_times, scroll_direction):
     case_logger.info("Zoom scene {} times. Scroll direction: {}".format(scroll_times, scroll_direction))

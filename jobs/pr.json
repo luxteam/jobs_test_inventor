@@ -1,0 +1,6 @@
+{
+    "split":false,
+    "groups":{
+        "Smoke": "INV_SM_001, INV_SM_002, INV_SM_003, INV_SM_004, INV_SM_005, INV_SM_006, INV_SM_007, INV_SM_008, INV_SM_009"
+    }
+}

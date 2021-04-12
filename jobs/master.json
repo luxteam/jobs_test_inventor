@@ -1,0 +1,7 @@
+{
+    "split":false,
+    "groups":{
+        "Smoke": "INV_SM_001, INV_SM_002, INV_SM_003, INV_SM_004, INV_SM_005, INV_SM_006, INV_SM_007, INV_SM_008, INV_SM_009",
+        "Viewport": "INV_VP_006, INV_VP_007, INV_VP_008, INV_VP_009, INV_VP_010, INV_VP_001, INV_VP_002, INV_VP_003, INV_VP_004, INV_VP_005"
+    }
+}

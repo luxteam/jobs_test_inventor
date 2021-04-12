@@ -29,6 +29,21 @@ def copy_test_cases(args):
         os.path.realpath(os.path.join(os.path.abspath(
             args.output), 'test_cases.json')))
 
+    with open(os.path.join(os.path.abspath(args.output), "test_cases.json"), "r") as json_file:
+        cases = json.load(json_file)
+
+    if os.path.exists(args.test_cases) and args.test_cases:
+        with open(args.test_cases) as file:
+            # FIXME remove '_' - MatLib group ducktape
+            test_cases = json.load(file)['groups'][args.test_group.replace("_", "")]
+            if test_cases:
+                necessary_cases = [
+                    item for item in cases if item['case'] in test_cases]
+                cases = necessary_cases
+
+        with open(os.path.join(args.output, 'test_cases.json'), "w+") as file:
+            json.dump(cases, file, indent=4)
+
 
 def copy_baselines(args, case, baseline_path, baseline_path_tr):
     try:
@@ -116,7 +131,7 @@ def prepare_empty_reports(args, current_conf):
         json.dump(cases, f, indent=4)
 
 
-def save_results(args, case, cases, test_case_status, render_time = 0.0):
+def save_results(args, case, cases, test_case_status, render_time = 0.0, error_messages = []):
     with open(os.path.join(args.output, case["case"] + CASE_REPORT_SUFFIX), "r") as file:
         test_case_report = json.loads(file.read())[0]
         test_case_report["file_name"] = case["case"] + case.get("extension", '.jpg')
@@ -148,6 +163,9 @@ def execute_tests(args, current_conf):
     sys.modules["group_module"] = group_module
     spec.loader.exec_module(group_module)
 
+    process = None
+    inventor_window = None
+
     for case in [x for x in cases if not utils.is_case_skipped(x, current_conf)]:
 
         screens_path = os.path.join(args.output, "Color", case["case"])
@@ -158,6 +176,10 @@ def execute_tests(args, current_conf):
         current_try = 0
 
         utils.start_new_case(case, os.path.join(args.output, "execution_logs"))
+
+        error_messages = []
+
+        case_done = False
 
         while current_try < args.retries:
             try:
@@ -173,32 +195,32 @@ def execute_tests(args, current_conf):
                         utils.case_logger.error("Failed to clear file in dir with temp files (try #{}): {}".format(current_try, str(e)))
                         utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
 
-                process = None
-
                 utils.case_logger.info("Start '{}' (try #{})".format(case["case"], current_try))
                 utils.case_logger.info("Screen resolution: width = {}, height = {}".format(win32api.GetSystemMetrics(0), win32api.GetSystemMetrics(1)))
-                utils.case_logger.info("Open Inventor")
+                    
+                if not utils.tools_opened:
+                    utils.case_logger.info("Open Inventor")
 
-                process = Popen(args.tool)
+                    process = Popen(args.tool)
 
-                inventor_window = utils.find_inventor_window(args)
+                    inventor_window = utils.find_inventor_window(args)
 
-                utils.make_screen(screens_path, "opened_inventor_{}_try_{}.jpg".format(case["case"], current_try))
+                    utils.make_screen(screens_path, "opened_inventor_{}_try_{}.jpg".format(case["case"], current_try))
 
-                if not inventor_window:
-                    raise Exception("Inventor window wasn't found")
-                else:
-                    utils.case_logger.info("Inventor window found. Wait a bit")
-                    # TODO check window is ready by window content
-                    sleep(30)
+                    if not inventor_window:
+                        raise Exception("Inventor window wasn't found")
+                    else:
+                        utils.case_logger.info("Inventor window found. Wait a bit")
+                        # TODO check window is ready by window content
+                        sleep(30)
 
-                if "scene" in case:
-                    utils.open_scene(args, case, current_try, screens_path)
+                    if "scene" in case:
+                        utils.open_scene(args, case, current_try, screens_path)
 
-                    # Wait scene opening
-                    # TODO check that scene is opened by window content    
-                    sleep(case["open_time"])
-                    utils.make_screen(screens_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try))
+                        # Wait scene opening
+                        # TODO check that scene is opened by window content    
+                        sleep(case["open_time"])
+                        utils.make_screen(screens_path, "opened_scene_{}_try_{}.jpg".format(case["case"], current_try))
 
                 image_path = os.path.abspath(os.path.join(args.output, "Color", case["case"] + ".jpg"))
                 utils.case_logger.info("Image path: {}".format(image_path))
@@ -216,28 +238,48 @@ def execute_tests(args, current_conf):
 
                 utils.case_logger.info("Case '{}' finished".format(case["case"]))
 
+                case_done = True
+
                 break
             except Exception as e:
+                error_messages.append(str(e))
                 utils.case_logger.error("Failed to execute test case (try #{}): {}".format(current_try, str(e)))
                 utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
             finally:
-                if process:
-                    utils.case_logger.info("Close Inventor process")
-                    utils.close_process(process)
+                # if case isn't done, there isn't keep_tools field or value of keep_tools field is false - close tools
+                if not case_done or "keep_tools" not in case or not case["keep_tools"]:
+                    if process:
+                        utils.case_logger.info("Close Inventor process")
+                        utils.close_process(process)
 
-                utils.post_try(current_try)
+                    utils.post_try(current_try)
 
-                # RPRViewer.exe isn't a child process of Inventor. It won't be killed if Inventor is killed
-                for proc in process_iter():
-                    if proc.name() == "RPRViewer.exe":
-                        utils.case_logger.info("Kill viewer")
-                        utils.close_process(proc)
-                current_try += 1
-                utils.case_logger.info("Post actions finished")
+                    # RPRViewer.exe isn't a child process of Inventor. It won't be killed if Inventor is killed
+                    for proc in process_iter():
+                        if proc.name() == "RPRViewer.exe":
+                            utils.case_logger.info("Kill viewer")
+                            utils.close_process(proc)
+                    current_try += 1
+                    utils.case_logger.info("Post actions finished")
+
+                    utils.tools_opened = False
         else:
             utils.case_logger.error("Failed to execute case '{}' at all".format(case["case"]))
             rc = -1
-            save_results(args, case, cases, "error")
+            save_results(args, case, cases, "error", error_messages = error_messages)
+
+    if utils.tools_opened:
+        if process:
+            utils.case_logger.info("Close Inventor process")
+            utils.close_process(process)
+
+        # RPRViewer.exe isn't a child process of Inventor. It won't be killed if Inventor is killed
+        for proc in process_iter():
+            if proc.name() == "RPRViewer.exe":
+                utils.case_logger.info("Kill viewer")
+                utils.close_process(proc)
+
+        utils.case_logger.info("Post actions finished")
 
     return rc
 
@@ -253,7 +295,6 @@ def createArgsParser():
     parser.add_argument("--test_cases", required=True)
     parser.add_argument("--retries", required=False, default=2, type=int)
     parser.add_argument("--update_refs", required=True)
-    parser.add_argument("--stucking_time", required=False, default=180, type=int)
 
     return parser
 
