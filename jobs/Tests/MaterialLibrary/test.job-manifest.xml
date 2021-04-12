@@ -6,7 +6,7 @@
     <execute command='python "{ResourcesDir}/simpleRender.py"' timeout="5000">
         <argument>--tool "{Tool}"</argument>
         <argument>--output "{OutputDir}"</argument>
-        <argument>--test_group Material_Library</argument>
+        <argument>--test_group MaterialLibrary</argument>
         <argument>--res_path "{ScenesDir}"/Smoke</argument>
         <argument>--test_cases "{TestCases}"</argument>
         <argument>--retries {retries}</argument>
