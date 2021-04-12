@@ -217,7 +217,7 @@ def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
         # Wait USD Viewer window
         while not usd_viewer_window and (datetime.now() - start_time).total_seconds() <= 30:
             # Port number in window name can be increased after restarting of Viewer without restarting of Inventor
-            for i in range(10):
+            for i in range(200):
                 usd_viewer_window = win32gui.FindWindow(None, usdviewer_window_name + str(initial_usdviewer_port + i))
                 if usd_viewer_window:
                     break
