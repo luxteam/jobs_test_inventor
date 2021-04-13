@@ -263,6 +263,7 @@ def execute_tests(args, current_conf):
                     # Close RPRViewer.exe crash window if it exists
                     crash_window = win32gui.FindWindow(None, "RPRViewer.exe")
                     if crash_window:
+                        error_messages.append("RPRViewer.exe crash window found")
                         win32gui.PostMessage(crash_window, win32con.WM_CLOSE, 0, 0)
                 except Exception as e:
                     utils.case_logger.error("Failed to close error window (try #{}): {}".format(current_try, str(e)))
