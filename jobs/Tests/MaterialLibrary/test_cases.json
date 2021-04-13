@@ -98,20 +98,6 @@
         "keep_tools": true
     },
     {
-        "case": "INV_MATLIB_057",
-        "status": "active",
-        "functions": [
-            "getattr(group_module, \"run_case\")(args, case, current_try, screens_path, image_path, \"Emissive Fluorescent Magenta\")"
-        ],
-        "script_info": [
-            "Emissive - Emissive Fluorescent Magenta"
-        ],
-        "scene": "Desk\\Desk.iam",
-        "open_time": 10,
-        "render_delay": 8,
-        "keep_tools": true
-    },
-    {
         "case": "INV_MATLIB_060",
         "status": "active",
         "functions": [

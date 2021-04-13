@@ -421,7 +421,7 @@ def select_material(args, case, current_try, material_name, screens_path, materi
         pyautogui.scroll(-1000)
         sleep(0.2)
     make_screen(screens_path, "before_material_clicked_{}_try_{}.jpg".format(case["case"], current_try))
-    pyautogui.click(clicks=2)
+    pyautogui.click()
     sleep(1)
     make_screen(screens_path, "after_material_clicked_{}_try_{}.jpg".format(case["case"], current_try))
 
