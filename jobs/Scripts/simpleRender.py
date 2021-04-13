@@ -140,9 +140,10 @@ def save_results(args, case, cases, test_case_status, render_time = 0.0, error_m
         test_case_report["execution_log"] = os.path.join("execution_logs", case["case"] + ".log")
         test_case_report["group_timeout_exceeded"] = False
         test_case_report["testing_start"] = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
-        test_case_report["number_of_tries"] += 1
         if test_case_status == "passed":
             test_case_report["render_color_path"] = os.path.join("Color", test_case_report["file_name"])
+        else:
+            test_case_report["number_of_tries"] += 1
 
     with open(os.path.join(args.output, case["case"] + CASE_REPORT_SUFFIX), "w") as file:
         json.dump([test_case_report], file, indent=4)
@@ -248,6 +249,7 @@ def execute_tests(args, current_conf):
 
                 break
             except Exception as e:
+                save_results(args, case, cases, "failed", error_messages = error_messages)
                 error_messages.append(str(e))
                 utils.case_logger.error("Failed to execute test case (try #{}): {}".format(current_try, str(e)))
                 utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
