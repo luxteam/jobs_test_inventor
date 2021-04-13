@@ -81,7 +81,10 @@
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
         "render_delay": 8,
-        "keep_tools": true
+        "keep_tools": true,
+        "skip_on":[
+            ["GeForce GTX 1080 Ti"]
+        ]
     },
     {
         "case": "INV_MATLIB_056",
@@ -95,7 +98,10 @@
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
         "render_delay": 8,
-        "keep_tools": true
+        "keep_tools": true,
+        "skip_on":[
+            ["GeForce GTX 1080 Ti"]
+        ]
     },
     {
         "case": "INV_MATLIB_060",
