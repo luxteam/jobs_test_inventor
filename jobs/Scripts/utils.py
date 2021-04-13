@@ -323,7 +323,7 @@ def save_image(args, case, current_try, image_path, screens_path, is_scene_opene
     pyautogui.press("enter")
 
     # Wait a bit to save image
-    sleep(5)
+    sleep(1)
 
 
 def set_viewport(args, case, current_try, value, screens_path):
