@@ -11,6 +11,7 @@ import sys
 import traceback
 import win32gui
 import win32api
+import win32con
 from time import sleep
 import re
 import importlib
@@ -233,7 +234,13 @@ def execute_tests(args, current_conf):
 
                 save_results(args, case, cases, "passed")
 
-                if not os.path.exists(image_path):
+                start_time = datetime.now()
+                # Wait saved image
+                while (datetime.now() - start_time).total_seconds() <= 30:
+                    if os.path.exists(image_path):
+                        break
+                    sleep(1)
+                else:
                     raise Exception("Output image doesn't exist")
 
                 utils.case_logger.info("Case '{}' finished".format(case["case"]))
@@ -246,6 +253,15 @@ def execute_tests(args, current_conf):
                 utils.case_logger.error("Failed to execute test case (try #{}): {}".format(current_try, str(e)))
                 utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
             finally:
+                try:
+                    # Close RPRViewer.exe crash window if it exists
+                    crash_window = win32gui.FindWindow(None, "RPRViewer.exe")
+                    if crash_window:
+                        win32gui.PostMessage(crash_window, win32con.WM_CLOSE, 0, 0)
+                except Exception as e:
+                    utils.case_logger.error("Failed to close error window (try #{}): {}".format(current_try, str(e)))
+                    utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
+
                 # if case isn't done, there isn't keep_tools field or value of keep_tools field is false - close tools
                 if not case_done or "keep_tools" not in case or not case["keep_tools"]:
                     if process:
