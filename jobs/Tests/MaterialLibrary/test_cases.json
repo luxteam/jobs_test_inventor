@@ -291,7 +291,10 @@
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
         "render_delay": 120,
-        "keep_tools": true
+        "keep_tools": true,
+        "skip_on":[
+            ["AMD Radeon (TM) Pro WX 7100 Graphics"]
+        ]
     },
     {
         "case": "INV_MATLIB_141",
