@@ -233,7 +233,13 @@ def execute_tests(args, current_conf):
 
                 save_results(args, case, cases, "passed")
 
-                if not os.path.exists(image_path):
+                start_time = datetime.now()
+                # Wait saved image
+                while (datetime.now() - start_time).total_seconds() <= 30:
+                    if os.path.exists(image_path):
+                        break
+                    sleep(1)
+                else:
                     raise Exception("Output image doesn't exist")
 
                 utils.case_logger.info("Case '{}' finished".format(case["case"]))
