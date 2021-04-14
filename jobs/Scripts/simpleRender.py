@@ -139,11 +139,16 @@ def save_results(args, case, cases, test_case_status, render_time = 0.0, error_m
         test_case_report["test_status"] = test_case_status
         test_case_report["render_time"] = render_time
         test_case_report["execution_log"] = os.path.join("execution_logs", case["case"] + ".log")
-        test_case_report["group_timeout_exceeded"] = False
         test_case_report["testing_start"] = datetime.now().strftime("%m/%d/%Y %H:%M:%S")
         test_case_report["number_of_tries"] += 1
+
         if test_case_status == "passed":
             test_case_report["render_color_path"] = os.path.join("Color", test_case_report["file_name"])
+        else:
+            test_case_report["message"] = error_messages
+
+        if test_case_status == "passed" or test_case_status == "error":
+            test_case_report["group_timeout_exceeded"] = False
 
     with open(os.path.join(args.output, case["case"] + CASE_REPORT_SUFFIX), "w") as file:
         json.dump([test_case_report], file, indent=4)
@@ -249,6 +254,7 @@ def execute_tests(args, current_conf):
 
                 break
             except Exception as e:
+                save_results(args, case, cases, "failed", error_messages = error_messages)
                 error_messages.append(str(e))
                 utils.case_logger.error("Failed to execute test case (try #{}): {}".format(current_try, str(e)))
                 utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
@@ -257,6 +263,7 @@ def execute_tests(args, current_conf):
                     # Close RPRViewer.exe crash window if it exists
                     crash_window = win32gui.FindWindow(None, "RPRViewer.exe")
                     if crash_window:
+                        error_messages.append("RPRViewer.exe crash window found")
                         win32gui.PostMessage(crash_window, win32con.WM_CLOSE, 0, 0)
                 except Exception as e:
                     utils.case_logger.error("Failed to close error window (try #{}): {}".format(current_try, str(e)))
