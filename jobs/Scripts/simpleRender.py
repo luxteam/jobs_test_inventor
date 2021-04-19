@@ -145,7 +145,7 @@ def save_results(args, case, cases, test_case_status, render_time = 0.0, error_m
         if test_case_status == "passed":
             test_case_report["render_color_path"] = os.path.join("Color", test_case_report["file_name"])
         else:
-            test_case_report["message"] = error_messages
+            test_case_report["message"] = list(error_messages)
 
         if test_case_status == "passed" or test_case_status == "error":
             test_case_report["group_timeout_exceeded"] = False
@@ -183,7 +183,7 @@ def execute_tests(args, current_conf):
 
         utils.start_new_case(case, os.path.join(args.output, "execution_logs"))
 
-        error_messages = []
+        error_messages = set()
 
         case_done = False
 
@@ -237,8 +237,6 @@ def execute_tests(args, current_conf):
                     else:
                         eval(function)
 
-                save_results(args, case, cases, "passed")
-
                 start_time = datetime.now()
                 # Wait saved image
                 while (datetime.now() - start_time).total_seconds() <= 30:
@@ -248,6 +246,8 @@ def execute_tests(args, current_conf):
                 else:
                     raise Exception("Output image doesn't exist")
 
+                save_results(args, case, cases, "passed")
+
                 utils.case_logger.info("Case '{}' finished".format(case["case"]))
 
                 case_done = True
@@ -255,7 +255,7 @@ def execute_tests(args, current_conf):
                 break
             except Exception as e:
                 save_results(args, case, cases, "failed", error_messages = error_messages)
-                error_messages.append(str(e))
+                error_messages.add(str(e))
                 utils.case_logger.error("Failed to execute test case (try #{}): {}".format(current_try, str(e)))
                 utils.case_logger.error("Traceback: {}".format(traceback.format_exc()))
             finally:
@@ -263,7 +263,7 @@ def execute_tests(args, current_conf):
                     # Close RPRViewer.exe crash window if it exists
                     crash_window = win32gui.FindWindow(None, "RPRViewer.exe")
                     if crash_window:
-                        error_messages.append("RPRViewer.exe crash window found")
+                        error_messages.add("RPRViewer.exe crash window found")
                         win32gui.PostMessage(crash_window, win32con.WM_CLOSE, 0, 0)
                 except Exception as e:
                     utils.case_logger.error("Failed to close error window (try #{}): {}".format(current_try, str(e)))
