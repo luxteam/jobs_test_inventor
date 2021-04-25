@@ -212,7 +212,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 45,
+        "render_delay": 55,
         "keep_tools": true
     },
     {
@@ -240,7 +240,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     },
     {
@@ -254,7 +254,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     },
     {
@@ -268,7 +268,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     },
     {
@@ -299,7 +299,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     },
     {
@@ -663,7 +663,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     },
     {
@@ -677,7 +677,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     },
     {
@@ -691,7 +691,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     },
     {
@@ -705,7 +705,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     },
     {
@@ -719,7 +719,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     },
     {
@@ -733,7 +733,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     },
     {
@@ -747,7 +747,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     },
     {
@@ -761,7 +761,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     },
     {
@@ -775,7 +775,7 @@
         ],
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
-        "render_delay": 8,
+        "render_delay": 15,
         "keep_tools": true
     }
 ]
