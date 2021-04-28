@@ -28,6 +28,8 @@ usd_viewer_window = None
 usd_viewer_console_process = None
 # Indicate that tools are opened
 tools_opened = False
+# Viewer was reopened in current case
+viewer_reopened = False
 
 
 def close_process(process):
@@ -185,6 +187,9 @@ def open_scene(args, case, current_try, screens_path):
 
 
 def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
+    global viewer_reopened
+    viewer_reopened = True
+
     global tools_opened, usd_viewer_window
     if tools_opened and usd_viewer_window:
         return
@@ -373,6 +378,10 @@ def set_quality(args, case, current_try, value, screens_path):
 
 
 def set_lighting(args, case, current_try, lighting_name, screens_path):
+    global viewer_reopened
+    if not viewer_reopened:
+        break
+
     # Search lighting name
     case_logger.info("Set lighting: {}".format(lighting_name))
     lighting_name_field_x = win32api.GetSystemMetrics(0) - 320
@@ -392,6 +401,10 @@ def set_lighting(args, case, current_try, lighting_name, screens_path):
 
 
 def set_custom_lighting(args, case, current_try, lighting_file_path, screens_path):
+    global viewer_reopened
+    if not viewer_reopened:
+        break
+
     case_logger.info("Set custom lighting from file: {}".format(lighting_file_path))
 
     # Select lighting
@@ -553,7 +566,7 @@ def close_usdviewer(args, case, current_try, screens_path):
     menu_button_x = win32api.GetSystemMetrics(0) - 23
     menu_button_y = 17
     move_and_click(args, case, current_try, menu_button_x, menu_button_y, "menu_button", screens_path, 5)
-    global usd_viewer_window
+    global usd_viewer_window, viewer_reopened
     usd_viewer_window = None
 
 
@@ -673,7 +686,7 @@ def set_lighting_param(args, case, current_try, param_name, param_value, screens
         pyautogui.click()
         sleep(1)
         pyautogui.press("backspace", presses=30)
-        pyautogui.typewrite(param_value)
+        pyautogui.typewrite(str(param_value))
         sleep(1)
 
     make_screen(screens_path, "set_lighting_param_{}_try_{}.jpg".format(case["case"], current_try))

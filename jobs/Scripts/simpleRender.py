@@ -189,6 +189,8 @@ def execute_tests(args, current_conf):
 
         while current_try < args.retries:
             try:
+                # mark viewer process is not reopened
+                utils.viewer_reopened = False
                 # clear dir with temp files
                 trash_files = glob(os.path.join(args.res_path, "..", "..", "Temp", "*").replace("/", "\\"))
                 for file in trash_files:
