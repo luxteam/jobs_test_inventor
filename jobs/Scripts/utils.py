@@ -380,7 +380,7 @@ def set_quality(args, case, current_try, value, screens_path):
 def set_lighting(args, case, current_try, lighting_name, screens_path):
     global viewer_reopened
     if not viewer_reopened:
-        break
+        return
 
     # Search lighting name
     case_logger.info("Set lighting: {}".format(lighting_name))
@@ -403,7 +403,7 @@ def set_lighting(args, case, current_try, lighting_name, screens_path):
 def set_custom_lighting(args, case, current_try, lighting_file_path, screens_path):
     global viewer_reopened
     if not viewer_reopened:
-        break
+        return
 
     case_logger.info("Set custom lighting from file: {}".format(lighting_file_path))
 
