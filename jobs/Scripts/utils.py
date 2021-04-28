@@ -391,6 +391,25 @@ def set_lighting(args, case, current_try, lighting_name, screens_path):
     move_and_click(args, case, current_try, lighting_item_x, lighting_item_y, "lighting_item", screens_path)
 
 
+def set_custom_lighting(args, case, current_try, lighting_file_path, screens_path):
+    case_logger.info("Set custom lighting from file: {}".format(lighting_file_path))
+
+    # Select lighting
+    lighting_item_x = win32api.GetSystemMetrics(0) - 540
+    lighting_item_y = 285
+    move_and_click(args, case, current_try, lighting_item_x, lighting_item_y, "lighting_from_file", screens_path)
+    sleep(2)
+
+    # Put lighting path
+    pyautogui.typewrite(os.path.abspath(os.path.join(args.res_path, lighting_file_path)))
+    sleep(1)
+    # Open (press enter button)
+    pyautogui.press("enter")
+    # Wait loading of custom lighting
+    sleep(5)
+    make_screen(screens_path, "search_lighting_name_{}_try_{}.jpg".format(case["case"], current_try))
+
+
 def select_material(args, case, current_try, material_name, screens_path, material_in_row = 1, material_row = 1):
     # Search material name
     case_logger.info("Set material: {}".format(material_name))
@@ -638,3 +657,23 @@ def zoom_scene(args, case, current_try, screens_path, scroll_times, scroll_direc
         pyautogui.scroll(1000 * scroll_direction)
         sleep(0.2)
     sleep(1)
+
+
+def set_lighting_param(args, case, current_try, param_name, param_value, screens_path):
+    # Set some param for lighting
+    field_params = {"x": 730, "y": 800, "z": 865, "intensity": 200, "exposure": 265}
+
+    case_logger.info("Set {} param for lighting with value {}".format(param_name, param_value))
+
+    if param_name in field_params:
+        lighting_param_x = win32api.GetSystemMetrics(0) - 95
+        lighting_param_y = field_params[param_name]
+        moveTo(lighting_param_x, lighting_param_y)
+        sleep(1)
+        pyautogui.click()
+        sleep(1)
+        pyautogui.press("backspace", presses=30)
+        pyautogui.typewrite(param_value)
+        sleep(1)
+
+    make_screen(screens_path, "set_lighting_param_{}_try_{}.jpg".format(case["case"], current_try))
