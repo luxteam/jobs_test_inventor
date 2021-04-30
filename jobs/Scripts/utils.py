@@ -187,12 +187,12 @@ def open_scene(args, case, current_try, screens_path):
 
 
 def open_usdviewer(args, case, current_try, screens_path, click_twice = False):
-    global viewer_reopened
-    viewer_reopened = True
-
     global tools_opened, usd_viewer_window
     if tools_opened and usd_viewer_window:
         return
+
+    global viewer_reopened
+    viewer_reopened = True
 
     # try to open USD Viewer few times (sometimes it can't be opened after first click)
     max_iterations = 5
@@ -679,7 +679,7 @@ def set_lighting_param(args, case, current_try, param_name, param_value, screens
     case_logger.info("Set {} param for lighting with value {}".format(param_name, param_value))
 
     if param_name in field_params:
-        lighting_param_x = win32api.GetSystemMetrics(0) - 95
+        lighting_param_x = win32api.GetSystemMetrics(0) - 90
         lighting_param_y = field_params[param_name]
         moveTo(lighting_param_x, lighting_param_y)
         sleep(1)
@@ -689,4 +689,4 @@ def set_lighting_param(args, case, current_try, param_name, param_value, screens
         pyautogui.typewrite(str(param_value))
         sleep(1)
 
-    make_screen(screens_path, "set_lighting_param_{}_try_{}.jpg".format(case["case"], current_try))
+    make_screen(screens_path, "set_lighting_param_{}_{}_try_{}.jpg".format(param_name, case["case"], current_try))
