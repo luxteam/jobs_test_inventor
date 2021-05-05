@@ -13,7 +13,7 @@
         ],
         "script_info": [
             "Environment - Cayley interior",
-            "Visability enabled",
+            "Visibility enabled",
             "Camera - Perspective"
         ],
         "scene": "Desk\\Desk.iam",
@@ -29,16 +29,16 @@
             "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
             "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
             "utils.set_lighting(args, case, current_try, \"Cayley interior\", screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"x\", 90, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"y\", 10, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"z\", 10, screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"x\", screens_path, 90)",
+            "utils.set_lighting_param(args, case, current_try, \"y\", screens_path, 10)",
+            "utils.set_lighting_param(args, case, current_try, \"z\", screens_path, 10)",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
             "utils.save_image(args, case, current_try, image_path, screens_path)"
         ],
         "script_info": [
             "Environment - Cayley interior",
-            "Visability enabled",
+            "Visibility enabled",
             "X: 90; Y: 10; Z: 10",
             "Camera - Perspective"
         ],
@@ -55,18 +55,18 @@
             "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
             "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
             "utils.set_lighting(args, case, current_try, \"Cayley interior\", screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"x\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"y\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"z\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"intensity\", 3, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"exposure\", 5, screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"x\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"y\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"z\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 3)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 5)",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
             "utils.save_image(args, case, current_try, image_path, screens_path)"
         ],
         "script_info": [
             "Environment - Cayley interior",
-            "Visability enabled",
+            "Visibility enabled",
             "Intensity: 3",
             "Exposure 5",
             "Camera - Perspective"
@@ -84,11 +84,11 @@
             "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
             "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
             "utils.set_lighting(args, case, current_try, \"Cayley interior\", screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"x\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"y\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"z\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"intensity\", 1, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"exposure\", 0, screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"x\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"y\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"z\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 0)",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
             "utils.save_image(args, case, current_try, image_path, screens_path)",
@@ -96,7 +96,7 @@
         ],
         "script_info": [
             "Environment - Cayley interior",
-            "Visability enabled",
+            "Visibility enabled",
             "Intensity: 1",
             "Exposure 0",
             "Camera - Perspective"
@@ -114,16 +114,16 @@
             "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
             "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
             "utils.set_custom_lighting(args, case, current_try, \"Lightings\\spruit_sunrise_2k.hdr\", screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"x\", 90, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"y\", 10, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"z\", 10, screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"x\", screens_path, 90)",
+            "utils.set_lighting_param(args, case, current_try, \"y\", screens_path, 10)",
+            "utils.set_lighting_param(args, case, current_try, \"z\", screens_path, 10)",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
             "utils.save_image(args, case, current_try, image_path, screens_path)"
         ],
         "script_info": [
             "Environment - custom HDR",
-            "Visability enabled",
+            "Visibility enabled",
             "X: 90; Y: 10; Z: 10",
             "Camera - Perspective"
         ],
@@ -140,16 +140,16 @@
             "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
             "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
             "utils.set_custom_lighting(args, case, current_try, \"Lightings\\spruit_sunrise_2k.hdr\", screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"x\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"y\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"z\", 0, screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"x\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"y\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"z\", screens_path, 0)",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
             "utils.save_image(args, case, current_try, image_path, screens_path)"
         ],
         "script_info": [
             "Environment - custom HDR",
-            "Visability enabled",
+            "Visibility enabled",
             "Camera - Perspective"
         ],
         "scene": "Desk\\Desk.iam",
@@ -165,18 +165,18 @@
             "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
             "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
             "utils.set_custom_lighting(args, case, current_try, \"Lightings\\spruit_sunrise_2k.hdr\", screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"x\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"y\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"z\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"intensity\", 3, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"exposure\", 5, screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"x\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"y\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"z\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 3)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 5)",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
             "utils.save_image(args, case, current_try, image_path, screens_path)"
         ],
         "script_info": [
             "Environment - custom HDR",
-            "Visability enabled",
+            "Visibility enabled",
             "Intensity: 3",
             "Exposure 5",
             "Camera - Perspective"
@@ -194,18 +194,19 @@
             "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
             "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
             "utils.set_custom_lighting(args, case, current_try, \"Lightings\\spruit_sunrise_2k.hdr\", screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"x\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"y\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"z\", 0, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"intensity\", 1, screens_path)",
-            "utils.set_lighting_param(args, case, current_try, \"exposure\", 0, screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"x\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"y\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"z\", screens_path, 0)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 0)",
             "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
             "utils.render(args, case, current_try, screens_path)",
-            "utils.save_image(args, case, current_try, image_path, screens_path)"
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
         ],
         "script_info": [
             "Environment - custom HDR",
-            "Visability enabled",
+            "Visibility enabled",
             "Intensity: 1",
             "Exposure 0",
             "Camera - Perspective"
@@ -213,6 +214,411 @@
         "scene": "Desk\\Desk.iam",
         "open_time": 10,
         "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_009",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Side\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"DiscLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 500)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 5)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Disc Light",
+            "Intensity: 500",
+            "Exposure 5",
+            "Camera - Side"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_010",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"DistantLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Distant Light",
+            "Intensity: 1",
+            "Exposure 1",
+            "Camera - Perspective"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_011",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Side\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"RectLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 500)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 5)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Rect Light",
+            "Intensity: 500",
+            "Exposure 5",
+            "Camera - Side"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_012",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Side\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"SphereLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 500)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 5)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Sphere Light",
+            "Intensity: 500",
+            "Exposure 5",
+            "Camera - Side"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_013",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Side\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"SphereLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 500)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 5)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"normalize\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"red\", screens_path, 0.2)",
+            "utils.set_lighting_param(args, case, current_try, \"green\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"blue\", screens_path, 0.5)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Sphere Light",
+            "Intensity: 500",
+            "Exposure 5",
+            "Camera - Side",
+            "Normalize",
+            "Color: Red 0.2; Green: 1; Blue 0.5"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_014",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Side\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"DiscLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 500)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 5)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"normalize\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"red\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"green\", screens_path, 0.5)",
+            "utils.set_lighting_param(args, case, current_try, \"blue\", screens_path, 0.5)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Disc Light",
+            "Intensity: 500",
+            "Exposure 5",
+            "Camera - Side",
+            "Normalize",
+            "Color: Red 1; Green: 0.5; Blue 0.5"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_015",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Side\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"SphereLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 500)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 5)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"temperature_checkbox\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"temperature_field\", screens_path, 1500)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Sphere Light",
+            "Intensity: 500",
+            "Exposure 5",
+            "Camera - Side",
+            "Temperature: 1500"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_016",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Side\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"SphereLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 500)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 5)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"temperature_checkbox\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"temperature_field\", screens_path, 8500)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Sphere Light",
+            "Intensity: 500",
+            "Exposure 5",
+            "Camera - Side",
+            "Temperature: 8500"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_017",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"DistantLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"normalize\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"red\", screens_path, 0.2)",
+            "utils.set_lighting_param(args, case, current_try, \"green\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"blue\", screens_path, 0.5)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Distant Light",
+            "Intensity: 1",
+            "Exposure 1",
+            "Camera - Perspective",
+            "Normalize",
+            "Color: Red 0.2; Green: 1; Blue 0.5"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_018",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"DistantLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"red\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"green\", screens_path, 0.5)",
+            "utils.set_lighting_param(args, case, current_try, \"blue\", screens_path, 0.5)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Distant Light",
+            "Intensity: 1",
+            "Exposure 1",
+            "Camera - Perspective",
+            "Color: Red 1; Green: 0.5; Blue 0.5"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_019",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"DistantLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"temperature_checkbox\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"temperature_field\", screens_path, 1500)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Distant Light",
+            "Intensity: 1",
+            "Exposure 1",
+            "Camera - Perspective",
+            "Temperature: 1500"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_020",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"DistantLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"intensity\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"exposure\", screens_path, 1)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"temperature_checkbox\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"temperature_field\", screens_path, 8500)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)",
+            "utils.close_usdviewer(args, case, current_try, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Distant Light",
+            "Intensity: 1",
+            "Exposure 1",
+            "Camera - Perspective",
+            "Temperature: 8500"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_022",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"DistantLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.set_lighting(args, case, current_try, \"SphereLight\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Environment - Distant Light + Sphere Light",
+            "Camera - Perspective"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 15,
+        "keep_tools": true
+    },
+    {
+        "case": "INV_LIGHT_022",
+        "status": "active",
+        "functions": [
+            "utils.open_usdviewer(args, case, current_try, screens_path)",
+            "utils.set_viewport(args, case, current_try, \"Perspective\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"lighting\", screens_path)",
+            "utils.set_custom_lighting(args, case, current_try, \"Lightings\\sky.exr\", screens_path)",
+            "utils.set_lighting_param(args, case, current_try, \"visibility\", screens_path)",
+            "utils.open_usdviewer_tab(args, case, current_try, \"render\", screens_path)",
+            "utils.render(args, case, current_try, screens_path)",
+            "utils.save_image(args, case, current_try, image_path, screens_path)"
+        ],
+        "script_info": [
+            "Environment - custom EXR",
+            "Visibility enabled",
+            "Camera - Perspective"
+        ],
+        "scene": "Desk\\Desk.iam",
+        "open_time": 10,
+        "render_delay": 25,
         "keep_tools": true
     }
 ]

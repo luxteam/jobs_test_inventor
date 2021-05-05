@@ -382,13 +382,23 @@ def set_lighting(args, case, current_try, lighting_name, screens_path):
     if not viewer_reopened:
         return
 
-    # Search lighting name
     case_logger.info("Set lighting: {}".format(lighting_name))
+
+    # Click in some place of window to unassigne selection of previous lighting
+    global usd_viewer_window
+    usd_viewer_window_rect = get_window_rect(usd_viewer_window)
+    bottom_point_x = 100
+    bottom_point_y = usd_viewer_window_rect[3] - 30
+    moveTo(bottom_point_x, bottom_point_y)
+
+    # Search lighting name
     lighting_name_field_x = win32api.GetSystemMetrics(0) - 320
     lighting_name_field_y = 160
     moveTo(lighting_name_field_x, lighting_name_field_y)
     sleep(1)
     pyautogui.click()
+    sleep(1)
+    pyautogui.press("backspace", presses=30)
     sleep(1)
     pyautogui.typewrite(lighting_name)
     sleep(1)
@@ -419,7 +429,7 @@ def set_custom_lighting(args, case, current_try, lighting_file_path, screens_pat
     # Open (press enter button)
     pyautogui.press("enter")
     # Wait loading of custom lighting
-    sleep(5)
+    sleep(15)
     make_screen(screens_path, "search_lighting_name_{}_try_{}.jpg".format(case["case"], current_try))
 
 
@@ -672,21 +682,37 @@ def zoom_scene(args, case, current_try, screens_path, scroll_times, scroll_direc
     sleep(1)
 
 
-def set_lighting_param(args, case, current_try, param_name, param_value, screens_path):
+def set_lighting_param(args, case, current_try, param_name, screens_path, param_value=""):
+    set_once_params = ["visibility"]
+
+    global viewer_reopened
+    if not viewer_reopened and param_name in set_once_params:
+        return
+
     # Set some param for lighting
-    field_params = {"x": 730, "y": 800, "z": 865, "intensity": 200, "exposure": 265}
+    field_params = {"x": 730, "y": 800, "z": 865, "intensity": 200, "exposure": 265, "red": 430, "green": 475, "blue": 515, "temperature_field": 585}
+    checkbox_params = {"visibility": 580, "normalize": 325, "temperature_checkbox": 585}
 
     case_logger.info("Set {} param for lighting with value {}".format(param_name, param_value))
 
     if param_name in field_params:
+        lighting_param_x = win32api.GetSystemMetrics(0) - 540
+        lighting_param_y = field_params[param_name]
+        moveTo(lighting_param_x, lighting_param_y)
+        sleep(0.2)
+        pyautogui.click()
+        sleep(0.2)
+        pyautogui.press("backspace", presses=30)
+        pyautogui.typewrite(str(param_value))
+        sleep(0.5)
+    elif param in checkbox_params:
         lighting_param_x = win32api.GetSystemMetrics(0) - 90
         lighting_param_y = field_params[param_name]
         moveTo(lighting_param_x, lighting_param_y)
-        sleep(1)
+        sleep(0.2)
         pyautogui.click()
-        sleep(1)
-        pyautogui.press("backspace", presses=30)
-        pyautogui.typewrite(str(param_value))
-        sleep(1)
+        sleep(0.5)
+    else:
+        raise Exception("Specified lighting param wasn't found")
 
     make_screen(screens_path, "set_lighting_param_{}_{}_try_{}.jpg".format(param_name, case["case"], current_try))
