@@ -389,10 +389,10 @@ def set_lighting(args, case, current_try, lighting_name, screens_path):
     usd_viewer_window_rect = get_window_rect(usd_viewer_window)
     bottom_point_x = 100
     bottom_point_y = usd_viewer_window_rect[3] - 30
-    moveTo(bottom_point_x, bottom_point_y)
+    move_and_click(args, case, current_try, bottom_point_x, bottom_point_y, "unassigne_lighting", screens_path)
 
     # Search lighting name
-    lighting_name_field_x = win32api.GetSystemMetrics(0) - 320
+    lighting_name_field_x = win32api.GetSystemMetrics(0) - 250
     lighting_name_field_y = 160
     moveTo(lighting_name_field_x, lighting_name_field_y)
     sleep(1)
@@ -683,12 +683,6 @@ def zoom_scene(args, case, current_try, screens_path, scroll_times, scroll_direc
 
 
 def set_lighting_param(args, case, current_try, param_name, screens_path, param_value=""):
-    set_once_params = ["visibility"]
-
-    global viewer_reopened
-    if not viewer_reopened and param_name in set_once_params:
-        return
-
     # Set some param for lighting
     field_params = {"x": 730, "y": 800, "z": 865, "intensity": 200, "exposure": 265, "red": 430, "green": 475, "blue": 515, "temperature_field": 585}
     checkbox_params = {"visibility": 580, "normalize": 325, "temperature_checkbox": 585}
@@ -696,7 +690,7 @@ def set_lighting_param(args, case, current_try, param_name, screens_path, param_
     case_logger.info("Set {} param for lighting with value {}".format(param_name, param_value))
 
     if param_name in field_params:
-        lighting_param_x = win32api.GetSystemMetrics(0) - 540
+        lighting_param_x = win32api.GetSystemMetrics(0) - 90
         lighting_param_y = field_params[param_name]
         moveTo(lighting_param_x, lighting_param_y)
         sleep(0.2)
@@ -705,9 +699,9 @@ def set_lighting_param(args, case, current_try, param_name, screens_path, param_
         pyautogui.press("backspace", presses=30)
         pyautogui.typewrite(str(param_value))
         sleep(0.5)
-    elif param in checkbox_params:
-        lighting_param_x = win32api.GetSystemMetrics(0) - 90
-        lighting_param_y = field_params[param_name]
+    elif param_name in checkbox_params:
+        lighting_param_x = win32api.GetSystemMetrics(0) - 540
+        lighting_param_y = checkbox_params[param_name]
         moveTo(lighting_param_x, lighting_param_y)
         sleep(0.2)
         pyautogui.click()
